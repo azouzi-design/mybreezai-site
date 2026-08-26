@@ -1,0 +1,507 @@
+/* ============ PAGE HERO (SUBPAGE) ============ */
+.page-hero {
+    padding: 10rem 2rem 4rem;
+    text-align: center;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+}
+
+.page-hero-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.page-hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.15;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: 0.35s;
+}
+
+.page-hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============ PAGE-SPECIFIC HEADER VISIBLE ============ */
+.header.page-header {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============ TEAM SECTION ============ */
+.team-section {
+    padding: 5rem 2rem;
+    background: var(--cream);
+}
+
+.team-section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.team-section-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    margin-bottom: 0.75rem;
+}
+
+.team-section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 400;
+    color: var(--text-primary);
+}
+
+/* Team Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.team-grid.leadership {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+/* Team Card */
+.team-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 20px rgba(61, 52, 40, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(61, 52, 40, 0.12);
+}
+
+.team-card-photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--peach) 0%, var(--cream-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.team-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-card-photo-placeholder {
+    font-family: 'Fraunces', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--orange);
+}
+
+.team-card-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+
+.team-card-role {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--orange-dark);
+    margin-bottom: 1rem;
+}
+
+.team-card-bio {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+}
+
+.team-card-companies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.team-card-company {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--warm-gray);
+    background: var(--cream);
+    padding: 0.35rem 0.75rem;
+    border-radius: 100px;
+}
+
+.team-card-linkedin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--cream);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.team-card-linkedin:hover {
+    background: linear-gradient(135deg, var(--orange-light) 0%, var(--orange) 100%);
+    color: var(--white);
+}
+
+.team-card-linkedin svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ============ VALUES SECTION ============ */
+.values-section {
+    padding: 6rem 2rem;
+    background: var(--cream-dark);
+}
+
+.values-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.values-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.values-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.values-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem 2.5rem;
+}
+
+@media (max-width: 900px) {
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+.value-item {
+    text-align: center;
+}
+
+.value-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+}
+
+.value-icon svg {
+    width: 48px;
+    height: 48px;
+    stroke-width: 1.25;
+}
+
+.value-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.value-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* ============ MISSION BANNER ============ */
+.mission-banner {
+    padding: 5rem 2rem;
+    background: var(--cream);
+}
+
+.mission-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mission-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--orange);
+    margin-bottom: 1.25rem;
+}
+
+.mission-text {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.7;
+}
+
+/* ============ CAREERS CTA ============ */
+.careers-cta {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 100%);
+    text-align: center;
+}
+
+.careers-cta-inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.careers-cta h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.careers-cta p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+}
+
+/* Careers button - matches book a demo style */
+.btn-careers {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.875rem 1.25rem;
+    background: var(--white);
+    color: var(--orange-dark);
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-careers:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-careers-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--white);
+    border-radius: 100px;
+    z-index: 0;
+}
+
+.btn-careers-spotlight {
+    position: absolute;
+    inset: 0;
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.btn-careers:hover .btn-careers-spotlight {
+    opacity: 1;
+    animation: spotlight-move-careers 0.5s ease forwards;
+}
+
+@keyframes spotlight-move-careers {
+    0% {
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(245, 166, 35, 0.15) 0%,
+            rgba(245, 166, 35, 0.05) 35%,
+            transparent 60%
+        );
+    }
+    100% {
+        background: radial-gradient(
+            circle at 80% 50%,
+            rgba(245, 166, 35, 0.15) 0%,
+            rgba(245, 166, 35, 0.05) 35%,
+            transparent 60%
+        );
+    }
+}
+
+.btn-careers-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 2;
+}
+
+.btn-careers-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, rgba(245, 166, 35, 0.15) 0%, rgba(232, 148, 42, 0.1) 100%);
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+}
+
+.btn-careers-icon svg {
+    width: 18px;
+    height: 18px;
+    color: var(--orange-dark);
+    transition: color 0.3s ease;
+}
+
+.btn-careers-text {
+    white-space: nowrap;
+}
+
+.btn-careers:hover .btn-careers-icon {
+    order: 2;
+    background: linear-gradient(135deg, rgba(245, 166, 35, 0.3) 0%, rgba(232, 148, 42, 0.2) 100%);
+    animation: slide-icon-right-careers 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.btn-careers:hover .btn-careers-text {
+    order: 1;
+    animation: slide-text-left-careers 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes slide-icon-right-careers {
+    0% {
+        transform: translateX(calc(-100% - 0.75rem));
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-text-left-careers {
+    0% {
+        transform: translateX(calc(32px + 0.75rem));
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.btn-careers:hover .btn-careers-icon svg {
+    color: var(--orange);
+}
+
+@media (max-width: 768px) {
+    .team-grid,
+    .team-grid.leadership {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .team-card-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .page-hero {
+        padding: 8rem 1.5rem 3rem;
+    }
+
+    .team-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .values-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .careers-cta {
+        padding: 4rem 1.5rem;
+    }
+}

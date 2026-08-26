@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Preview Controls -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="canonical" href="https://www.mybreezai.com/">
+
+  <meta property="og:title" content="Breez AI">
+  <meta property="og:description" content="The future of grocery">
+  <meta property="og:url" content="https://www.mybreezai.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.mybreezai.com/content/og/breez-og.jpg">
+  <meta property="og:image:width" content="1114">
+  <meta property="og:image:height" content="911">
+  <meta property="og:site_name" content="Breez AI">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Breez AI">
+  <meta name="twitter:description" content="The future of grocery">
+  <meta name="twitter:image" content="https://www.mybreezai.com/content/og/breez-og.jpg">
+
+  <title>Breez AI | Personalized Grocery. Powered by AI.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="/content/BreezWebLogo.png">
+
+  <link rel="stylesheet" href="/styles.css?v=9">
+  <link rel="stylesheet" href="/hamburgermenu.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Breez AI",
+    "url": "https://www.mybreezai.com/",
+    "logo": "https://www.mybreezai.com/content/BreezAI_Logo_TransparentBG.png",
+    "image": "https://www.mybreezai.com/content/og/breez-og.jpg"
+  }
+  </script>
+</head>
+
+<body class="intro-active">
+  <div class="intro-overlay" id="introOverlay">
+    <div class="intro-logo-container" id="introLogoContainer">
+      <img src="/content/BreezLogo.svg" alt="Breez AI">
+    </div>
+  </div>
+
+  <div id="mainSiteWrapper">
+    <!-- Header Partial -->
+    <div id="header-placeholder" style="min-height: 80px;"></div>
+
+    <script>
+      fetch('/partials/header.html')
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          document.getElementById('header-placeholder').innerHTML = html;
+          initializeHeader();
+        });
+
+      function initializeHeader() {
+        var btn = document.getElementById('mobileMenuBtn');
+        var menu = document.getElementById('mobileMenu');
+        var dropdownTriggers = document.querySelectorAll('.mobile-menu-dropdown-trigger');
+        var menuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-menu-dropdown-items a, .mobile-menu-demo a');
+
+        if (!btn || !menu) return;
+
+        btn.addEventListener('click', function () {
+          btn.classList.toggle('active');
+          menu.classList.toggle('active');
+          document.body.classList.toggle('menu-open');
+        });
+
+        dropdownTriggers.forEach(function (trigger) {
+          trigger.addEventListener('click', function () {
+            trigger.parentElement.classList.toggle('open');
+          });
+        });
+
+        menuLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            btn.classList.remove('active');
+            menu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          });
+        });
+
+        window.addEventListener('resize', function () {
+          if (window.innerWidth > 1000) {
+            btn.classList.remove('active');
+            menu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        });
+
+        // Auto-highlight active nav link based on current URL
+        var path = window.location.pathname;
+        document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(function (link) {
+          if (link.getAttribute('href') === path) {
+            link.classList.add('nav-link--active');
+          }
+        });
+      }
+    </script>
+
+    <section class="hero" id="hero">
+      <h1 class="hero-title">
+        <span class="hero-line hero-line-1" id="heroLine1">Your customers are already<br>using AI to shop for
+          groceries.</span>
+        <span class="hero-line hero-line-2" id="heroLine2">We make it work <b><i>for you.</i></b></span>
+      </h1>
+      <p class="hero-subtitle" id="heroSubtitle">
+        AI meal planning, intelligent shopping lists and digital couponing, personalized to each shopper's needs,
+        budget, all under your brand and tied to your store inventory. Built for and by the independent grocery channel.
+      </p>
+    </section>
+
+    <section class="partners-section">
+      <div class="partners-container">
+        <h2 class="partners-heading">Trusted by grocers big and small</h2>
+        <div class="partners-carousel-wrapper">
+          <div class="partners-carousel">
+            <div class="partners-track">
+
+              <div class="partner-logo">
+                <a href="https://economyhometownmarket.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/economyhometownmkt.png" alt="economyhometownmarket">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://hometownmarketrc.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/hometownmktrc.png" alt="hometownmarketrc">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://domats.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/domats.webp" alt="domats">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://awginc.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/awg.webp" alt="AWG">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://bandhmarkets.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/bhmkt.png" alt="bandhmarkets">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://toddsbigstar.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/toddsbigstar.png" alt="toddsbigstar">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://tischlerfinerfoods.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/tischlers.png" alt="tischlers">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://awginc.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/awg.webp" alt="AWG">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://tildenthriftway.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/thriftway.png" alt="tildenthriftway">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://healdton.clinksmarkets.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/clinks.jpeg" alt="clinks">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://pcmarketplace.net/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/perrycountymktplace.png" alt="pcmarketplace">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://awginc.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/awg.webp" alt="AWG">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://joesmarketwestphalia.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/joesmkt.png" alt="joesmarketwestphalia">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://www.callawaymarket.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/callawaymkt.png" alt="callawaymarket">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://sweisfoods.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/sweis.png" alt="sweis">
+                </a>
+              </div>
+
+              <div class="partner-logo">
+                <a href="https://awginc.com/" target="_blank" rel="noopener noreferrer">
+                  <img src="/content/awg.webp" alt="AWG">
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stats-inner">
+        <div class="stats-header reveal">
+          <h2>Real Results from Real Stores</h2>
+          <p>These aren't projections or tests. They're results from independent grocers already using Breez AI.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card reveal">
+            <div class="stat-value">22%</div>
+            <div class="stat-label">Basket Size Growth</div>
+            <div class="stat-desc">Breez AI shoppers spend 22% more YoY while non-users declined</div>
+          </div>
+          <div class="stat-card reveal delay-1">
+            <div class="stat-value">72%</div>
+            <div class="stat-label">Loyalty Sign-up Surge</div>
+            <div class="stat-desc">Increase in new loyalty enrollments at participating stores</div>
+          </div>
+          <div class="stat-card reveal delay-2">
+            <div class="stat-value">310%</div>
+            <div class="stat-label">ROI</div>
+            <div class="stat-desc">Return on investment at initial deployments, excluding coupon and new customer
+              revenue</div>
+          </div>
+          <div class="stat-card reveal delay-3">
+            <div class="stat-value">10 min</div>
+            <div class="stat-label">Avg. Session Duration</div>
+            <div class="stat-desc">Shoppers spend nearly 10 minutes per session, a sign of real engagement</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-feature">
+      <div class="product-feature-label-row">
+        <span class="products-label">Our Product</span>
+      </div>
+      <img src="/content/groceryaisle-logo.png" alt="GroceryAisle" class="product-feature-logo" loading="eager">
+      <div class="product-feature-inner reveal">
+        <div class="product-feature-layout">
+          <div class="product-feature-left">
+            <p class="product-feature-desc">The complete AI platform for grocers – personalized meal planning,
+              intelligent shopping lists, digital coupons, and retail media. One product, built to grow your business.
+            </p>
+            <a href="/groceryaisle/" class="product-feature-cta">
+              <span>Explore GroceryAisle</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+            <div class="product-feature-partners">
+              <span class="product-feature-partners-label">Trusted by independent grocers via</span>
+              <img src="/content/awg.png" alt="AWG – Associated Wholesale Grocers" class="product-feature-awg">
+            </div>
+          </div>
+          <div class="product-feature-right">
+            <div class="product-feature-pill">
+              <span class="product-feature-pill-dot"></span>
+              Live in 80+ stores
+            </div>
+            <ul class="product-feature-capabilities">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                AI Meal Planning &amp; Shopping Lists
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Digital Coupons &amp; Loyalty Integration
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Retail Media Network (RMN)
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Full White-Label Customization
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Embeddable Widget (Coming Soon)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div class="benefits-header reveal">
+        <span class="benefits-label">Why Breez AI</span>
+        <h2>The future of grocery shopping, today</h2>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-item reveal">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Personalized Experience</h3>
+            <p>Remembers pantry, preferences and health goals to tailor every shopping trip to each customer's unique
+              needs.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item reveal delay-1">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Save Time</h3>
+            <p>From "What's for dinner?" to a complete, balanced cart in under 2 minutes with smart suggestions.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item reveal delay-2">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Increase Revenue</h3>
+            <p>Grow basket sizes by 22% with complete meal solutions that inspire larger, more frequent purchases.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item reveal delay-3">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+              </path>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Build Loyalty</h3>
+            <p>Create sticky experiences that bring customers back. 72% increase in loyalty program engagement.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item reveal delay-4">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Your Brand, Your Data</h3>
+            <p>White-label solution that integrates seamlessly. Customer data stays yours, always.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item reveal delay-4">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Easy Integration</h3>
+            <p>Connects with existing systems–from POS to eCommerce–in weeks, not months.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta-inner reveal">
+        <h2>Step into the future of grocery</h2>
+        <p>Join the retailers already seeing results. Let's build something great together.</p>
+        <div class="cta-buttons">
+          <a href="/bookdemo/" class="btn-primary">
+            <span class="btn-primary-bg"></span>
+            <span class="btn-primary-spotlight"></span>
+            <span class="btn-primary-content">
+              <span class="btn-primary-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M18.7414 12.6903C19.6452 15.1301 18.7559 18.3585 17.1721 19.9423C15.1512 21.9632 9.50358 22.1168 7.65461 19.8175C6.48129 18.3585 5.56933 16.5877 4.99449 15.001C4.68618 14.15 5.13859 13.2323 5.98366 12.9082C6.73171 12.6212 7.57895 12.8838 8.03363 13.5435L9.16905 15.1908V6.08708C9.16905 5.21056 9.87961 4.5 10.7561 4.5C11.6231 4.5 12.3297 5.19579 12.343 6.06271L12.4061 10.1687C14.6272 10.3808 17.8433 10.2662 18.7414 12.6903Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path
+                    d="M9.01733 9.5C7.93016 8.86052 7.19531 7.63895 7.19531 6.23711C7.19531 4.17316 8.78825 2.5 10.7532 2.5C12.7182 2.5 14.3112 4.17316 14.3112 6.23711C14.3112 7.61658 13.5996 8.82148 12.5409 9.46894"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              <span class="btn-primary-text">Schedule a Demo</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Partial -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+      fetch('/partials/footer.html')
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          document.getElementById('footer-placeholder').innerHTML = html;
+        });
+    </script>
+  </div>
+
+  <script>
+    (function () {
+      // Animation timing configuration (in milliseconds)
+      const INITIAL_DELAY = 300;      // Wait before starting pulse
+      const PULSE_DURATION = 1500;    // Duration of pulse animation
+      const SETTLE_PAUSE = 150;       // Pause after pulse to settle before expand
+      const EXPAND_DURATION = 1000;   // Duration of expand/fly animation
+
+      const introLogoContainer = document.getElementById('introLogoContainer');
+      const introOverlay = document.getElementById('introOverlay');
+      const mainSiteWrapper = document.getElementById('mainSiteWrapper');
+      const body = document.body;
+
+      // Step 1: Start pulse animation after initial delay
+      setTimeout(() => {
+        introLogoContainer.classList.add('intro-pulse');
+      }, INITIAL_DELAY);
+
+      // Step 2: After pulse completes, add ready class to stabilize at scale(1)
+      setTimeout(() => {
+        introLogoContainer.classList.remove('intro-pulse');
+        introLogoContainer.classList.add('intro-ready');
+      }, INITIAL_DELAY + PULSE_DURATION);
+
+      // Step 3: After settle pause, start expand/fly animation
+      setTimeout(() => {
+        introLogoContainer.classList.remove('intro-ready');
+        introLogoContainer.classList.add('intro-expand-fly');
+      }, INITIAL_DELAY + PULSE_DURATION + SETTLE_PAUSE);
+
+      // Step 4: Hide overlay and show main site
+      setTimeout(() => {
+        introOverlay.classList.add('hidden');
+        mainSiteWrapper.classList.add('visible');
+        body.classList.remove('intro-active');
+      }, INITIAL_DELAY + PULSE_DURATION + SETTLE_PAUSE + EXPAND_DURATION);
+
+      // Step 5: Remove intro overlay from DOM after transition completes
+      setTimeout(() => {
+        introOverlay.remove();
+      }, INITIAL_DELAY + PULSE_DURATION + SETTLE_PAUSE + EXPAND_DURATION + 500);
+    })();
+
+    // Scroll handling
+    const heroLine1 = document.getElementById('heroLine1');
+    const heroLine2 = document.getElementById('heroLine2');
+    const heroSubtitle = document.getElementById('heroSubtitle');
+
+    // Hero slide configuration - requires ~250px scroll for full slide off
+    const HERO_SLIDE_DISTANCE = 250;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      // Header shadow
+      const header = document.getElementById('header');
+      if (header) {
+        if (scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+
+      // Gradual hero text slide out based on scroll progress
+      const progress = Math.min(scrollY / HERO_SLIDE_DISTANCE, 1);
+      const opacity = 1 - progress;
+      const line1Translate = -progress * 100; // vw units in CSS, percentage here
+      const line2Translate = progress * 100;
+      const subtitleTranslate = -progress * 50;
+
+      heroLine1.style.transform = `translateX(${line1Translate}vw)`;
+      heroLine1.style.opacity = opacity;
+
+      heroLine2.style.transform = `translateX(${line2Translate}vw)`;
+      heroLine2.style.opacity = opacity;
+
+      heroSubtitle.style.transform = `translateY(${subtitleTranslate}px)`;
+      heroSubtitle.style.opacity = opacity;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Pill hover – reveal grocer logos in card background
+    // Pill hover – reveal grocer logos in card background
+    const pill = document.querySelector('.product-feature-pill');
+    const featureInner = document.querySelector('.product-feature-inner');
+    if (pill && featureInner) {
+      pill.addEventListener('mouseenter', () => featureInner.classList.add('logos-visible'));
+      pill.addEventListener('mouseleave', () => featureInner.classList.remove('logos-visible'));
+    }
+
+    // Capability list – staggered slide-in on scroll
+    const capabilityList = document.querySelector('.product-feature-capabilities');
+    if (capabilityList) {
+      const capObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            capabilityList.querySelectorAll('li').forEach(li => {
+              li.classList.add('visible');
+            });
+            capObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+      capObserver.observe(capabilityList);
+    }
+
+    // Show header and hero after intro completes
+    const TOTAL_INTRO_TIME = 300 + 1500 + 150 + 1000;
+    setTimeout(() => {
+      const header = document.getElementById('header');
+      if (header) header.classList.add('visible');
+      heroLine1.classList.add('visible');
+      setTimeout(() => heroLine2.classList.add('visible'), 200);
+      setTimeout(() => heroSubtitle.classList.add('visible'), 400);
+    }, TOTAL_INTRO_TIME);
+
+    document.querySelectorAll('.product-card[data-href]').forEach((card) => {
+      const url = card.dataset.href;
+
+      card.addEventListener('click', () => {
+        window.location.href = url;
+      });
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          window.location.href = url;
+        }
+      });
+    });
+
+  </script>
+</body>
+
+</html>

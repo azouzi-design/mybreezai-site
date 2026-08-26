@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartMeals | AI-Powered Meal Planning | Breez AI</title>
+    <meta name="description"
+        content="SmartMeals creates personalized meal plans in under 2 minutes. Save time, save money, and take the stress out of deciding what's for dinner.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/content/BreezWebLogo.png">
+
+    <link rel="stylesheet" href="/styles.css?v=6">
+    <link rel="stylesheet" href="/hamburgermenu.css">
+    <link rel="stylesheet" href="smartmeals.css?v=4">
+</head>
+
+<body>
+    <header class="header visible" id="header">
+        <div class="header-inner">
+            <a href="/home/" class="logo">
+                <img src="/content/BreezAI-NoTag.png" alt="Breez AI No Tag" class="logo-desktop">
+                <img src="/content/BreezAI-NoTag.png" alt="Breez AI No Tag" class="logo-tablet">
+                <img src="/content/BreezLogo.png" alt="Breez AI Emblem" class="logo-phone">
+            </a>
+
+            <nav class="nav">
+                <div class="nav-dropdown">
+                    <a class="nav-link nav-dropdown-trigger">
+                        Products
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <div class="nav-dropdown-content">
+                            <a href="/smartmeals/">SmartMeals</a>
+                            <a href="/groceryaisle/">GroceryAisle</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/whybreez/" class="nav-link">Why Breez</a>
+                <div class="nav-dropdown">
+                    <a class="nav-link nav-dropdown-trigger">
+                        About Us
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <div class="nav-dropdown-content">
+                            <a href="/ourstory/">Our Story</a>
+                            <a href="/ourteam/">Our Team</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/blog/" class="nav-link">News</a>
+                <a href="/contactus/" class="nav-link">Contact Us</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="/bookdemo/" class="btn-demo">
+                    <span class="btn-demo-bg"></span>
+                    <span class="btn-demo-spotlight"></span>
+                    <span class="btn-demo-content">
+                        <span class="btn-demo-icon">
+                            <svg id="tap" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M18.7414 12.6903C19.6452 15.1301 18.7559 18.3585 17.1721 19.9423C15.1512 21.9632 9.50358 22.1168 7.65461 19.8175C6.48129 18.3585 5.56933 16.5877 4.99449 15.001C4.68618 14.15 5.13859 13.2323 5.98366 12.9082C6.73171 12.6212 7.57895 12.8838 8.03363 13.5435L9.16905 15.1908V6.08708C9.16905 5.21056 9.87961 4.5 10.7561 4.5C11.6231 4.5 12.3297 5.19579 12.343 6.06271L12.4061 10.1687C14.6272 10.3808 17.8433 10.2662 18.7414 12.6903Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path
+                                    d="M9.01733 9.5C7.93016 8.86052 7.19531 7.63895 7.19531 6.23711C7.19531 4.17316 8.78825 2.5 10.7532 2.5C12.7182 2.5 14.3112 4.17316 14.3112 6.23711C14.3112 7.61658 13.5996 8.82148 12.5409 9.46894"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </span>
+                        <span class="btn-demo-text">Get a demo</span>
+                    </span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-btn" aria-label="Menu" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-dropdown">
+                <div class="mobile-menu-dropdown-trigger">
+                    Products
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="mobile-menu-dropdown-items">
+                    <a href="/smartmeals/">SmartMeals</a>
+                    <a href="/groceryaisle/">GroceryAisle</a>
+                </div>
+            </div>
+
+            <a href="/whybreez/" class="mobile-menu-link">Why Breez</a>
+
+            <div class="mobile-menu-dropdown">
+                <div class="mobile-menu-dropdown-trigger">
+                    About Us
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="mobile-menu-dropdown-items">
+                    <a href="/ourstory/">Our Story</a>
+                    <a href="/ourteam/">Our Team</a>
+                </div>
+            </div>
+
+            <a href="/blog/" class="mobile-menu-link">News</a>
+
+            <a href="/contactus/" class="mobile-menu-link">Contact Us</a>
+
+            <div class="mobile-menu-demo">
+                <a href="/bookdemo/" class="btn-demo">
+                    <span class="btn-demo-bg"></span>
+                    <span class="btn-demo-spotlight"></span>
+                    <span class="btn-demo-content">
+                        <span class="btn-demo-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M18.7414 12.6903C19.6452 15.1301 18.7559 18.3585 17.1721 19.9423C15.1512 21.9632 9.50358 22.1168 7.65461 19.8175C6.48129 18.3585 5.56933 16.5877 4.99449 15.001C4.68618 14.15 5.13859 13.2323 5.98366 12.9082C6.73171 12.6212 7.57895 12.8838 8.03363 13.5435L9.16905 15.1908V6.08708C9.16905 5.21056 9.87961 4.5 10.7561 4.5C11.6231 4.5 12.3297 5.19579 12.343 6.06271L12.4061 10.1687C14.6272 10.3808 17.8433 10.2662 18.7414 12.6903Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path
+                                    d="M9.01733 9.5C7.93016 8.86052 7.19531 7.63895 7.19531 6.23711C7.19531 4.17316 8.78825 2.5 10.7532 2.5C12.7182 2.5 14.3112 4.17316 14.3112 6.23711C14.3112 7.61658 13.5996 8.82148 12.5409 9.46894"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </span>
+                        <span class="btn-demo-text">Get a demo</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="smartmeals-hero scroll-showcase" id="scroll-showcase">
+            <div class="scroll-showcase__track">
+                <div class="scroll-showcase__pinned">
+                    <div class="hero-bg-pattern"></div>
+
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <div class="hero-badge reveal">
+                                <span class="badge-dot"></span>
+                                <span>Live for 80+ Grocers!</span>
+                            </div>
+
+                            <div class="hero-logo reveal delay-1">
+                                <img src="/content/SmartMeals (Stacked).png" alt="SmartMeals - Powered by Breez AI">
+                            </div>
+
+                            <p class="hero-tagline reveal delay-2">
+                                From "What's for dinner?" to a complete cart in under two minutes.
+                            </p>
+
+                            <!-- Dynamic text that changes per scene -->
+                            <div class="showcase-dynamic">
+                                <div class="scene-text active" data-scene="mobile">
+                                    <p class="hero-description">
+                                        Create your perfect meal plan in under 90 seconds — right from your pocket.
+                                        Smart AI that learns your tastes, fits your budget, and saves you time.
+                                    </p>
+                                </div>
+                                <div class="scene-text" data-scene="tablet">
+                                    <p class="hero-description">
+                                        A larger canvas for exploring recipes and tweaking your weekly plan.
+                                        Drag, drop, and swap meals with intuitive touch controls.
+                                    </p>
+                                </div>
+                                <div class="scene-text" data-scene="desktop">
+                                    <p class="hero-description">
+                                        The complete SmartMeals experience. Advanced nutritional insights,
+                                        pantry management, and seamless integration with your grocer.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="hero-actions reveal delay-4">
+                                <a href="https://breezai.app" target="_blank" class="btn-hero-primary">
+                                    <span>See It In Action</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
+                                <a href="#how-it-works" class="btn-secondary">
+                                    <span>Learn More</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="hero-visual reveal delay-2">
+                            <!-- Progress indicator dots -->
+                            <div class="stage-progress">
+                                <button class="progress-dot active" data-target="mobile" aria-label="Mobile view">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <rect x="5" y="2" width="14" height="20" rx="3" />
+                                        <line x1="12" y1="18" x2="12" y2="18" />
+                                    </svg>
+                                </button>
+                                <button class="progress-dot" data-target="tablet" aria-label="Tablet view">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <rect x="3" y="4" width="18" height="16" rx="2" />
+                                        <line x1="12" y1="17" x2="12" y2="17" />
+                                    </svg>
+                                </button>
+                                <button class="progress-dot" data-target="desktop" aria-label="Desktop view">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                                        <line x1="8" y1="21" x2="16" y2="21" />
+                                        <line x1="12" y1="17" x2="12" y2="21" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="hero-image-container hero-image-container--stacked">
+                                <div class="hero-image-stack">
+                                    <!-- Mobile Device -->
+                                    <div class="hero-shot hero-shot--phone device active" data-device="mobile">
+                                        <img src="/content/smartmeals-phone.png" alt="SmartMeals mobile app screenshot"
+                                            class="hero-shot-img">
+                                        <div class="device-glow device-glow--red"></div>
+                                    </div>
+
+                                    <!-- Tablet Device -->
+                                    <div class="hero-shot hero-shot--tablet device" data-device="tablet">
+                                        <img src="/content/smartmeals-tablet.png" alt="SmartMeals tablet experience"
+                                            class="hero-shot-img" onerror="this.src='smartmeals-desktop-new.png'">
+                                        <div class="device-glow device-glow--blue"></div>
+                                    </div>
+
+                                    <!-- Desktop Device -->
+                                    <div class="hero-shot hero-shot--desktop device" data-device="desktop">
+                                        <img src="/content/smartmeals-desktop-new.png"
+                                            alt="SmartMeals desktop experience" class="hero-shot-img">
+                                        <div class="device-glow device-glow--gradient"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scroll indicator -->
+                    <div class="scroll-indicator">
+                        <span class="scroll-text">Scroll to explore</span>
+                        <div class="scroll-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="stats-container">
+                <div class="stat-item reveal">
+                    <span class="stat-number">&lt;90</span>
+                    <span class="stat-unit">seconds</span>
+                    <span class="stat-label">to create a meal plan</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item reveal delay-1">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-unit">recipes</span>
+                    <span class="stat-label">personalized to you</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item reveal delay-2">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-unit">cuisines</span>
+                    <span class="stat-label">from around the world</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item reveal delay-3">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-unit">free</span>
+                    <span class="stat-label">with loyalty account</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- White Label Branding Section -->
+        <section class="brand-section">
+            <div class="brand-header reveal">
+                <span class="section-label">White-Label Ready</span>
+                <h2 class="section-title">Your Brand, Your SmartMeals</h2>
+                <p class="brand-intro">
+                    SmartMeals seamlessly adapts to your brand identity. From colors and logos to the entire user
+                    experience — your customers will see your brand, not ours. Here's how it looks for three different
+                    grocers:
+                </p>
+            </div>
+
+            <div class="brand-showcase reveal delay-1">
+                <div class="brand-logos">
+                    <div class="brand-logo-item">
+                        <img src="/content/domats.webp" alt="Brand 1 Logo">
+                    </div>
+                    <div class="brand-logo-item">
+                        <img src="/content/clinks.png" alt="Brand 2 Logo">
+                    </div>
+                    <div class="brand-logo-item">
+                        <img src="/content/carneys.png" alt="Brand 3 Logo">
+                    </div>
+                </div>
+
+                <div class="brand-screenshots">
+                    <div class="brand-screenshot-item">
+                        <div class="screenshot-frame">
+                            <img src="/content/DomatsScreenshot.png" alt="SmartMeals branded for Brand 1">
+                        </div>
+                    </div>
+                    <div class="brand-screenshot-item">
+                        <div class="screenshot-frame">
+                            <img src="/content/DelbertsScreenshot.png" alt="SmartMeals branded for Brand 2">
+                        </div>
+                    </div>
+                    <div class="brand-screenshot-item">
+                        <div class="screenshot-frame">
+                            <img src="/content/CarneysScreenshot.png" alt="SmartMeals branded for Brand 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="how-it-works">
+            <div class="features-header reveal">
+                <span class="section-label">Key Capabilities</span>
+                <h2 class="section-title">Everything you need for stress-free meals</h2>
+                <p class="section-subtitle">SmartMeals makes meal planning and grocery shopping simpler, more
+                    affordable, and far less stressful.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">
+                        <svg id="user" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6.91989 20.4991C5.40087 20.4991 4.48295 19.5135 4.41797 18.1407C4.41797 16.5862 5.35394 15.2498 6.96905 14.6734C8.25728 14.2137 9.97756 15.2838 11.9996 15.2694C14.0189 15.2886 15.7384 14.22 17.0268 14.6772C18.6511 15.2536 19.5902 16.5884 19.5812 18.1407C19.508 19.5135 18.5955 20.4991 17.0792 20.4991H6.91989Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></path>
+                            <path
+                                d="M12.0075 11.6283C14.2521 11.6283 16.0717 9.80875 16.0717 7.56417C16.0717 5.31959 14.2521 3.5 12.0075 3.5C9.76295 3.5 7.94336 5.31959 7.94336 7.56417C7.94336 9.80875 9.76295 11.6283 12.0075 11.6283Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></path>
+                        </svg>
+                    </div>
+                    <h3>Personalized Meal Plans</h3>
+                    <p>As Shoppers share allergies, health goals, budget, family size, cooking style, SmartMeals learns,
+                        remembers and refines with every interaction. The experience gets better the more a shopper uses
+                        it.</p>
+                </div>
+
+                <div class="feature-card reveal delay-1">
+                    <div class="feature-icon">
+                        <svg id="Data Set" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.4988 2.58591C11.4468 2.13803 12.5532 2.13803 13.5012 2.58591L19.374 5.36052C20.9195 6.09074 20.9635 8.23482 19.4423 9.02181L13.6135 12.0372C12.6046 12.5592 11.3954 12.5592 10.3864 12.0372L4.5577 9.02181C3.03646 8.23482 3.08042 6.09073 4.62599 5.36052L10.4988 2.58591ZM12.8604 3.94217C12.3181 3.68594 11.6818 3.68594 11.1395 3.94217L5.26675 6.71678C4.84011 6.91834 4.83271 7.47524 5.24694 7.68954L11.0757 10.705C11.6524 11.0033 12.3476 11.0033 12.9243 10.705L18.753 7.68954C19.1672 7.47524 19.1598 6.91834 18.7332 6.71678L12.8604 3.94217Z"
+                                fill="currentColor"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M7.96933 9.27159C8.14627 9.64611 7.9861 10.0932 7.61158 10.2701L5.26675 11.3779C4.84011 11.5795 4.83271 12.1364 5.24694 12.3507L4.90232 13.0168L5.24694 12.3507L11.0757 15.3661C11.6524 15.6644 12.3476 15.6644 12.9243 15.3661L18.753 12.3507C19.1672 12.1364 19.1598 11.5795 18.7332 11.3779L16.3884 10.2701C16.0139 10.0932 15.8537 9.64611 16.0306 9.27159C16.2076 8.89707 16.6546 8.7369 17.0291 8.91385L19.374 10.0217C20.9195 10.7519 20.9635 12.896 19.4423 13.683L13.6135 16.6984C12.6046 17.2203 11.3954 17.2203 10.3864 16.6984L4.5577 13.683C3.03646 12.896 3.08042 10.7519 4.62599 10.0217L6.97082 8.91385C7.34534 8.7369 7.79238 8.89707 7.96933 9.27159Z"
+                                fill="currentColor"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M7.96933 13.9317C8.14627 14.3063 7.9861 14.7533 7.61158 14.9303L5.26675 16.0381C4.84011 16.2396 4.83271 16.7965 5.24694 17.0108L4.90232 17.677L5.24694 17.0108L11.0757 20.0263C11.6524 20.3246 12.3476 20.3246 12.9243 20.0263L18.753 17.0108C19.1672 16.7965 19.1598 16.2396 18.7332 16.0381L16.3884 14.9303C16.0139 14.7533 15.8537 14.3063 16.0306 13.9317C16.2076 13.5572 16.6546 13.3971 17.0291 13.574L19.374 14.6818C20.9195 15.412 20.9635 17.5561 19.4423 18.3431L13.6135 21.3585C12.6046 21.8805 11.3954 21.8805 10.3864 21.3585L4.5577 18.3431C3.03646 17.5561 3.08042 15.412 4.62599 14.6818L6.97082 13.574C7.34534 13.3971 7.79238 13.5572 7.96933 13.9317Z"
+                                fill="currentColor"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M11.1219 7.53892C11.314 7.17198 11.7673 7.0303 12.1342 7.22247L13.6416 8.01189C13.8888 8.14133 14.0437 8.39728 14.0437 8.6763L14.0437 20.6801C14.0437 21.0943 13.7079 21.4301 13.2937 21.4301C12.8795 21.4301 12.5437 21.0943 12.5437 20.6801L12.5437 9.13015L11.4383 8.55128C11.0714 8.35911 10.9297 7.90587 11.1219 7.53892Z"
+                                fill="currentColor"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M9.92449 7.05096C9.92442 7.05094 9.92452 7.05002 9.925 7.04826C9.9248 7.05009 9.92456 7.05097 9.92449 7.05096ZM9.92718 7.04199C9.93512 7.02249 9.96456 6.97253 10.0657 6.90552C10.2207 6.8028 10.4784 6.71484 10.8008 6.71484C11.1231 6.71484 11.3808 6.8028 11.5359 6.90552C11.637 6.97253 11.6664 7.02249 11.6744 7.04199C11.6664 7.06149 11.637 7.11146 11.5359 7.17846C11.3808 7.28119 11.1231 7.36914 10.8008 7.36914C10.4784 7.36914 10.2207 7.28119 10.0657 7.17846C9.96456 7.11146 9.93512 7.06149 9.92718 7.04199ZM11.677 7.05096C11.677 7.05097 11.6767 7.05009 11.6765 7.04826C11.677 7.05002 11.6771 7.05094 11.677 7.05096ZM11.6765 7.03572C11.6767 7.03389 11.677 7.03301 11.677 7.03303C11.6771 7.03305 11.677 7.03397 11.6765 7.03572ZM9.925 7.03572C9.92452 7.03397 9.92442 7.03305 9.92449 7.03303C9.92456 7.03301 9.9248 7.03389 9.925 7.03572ZM9.23709 5.65514C9.67038 5.36802 10.2254 5.21484 10.8008 5.21484C11.3761 5.21484 11.9312 5.36802 12.3644 5.65514C12.7921 5.93852 13.1762 6.41364 13.1762 7.04199C13.1762 7.67034 12.7921 8.14547 12.3644 8.42884C11.9312 8.71597 11.3761 8.86914 10.8008 8.86914C10.2254 8.86914 9.67038 8.71597 9.23709 8.42884C8.80947 8.14547 8.42529 7.67034 8.42529 7.04199C8.42529 6.41364 8.80947 5.93852 9.23709 5.65514Z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h3>Live Inventory Integration</h3>
+                    <p>Every recipe uses only products currently available at the shopper's store. No dead ends. No
+                        frustration. No reason to shop somewhere else.</p>
+                </div>
+
+                <div class="feature-card reveal delay-2">
+                    <div class="feature-icon">
+                        <svg id="annotation messages 3 list " width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.8307 9.55516C16.8307 8.28637 15.7987 7.25781 14.5256 7.25781H5.30512C4.03204 7.25781 3 8.28637 3 9.55516V16.2813C3 17.55 4.03204 18.5786 5.30512 18.5786H6.96633C7.272 18.5786 7.56516 18.6996 7.78131 18.915L9.10037 20.2297C9.55047 20.6782 10.2802 20.6782 10.7303 20.2297L12.0494 18.915C12.2655 18.6996 12.5587 18.5786 12.8644 18.5786H14.5256C15.7987 18.5786 16.8307 17.55 16.8307 16.2813V9.55516Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path
+                                d="M16.8758 14.7554H18.695C19.9681 14.7554 21.0001 13.7268 21.0001 12.458V5.73192C21.0001 4.46313 19.9681 3.43457 18.695 3.43457H9.47455C8.20147 3.43457 7.16943 4.46313 7.16943 5.73192V7.15142"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M8.7444 14.3086H13.6494M8.70557 11.0588H13.6494" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M6.18172 14.3086H6.19164M6.18164 11.0588H6.19164" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <h3>Step-by-Step Cooking Instructions</h3>
+                    <p>Each recipe includes clear cooking instructions with dynamic ingredient scaling, so a recipe for
+                        two adjusts cleanly to feed six.</p>
+                </div>
+
+                <div class="feature-card reveal delay-3">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h3>Coupons and Deals Built In</h3>
+                    <p>SmartMeals surfaces relevant digital coupons and loyalty offers alongside recipes, making it easy
+                        for shoppers to save and for your store to drive redemption.</p>
+                </div>
+
+                <div class="feature-card reveal delay-4">
+                    <div class="feature-icon">
+                        <svg id="Hospital" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M3.7402 3.89737C4.72468 2.84117 6.12669 2.25 7.78216 2.25H16.2169C17.8762 2.25 19.2788 2.84084 20.2629 3.89765C21.2413 4.94841 21.75 6.39889 21.75 8.02638V15.9736C21.75 17.6011 21.2413 19.0516 20.2627 20.1024C19.2785 21.1592 17.8756 21.75 16.2159 21.75H7.78216C6.1228 21.75 4.72038 21.1591 3.73657 20.1023C2.75842 19.0515 2.25 17.601 2.25 15.9736V8.02638C2.25 6.39806 2.76117 4.94771 3.7402 3.89737ZM4.83745 4.92012C4.16024 5.64666 3.75 6.70951 3.75 8.02638V15.9736C3.75 17.2914 4.15861 18.3541 4.83451 19.0802C5.50475 19.8003 6.49341 20.25 7.78216 20.25H16.2159C17.5052 20.25 18.4944 19.8002 19.165 19.0801C19.8412 18.354 20.25 17.2913 20.25 15.9736V8.02638C20.25 6.70868 19.8412 5.64597 19.1651 4.91984C18.4946 4.19975 17.5056 3.75 16.2169 3.75H7.78216C6.49828 3.75 5.50921 4.19943 4.83745 4.92012Z"
+                                fill="currentColor"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.8447 8.17969V10.0956C10.8447 10.5098 10.5089 10.8456 10.0947 10.8456H8.17969V13.1529H10.0947C10.5089 13.1529 10.8447 13.4887 10.8447 13.9029V15.8179H13.1519V13.9029C13.1519 13.4887 13.4877 13.1529 13.9019 13.1529H15.8169V10.8456H13.9019C13.4877 10.8456 13.1519 10.5098 13.1519 10.0956V8.17969H10.8447ZM9.34466 7.93855C9.34466 7.24506 9.90719 6.67969 10.6035 6.67969H13.393C14.0894 6.67969 14.6519 7.24505 14.6519 7.93855V9.34563H16.058C16.7534 9.34563 17.3169 9.9091 17.3169 10.6045V13.394C17.3169 14.0875 16.7543 14.6529 16.058 14.6529H14.6519V16.059C14.6519 16.7544 14.0884 17.3179 13.393 17.3179H10.6035C9.90812 17.3179 9.34466 16.7544 9.34466 16.059V14.6529H7.93855C7.24222 14.6529 6.67969 14.0875 6.67969 13.394V10.6045C6.67969 9.9091 7.24315 9.34563 7.93855 9.34563H9.34466V7.93855Z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h3>Food is Medicine</h3>
+                    <p>SmartMeals can generate recipes aligned to specific health conditions like diabetes, high blood
+                        pressure, or food allergies, helping shoppers eat better without the guesswork.</p>
+                </div>
+
+                <div class="feature-card reveal delay-5">
+                    <div class="feature-icon">
+                        <svg id="Savings Pig " width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M5.90033 3.76599L8.87145 4.42267C11.3616 3.51584 14.3279 3.40931 16.715 4.67878C20.9429 6.73074 22.2646 12.2085 19.4229 15.8655C18.5818 16.8361 19.516 18.6067 18.4724 19.5439C17.6795 20.2559 16.765 20.4463 15.8101 20.1757C15.1332 19.9274 14.5834 19.119 13.8113 19.1283C12.89 19.1358 12.163 19.063 11.2417 19.1283C10.6813 19.1681 10.0367 19.8843 9.45673 20.1195C8.4217 20.4686 7.14849 20.2689 6.57223 19.3075C6.25185 18.6094 6.44675 17.2972 6.07377 16.4479C5.4341 15.3895 4.0914 15.7748 3.47971 14.7164C3.05064 13.3619 2.82753 11.0811 3.16076 9.71867C3.62699 9.09522 4.45734 8.70007 4.95482 8.30937C5.42604 7.38013 6.3302 6.45422 6.3302 6.45422L5.90033 3.76599Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M10.4277 7.36725C11.8749 6.56623 13.5154 6.56622 14.8683 7.36725"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3>Budget-Aware Planning</h3>
+                    <p>Shoppers can set a weekly meal budget and SmartMeals will plan around it, surfacing deals and
+                        coupons from your loyalty program to help them stretch every dollar at your store.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proof Points Section -->
+        <section class="proof-section">
+            <div class="proof-header reveal">
+                <span class="section-label">By the Numbers</span>
+                <h2 class="section-title">A product people come back for</h2>
+                <p class="section-subtitle">Not just trial — SmartMeals earns repeat use. Users engage, return, and make
+                    it part of their weekly routine.</p>
+            </div>
+
+            <div class="proof-grid">
+                <div class="proof-card reveal">
+                    <div class="proof-visual">
+                        <svg class="proof-ring" viewBox="0 0 120 120" aria-hidden="true">
+                            <circle class="proof-ring__track" cx="60" cy="60" r="52" />
+                            <circle class="proof-ring__fill" cx="60" cy="60" r="52" style="--ring-pct:49.8" />
+                        </svg>
+                        <span class="proof-ring__value">49.8<small>%</small></span>
+                    </div>
+                    <h3 class="proof-title">Return After First Session</h3>
+                    <p class="proof-desc">Nearly half of all users come back after their very first experience with
+                        SmartMeals.</p>
+                </div>
+
+                <div class="proof-card reveal delay-1">
+                    <div class="proof-visual">
+                        <div class="proof-clock">
+                            <svg viewBox="0 0 120 120" aria-hidden="true">
+                                <circle class="proof-clock__face" cx="60" cy="60" r="52" />
+                                <line class="proof-clock__hand proof-clock__hand--min" x1="60" y1="60" x2="60"
+                                    y2="20" />
+                                <line class="proof-clock__hand proof-clock__hand--hr" x1="60" y1="60" x2="60" y2="32" />
+                            </svg>
+                        </div>
+                        <span class="proof-clock__value">~10<small>min</small></span>
+                    </div>
+                    <h3 class="proof-title">Avg. Session Duration</h3>
+                    <p class="proof-desc">Users spend nearly 10 minutes per session — exploring recipes, building plans,
+                        and saving favorites.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-section">
+            <div class="how-header reveal">
+                <span class="section-label">Simple as 1-2-3</span>
+                <h2 class="section-title">How SmartMeals Works</h2>
+            </div>
+
+            <div class="how-steps">
+                <div class="how-step reveal">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Tell Us About Your Household</h3>
+                        <p>Enter your family size, budget, dietary needs, allergies, and favorite cuisines. SmartMeals
+                            remembers your preferences for next time.</p>
+                    </div>
+                </div>
+
+                <div class="how-connector"></div>
+
+                <div class="how-step reveal delay-1">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Get Your Personalized Meal Plan</h3>
+                        <p>In under 90 seconds, SmartMeals generates a week of delicious meals tailored to your
+                            needs—complete with recipes and nutritional info.</p>
+                    </div>
+                </div>
+
+                <div class="how-connector"></div>
+
+                <div class="how-step reveal delay-2">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Shop with Your Smart List</h3>
+                        <p>Your grocery list is automatically built from your recipes. Check off items as you shop
+                            in-store, and enjoy stress-free dinners all week!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grocer Value / Business Impact Section -->
+        <section class="use-case-section">
+            <div class="use-case-container">
+                <div class="use-case-content reveal">
+                    <span class="section-label">Business Impact</span>
+                    <h2 class="section-title">Built to drive loyalty, lift baskets, and differentiate your store</h2>
+
+                    <p class="use-case-quote">
+                        "SmartMeals helps grocery retailers turn everyday meal planning into a loyalty engine —
+                        increasing engagement, growing basket size, and giving shoppers a reason to choose your store
+                        week after week."
+                    </p>
+
+                    <div class="use-case-benefits">
+                        <div class="benefit-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Stronger customer loyalty and repeat visits</span>
+                        </div>
+
+                        <div class="benefit-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Higher basket size through guided meal solutions</span>
+                        </div>
+
+                        <div class="benefit-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Differentiation from national and regional competitors</span>
+                        </div>
+
+                        <div class="benefit-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            <span>Actionable shopper insights without operational complexity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case-visual reveal delay-1">
+                    <div class="visual-card">
+                        <div class="visual-stat">
+                            <span class="visual-number">
+                                <svg id="Heart plus" width="70" height="70" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.1421 3.99873C20.4794 5.07388 21.6665 8.72941 20.6448 11.915C18.9713 17.0261 12.0037 20.271 12.0037 20.271C12.0037 20.271 4.93007 16.9677 3.35383 11.915C2.33218 8.72941 3.52896 5.08361 6.86632 3.99873C7.73034 3.72921 8.64592 3.66694 9.53816 3.81873C10.4304 3.96954 11.2749 4.5835 12.0037 5.12253C12.7296 4.57766 13.5751 3.96175 14.4683 3.80997C15.3615 3.65915 16.2781 3.72337 17.1421 3.99873Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M14.1871 11.5938H9.81445" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M12 13.7789V9.40625" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                            <span class="visual-text">
+                                Personalized meal planning keeps shoppers engaged with your store before they arrive
+                            </span>
+                        </div>
+
+                        <div class="visual-divider"></div>
+
+                        <div class="visual-stat">
+                            <span class="visual-number">
+                                <svg id="Shopping Cart plus" width="70" height="70" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.7 17.1181C7.07276 17.1144 6.46953 16.8765 6.00868 16.4509C5.54783 16.0254 5.26261 15.4431 5.209 14.8181L4.325 4.2361L2.872 3.9851C2.77496 3.96829 2.68217 3.93252 2.59894 3.87986C2.51572 3.82719 2.44368 3.75864 2.38694 3.67814C2.33021 3.59763 2.28988 3.50673 2.26827 3.41064C2.24666 3.31455 2.24419 3.21514 2.261 3.11809C2.27781 3.02105 2.31357 2.92826 2.36624 2.84504C2.41891 2.76181 2.48745 2.68977 2.56796 2.63304C2.64847 2.5763 2.73936 2.53597 2.83546 2.51436C2.93155 2.49275 3.03096 2.49029 3.128 2.5071L5.152 2.8571C5.31556 2.88553 5.46506 2.96741 5.57707 3.08992C5.68909 3.21244 5.7573 3.36865 5.771 3.53409L6 6.24109C19.875 6.24609 19.918 6.2521 19.988 6.2621C20.2553 6.30045 20.5124 6.39111 20.7446 6.52889C20.9769 6.66667 21.1797 6.84886 21.3415 7.06507C21.5033 7.28127 21.6208 7.52724 21.6875 7.78891C21.7542 8.05059 21.7686 8.32283 21.73 8.59009L20.806 14.9711C20.7185 15.5658 20.4206 16.1095 19.9665 16.5034C19.5124 16.8973 18.9321 17.1154 18.331 17.1181H7.7ZM6.125 7.74209L6.708 14.7001C6.7256 14.9523 6.83899 15.1881 7.02492 15.3594C7.21085 15.5306 7.45525 15.6243 7.708 15.6211H18.328C18.5689 15.62 18.8014 15.5325 18.9833 15.3745C19.1652 15.2165 19.2843 14.9985 19.319 14.7601L20.243 8.37809C20.2535 8.30606 20.2496 8.23267 20.2317 8.16211C20.2138 8.09156 20.1822 8.02523 20.1386 7.96691C20.0951 7.90859 20.0405 7.85942 19.9779 7.82222C19.9153 7.78502 19.846 7.76051 19.774 7.7501C19.571 7.7481 11.157 7.74409 6.125 7.74209Z"
+                                        fill="currentColor"></path>
+                                    <path
+                                        d="M7.5 22.0001C8.32843 22.0001 9 21.3285 9 20.5001C9 19.6716 8.32843 19.0001 7.5 19.0001C6.67157 19.0001 6 19.6716 6 20.5001C6 21.3285 6.67157 22.0001 7.5 22.0001Z"
+                                        fill="currentColor"></path>
+                                    <path
+                                        d="M18.5 22.0001C19.3284 22.0001 20 21.3285 20 20.5001C20 19.6716 19.3284 19.0001 18.5 19.0001C17.6716 19.0001 17 19.6716 17 20.5001C17 21.3285 17.6716 22.0001 18.5 22.0001Z"
+                                        fill="currentColor"></path>
+                                    <path
+                                        d="M13.1072 11.71436V9.85721M13.1072 11.71436V13.57153M13.1072 11.71436H11.2501M13.1072 11.71436H14.9644"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                                </svg>
+                            </span>
+                            <span class="visual-text">
+                                Complete meal suggestions drive larger, more intentional basket sizes
+                            </span>
+                        </div>
+
+                        <div class="visual-divider"></div>
+
+                        <div class="visual-stat">
+                            <span class="visual-number">
+                                <svg id="Dollar add" width="70" height="70" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 3.0625C7.032 3.0625 3 7.0945 3 12.0625C3 15.6899 5.14959 18.8183 8.24358 20.2426"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M21 12.0625C21 17.0305 16.968 21.0625 12 21.0625" stroke="currentColor"
+                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M18.6062 5.45623L20.9715 5.4572M18.6062 5.45623L16.2402 5.45528M18.6062 5.45623V7.82106M18.6062 5.45623L18.6057 3.08984"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path
+                                        d="M13.8133 9.20117H11.2018C10.4244 9.20117 9.79492 9.83069 9.79492 10.6071C9.79492 11.3845 10.4244 12.014 11.2018 12.014H12.8092C13.5856 12.014 14.2151 12.6436 14.2151 13.42C14.2151 14.1974 13.5856 14.8269 12.8092 14.8269H10.1968"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M12.0039 14.8264V16.0076M12.0039 8.01367V9.20459" stroke="currentColor"
+                                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                            <span class="visual-text">
+                                A white-labeled experience that positions your brand as helpful, modern, and
+                                customer-first
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI V2.0 Coming Soon Section -->
+        <section class="v2-section">
+            <div class="v2-container">
+                <div class="v2-content reveal">
+                    <div class="v2-badge">
+                        <span class="v2-badge-dot"></span>
+                        <span>Coming Q2 2026</span>
+                    </div>
+                    <h2 class="v2-title">SmartMeals UI V2.0</h2>
+                    <p class="v2-subtitle">A new and improved experience is on the way</p>
+                    <p class="v2-description">
+                        We're building the next generation of SmartMeals with a completely redesigned interface
+                        alongside an expanded use of AI to identify hyper-regional trends in real time, creating more
+                        opportunities to integrate retailer-driven prompts and priorities.
+                    </p>
+                </div>
+                <div class="v2-visual reveal delay-1">
+                    <div class="v2-image-wrapper">
+                        <div class="image-comparison-slider">
+                            <div class="comparison-before">
+                                <img src="/content/smartmealsv1-sm.png" alt="Before SmartMeals">
+                                <span class="comparison-label comparison-label-before">Live</span>
+                            </div>
+                            <div class="comparison-after">
+                                <img src="/content/smartmealsv2-sm.png" alt="After SmartMeals">
+                                <span class="comparison-label comparison-label-after">Coming Soon</span>
+                            </div>
+                            <div class="comparison-slider-handle">
+                                <div class="comparison-slider-line"></div>
+                                <div class="comparison-slider-button">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                    </svg>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="comparison-slider-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content reveal">
+                <div class="cta-badge">
+                    <span>Click. Plan. Shop. Save.</span>
+                </div>
+                <h2 class="cta-title">Ready to transform your meal planning?</h2>
+                <p class="cta-description">
+                    See how SmartMeals can help your grocery business deliver personalized, stress-free shopping
+                    experiences that keep customers coming back.
+                </p>
+                <div class="cta-actions">
+                    <a href="/bookdemo/" class="btn-demo btn-demo-cta">
+                        <span class="btn-demo-bg"></span>
+                        <span class="btn-demo-spotlight"></span>
+                        <span class="btn-demo-content">
+                            <span class="btn-demo-icon">
+                                <svg id="tap" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.7414 12.6903C19.6452 15.1301 18.7559 18.3585 17.1721 19.9423C15.1512 21.9632 9.50358 22.1168 7.65461 19.8175C6.48129 18.3585 5.56933 16.5877 4.99449 15.001C4.68618 14.15 5.13859 13.2323 5.98366 12.9082C6.73171 12.6212 7.57895 12.8838 8.03363 13.5435L9.16905 15.1908V6.08708C9.16905 5.21056 9.87961 4.5 10.7561 4.5C11.6231 4.5 12.3297 5.19579 12.343 6.06271L12.4061 10.1687C14.6272 10.3808 17.8433 10.2662 18.7414 12.6903Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path
+                                        d="M9.01733 9.5C7.93016 8.86052 7.19531 7.63895 7.19531 6.23711C7.19531 4.17316 8.78825 2.5 10.7532 2.5C12.7182 2.5 14.3112 4.17316 14.3112 6.23711C14.3112 7.61658 13.5996 8.82148 12.5409 9.46894"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                            <span class="btn-demo-text"><b>Schedule a Demo</b></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="/home/" class="logo">
+                        <img src="/content/BreezAI_Logo_TransparentBG.png" alt="Breez AI">
+                    </a>
+                    <p>Personalized Grocery. Powered by AI. Making shopping feel as easy and inspiring as it should be.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="/smartmeals/">SmartMeals</a></li>
+                        <li><a href="/groceryaisle/">GroceryAisle</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/ourstory/">Our Story</a></li>
+                        <li><a href="/ourteam/">Our Team</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/contactus/">Contact</a></li>
+                        <li><a href="/bookdemo/">Book a Demo</a></li>
+                        <li><a href="/terms/">Terms and Conditions</a></li>
+                        <li><a href="/privacy/">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    © 2026 Breez AI, LLC. All rights reserved.
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/breez-ai" target="_blank" aria-label="LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/MyBreezAI" target="_blank" aria-label="Twitter">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // ─── Scroll handling for header ───────────────────────────────────────
+            const header = document.getElementById('header');
+            if (header) {
+                window.addEventListener('scroll', function () {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                });
+            }
+
+            // ─── Reveal on scroll ─────────────────────────────────────────────────
+            const reveals = document.querySelectorAll('.reveal');
+            function revealOnScroll() {
+                const windowHeight = window.innerHeight;
+                reveals.forEach(function (el) {
+                    if (el.getBoundingClientRect().top < windowHeight - 100) {
+                        el.classList.add('visible');
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+
+            // ─── Mobile Menu ──────────────────────────────────────────────────────
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                // Toggle open/close
+                mobileMenuBtn.addEventListener('click', function () {
+                    mobileMenuBtn.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+
+                // Accordion dropdowns inside the menu
+                document.querySelectorAll('.mobile-menu-dropdown-trigger').forEach(function (trigger) {
+                    trigger.addEventListener('click', function () {
+                        trigger.parentElement.classList.toggle('open');
+                    });
+                });
+
+                // Close menu when any link is tapped
+                document.querySelectorAll(
+                    '.mobile-menu-link, .mobile-menu-dropdown-items a, .mobile-menu-demo a'
+                ).forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        mobileMenuBtn.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                    });
+                });
+
+                // Close menu on resize to desktop
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth > 1000) {
+                        mobileMenuBtn.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                    }
+                });
+            }
+
+            // ─── Smooth scroll for anchor links ──────────────────────────────────
+            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // ─── Scroll-Driven Showcase ───────────────────────────────────────────
+            // FIX: the CSS disables fixed-pinning at ≤1167px (the same breakpoint
+            // where the hamburger becomes visible at ≤1000px). Initialising the
+            // showcase below that width was causing scroll/event interference with
+            // the mobile menu. Now we only initialise it at full desktop widths.
+            class ScrollShowcase {
+                constructor() {
+                    if (window.innerWidth <= 1167) return;
+
+                    this.showcase = document.getElementById('scroll-showcase');
+                    if (!this.showcase) return;
+
+                    this.track = this.showcase.querySelector('.scroll-showcase__track');
+                    this.pinned = this.showcase.querySelector('.scroll-showcase__pinned');
+                    this.devices = this.showcase.querySelectorAll('.device');
+                    this.sceneTexts = this.showcase.querySelectorAll('.scene-text');
+                    this.progressDots = this.showcase.querySelectorAll('.progress-dot');
+                    this.scrollIndicator = this.showcase.querySelector('.scroll-indicator');
+
+                    this.scenes = ['mobile', 'tablet', 'desktop'];
+                    this.currentScene = 0;
+                    this.isPinned = false;
+                    this.scrollProgress = 0;
+
+                    this.init();
+                }
+
+                init() {
+                    window.addEventListener('scroll', () => this.onScroll(), { passive: true });
+                    window.addEventListener('resize', () => this.onResize());
+
+                    this.progressDots.forEach(dot => {
+                        dot.addEventListener('click', (e) => {
+                            const target = e.currentTarget.dataset.target;
+                            const targetIndex = this.scenes.indexOf(target);
+                            if (targetIndex !== -1) this.scrollToScene(targetIndex);
+                        });
+                    });
+
+                    this.onScroll();
+                }
+
+                onScroll() {
+                    if (window.innerWidth <= 1167) return;
+
+                    const rect = this.showcase.getBoundingClientRect();
+                    const trackHeight = this.track.offsetHeight;
+                    const viewportHeight = window.innerHeight;
+                    const scrollRange = trackHeight - viewportHeight;
+
+                    if (scrollRange <= 0) return;
+
+                    const scrollStart = rect.top;
+                    const scrollEnd = rect.bottom - viewportHeight;
+
+                    this.scrollProgress = Math.max(0, Math.min(1, -scrollStart / scrollRange));
+
+                    const shouldPin = scrollStart <= 0 && scrollEnd > 0;
+
+                    if (shouldPin !== this.isPinned) {
+                        this.isPinned = shouldPin;
+                        this.updatePinState();
+                    }
+
+                    if (this.isPinned) {
+                        this.updateScene();
+                        this.updateScrollIndicator();
+                    }
+                }
+
+                onResize() {
+                    // If resized below threshold, clean up pinned state
+                    if (window.innerWidth <= 1167) {
+                        if (this.pinned) {
+                            this.pinned.classList.remove('is-pinned', 'is-complete');
+                        }
+                        this.isPinned = false;
+                        return;
+                    }
+                    this.onScroll();
+                }
+
+                updatePinState() {
+                    if (this.isPinned) {
+                        this.pinned.classList.add('is-pinned');
+                        this.pinned.classList.remove('is-complete');
+                    } else {
+                        this.pinned.classList.remove('is-pinned');
+                        if (this.scrollProgress >= 1) {
+                            this.pinned.classList.add('is-complete');
+                            this.setScene(2);
+                        } else {
+                            this.pinned.classList.remove('is-complete');
+                        }
+                    }
+                }
+
+                updateScene() {
+                    const sceneProgress = this.scrollProgress * 3;
+                    const newScene = Math.min(2, Math.floor(sceneProgress));
+                    if (newScene !== this.currentScene) this.setScene(newScene);
+                    this.updateDeviceAnimation(newScene, sceneProgress - newScene);
+                }
+
+                setScene(sceneIndex) {
+                    this.currentScene = sceneIndex;
+                    const sceneName = this.scenes[sceneIndex];
+
+                    this.devices.forEach(device => {
+                        const idx = this.scenes.indexOf(device.dataset.device);
+                        device.classList.toggle('active', idx === sceneIndex);
+                        device.classList.toggle('past', idx < sceneIndex);
+                        device.classList.toggle('future', idx > sceneIndex);
+                    });
+
+                    this.sceneTexts.forEach(text => {
+                        text.classList.toggle('active', text.dataset.scene === sceneName);
+                    });
+
+                    this.progressDots.forEach(dot => {
+                        const idx = this.scenes.indexOf(dot.dataset.target);
+                        dot.classList.toggle('active', idx === sceneIndex);
+                        dot.classList.toggle('complete', idx < sceneIndex);
+                    });
+                }
+
+                updateDeviceAnimation(sceneIndex, subProgress) {
+                    const device = this.devices[sceneIndex];
+                    if (device) device.style.setProperty('--scene-progress', subProgress);
+                }
+
+                updateScrollIndicator() {
+                    if (this.scrollIndicator) {
+                        this.scrollIndicator.style.opacity = Math.max(0, 1 - this.scrollProgress * 3);
+                    }
+                }
+
+                scrollToScene(sceneIndex) {
+                    const trackHeight = this.track.offsetHeight;
+                    const viewportHeight = window.innerHeight;
+                    const scrollRange = trackHeight - viewportHeight;
+                    const targetProgress = (sceneIndex + 0.5) / 3;
+                    window.scrollTo({
+                        top: this.showcase.offsetTop + (targetProgress * scrollRange),
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            new ScrollShowcase();
+
+            // ─── Image Comparison Slider ──────────────────────────────────────────
+            document.querySelectorAll('.image-comparison-slider').forEach(function (slider) {
+                let dragging = false;
+
+                function setPos(clientX) {
+                    const rect = slider.getBoundingClientRect();
+                    const x = Math.min(Math.max(clientX - rect.left, 0), rect.width);
+                    slider.style.setProperty('--pos', (x / rect.width) * 100);
+                }
+
+                slider.addEventListener('pointerdown', function (e) {
+                    e.preventDefault();
+                    dragging = true;
+                    slider.setPointerCapture(e.pointerId);
+                    setPos(e.clientX);
+                });
+
+                slider.addEventListener('pointermove', function (e) {
+                    if (!dragging) return;
+                    e.preventDefault();
+                    setPos(e.clientX);
+                });
+
+                function onUp(e) {
+                    if (dragging) {
+                        dragging = false;
+                        slider.releasePointerCapture(e.pointerId);
+                    }
+                }
+
+                slider.addEventListener('pointerup', onUp);
+                slider.addEventListener('pointercancel', onUp);
+                slider.addEventListener('pointerleave', onUp);
+
+                slider.style.setProperty('--pos', 50);
+            });
+
+        }); // end DOMContentLoaded
+    </script>
+</body>
+
+</html>

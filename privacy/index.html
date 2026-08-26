@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | Breez AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap"
+        rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="/content/BreezWebLogo.png" />
+
+    <link rel="stylesheet" href="/styles.css?v=6" />
+    <link rel="stylesheet" href="/hamburgermenu.css">
+    <link rel="stylesheet" href="privacypolicy.css" />
+</head>
+
+<body>
+    <!-- Header Partial -->
+    <div id="header-placeholder" style="min-height: 80px;"></div>
+
+    <script>
+        fetch('/partials/header.html')
+            .then(function (r) { return r.text(); })
+            .then(function (html) {
+                document.getElementById('header-placeholder').innerHTML = html;
+                initializeHeader();
+            });
+
+        function initializeHeader() {
+            var btn = document.getElementById('mobileMenuBtn');
+            var menu = document.getElementById('mobileMenu');
+            var dropdownTriggers = document.querySelectorAll('.mobile-menu-dropdown-trigger');
+            var menuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-menu-dropdown-items a, .mobile-menu-demo a');
+
+            if (!btn || !menu) return;
+
+            btn.addEventListener('click', function () {
+                btn.classList.toggle('active');
+                menu.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+
+            dropdownTriggers.forEach(function (trigger) {
+                trigger.addEventListener('click', function () {
+                    trigger.parentElement.classList.toggle('open');
+                });
+            });
+
+            menuLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    btn.classList.remove('active');
+                    menu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 1000) {
+                    btn.classList.remove('active');
+                    menu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                }
+            });
+
+            // Mark the active nav link based on current URL
+            var path = window.location.pathname;
+            document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(function (link) {
+                if (link.getAttribute('href') === path) {
+                    link.classList.add('nav-link--active');
+                }
+            });
+        }
+    </script>
+
+    <main>
+        <!-- HERO -->
+        <section class="page-hero">
+            <span class="page-hero-label">Legal</span>
+            <h1 class="page-hero-title">Privacy Policy</h1>
+            <p class="page-hero-subtitle">
+                How Breez AI Corporation collects, uses, discloses, stores, and protects information in connection with
+                its AI-powered meal planning, recipe, and nutrition services.
+            </p>
+        </section>
+
+        <!-- BODY -->
+        <section class="terms-section">
+            <div class="terms-container">
+
+                <div class="terms-meta">
+                    <div class="terms-meta-item">
+                        <span class="terms-meta-label">Effective Date</span>
+                        <span class="terms-meta-value">August 18, 2026</span>
+                    </div>
+                    <div class="terms-meta-item">
+                        <span class="terms-meta-label">Scheduled Review</span>
+                        <span class="terms-meta-value">Quarterly</span>
+                    </div>
+                    <div class="terms-meta-item">
+                        <span class="terms-meta-label">Contact</span>
+                        <span class="terms-meta-value">
+                            <a href="mailto:Legal@mybreezai.com">Legal@mybreezai.com</a>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="terms-content">
+                    <div class="terms-intro">
+                        <p>
+                            This Privacy Policy describes how Breez AI Corporation (&ldquo;Breez AI,&rdquo;
+                            &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects, uses, discloses, stores,
+                            and protects information in connection with its AI-powered meal planning, recipe suggestion,
+                            and nutrition and calorie tracking services (the &ldquo;Services&rdquo;).
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">1. Introduction and White Label Identity Disclosure</h2>
+                        <p>
+                            <strong>Important disclosure regarding white-label deployments.</strong> Breez AI&rsquo;s
+                            Services may be accessed through applications or websites operated by third-party grocery
+                            retailers (&ldquo;Retailers&rdquo;) under the Retailer&rsquo;s own brand name or under a
+                            separate brand name designated by the Retailer. Regardless of the brand name or visual
+                            presentation under which the Services appear, Breez AI is a separate and independent company
+                            from any such Retailer. Breez AI is the data controller &mdash; or, depending on applicable
+                            law, a separate data controller or a service provider &mdash; with respect to the personal
+                            data it collects and processes in connection with the Services. This Privacy Policy governs
+                            Breez AI&rsquo;s own data practices and is distinct from any privacy notice or policy
+                            published by the Retailer. Users should also review the Retailer&rsquo;s privacy policy to
+                            understand the Retailer&rsquo;s independent data practices.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">2. Definitions</h2>
+                        <p>For purposes of this Privacy Policy:</p>
+                        <ul class="terms-list">
+                            <li><strong>&ldquo;Personal Data&rdquo;</strong> means any information that identifies,
+                                relates to, describes, is reasonably capable of being associated with, or could
+                                reasonably be linked, directly or indirectly, to a particular individual or household.
+                                Personal Data includes, without limitation, identifiers such as name, email address, and
+                                account credentials; health and nutrition data; dietary preferences and restrictions;
+                                inferences drawn from any of the foregoing; and any other information that constitutes
+                                &ldquo;personal information,&rdquo; &ldquo;personal data,&rdquo; or an equivalent term
+                                under applicable law.</li>
+                            <li><strong>&ldquo;Sensitive Personal Data&rdquo;</strong> means a subset of Personal Data
+                                that warrants heightened protection under applicable law or under this Policy, as further
+                                described in Section 5 below.</li>
+                            <li><strong>&ldquo;Services&rdquo;</strong> means the AI-powered meal planning, recipe
+                                suggestion, nutrition analysis, calorie tracking, and related features and
+                                functionalities provided by Breez AI, whether accessed through Breez AI&rsquo;s own
+                                interfaces or through a Retailer&rsquo;s application or website. Services also may include
+                                outbound communications on behalf of Retailers and their third-party loyalty program
+                                providers about coupons and other offers to their customers and members. Often these
+                                services are provided on a &ldquo;white-label&rdquo; basis under the name and/or brands of
+                                the Retailer, loyalty program provider or other third parties as directed by the Retailer.
+                            </li>
+                            <li><strong>&ldquo;Retailer&rdquo;</strong> means any third-party grocery retailer that has
+                                entered into an agreement with Breez AI to embed or otherwise make available the Services
+                                within the Retailer&rsquo;s digital properties. The definition of Retailer as used herein
+                                includes any loyalty program provider separately retained by a third-party grocery
+                                retailer.</li>
+                            <li><strong>&ldquo;AI-Generated Inferences&rdquo;</strong> means conclusions, predictions,
+                                recommendations, or other outputs produced by Breez AI&rsquo;s artificial intelligence and
+                                machine learning systems based on data provided by or derived from a user&rsquo;s
+                                interactions with the Services.</li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">3. Scope of This Policy</h2>
+                        <p>
+                            This Privacy Policy applies to Personal Data collected by Breez AI in connection with the
+                            Services, including data collected through any Retailer-branded interface through which the
+                            Services are made available. It does not govern the data practices of any Retailer, loyalty
+                            program provider, wearable device manufacturer, or third-party health platform, each of which
+                            maintains its own privacy practices. Breez AI is not responsible for the privacy practices of
+                            those third parties.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">4. Data We Collect</h2>
+                        <p>
+                            Breez AI may collect the following categories of Personal Data in connection with the
+                            Services:
+                        </p>
+
+                        <h3 class="terms-subheading">4.1 Account and Contact Information</h3>
+                        <p>
+                            Breez AI may collect information you provide when creating an account or profile, such as
+                            name, email address, username, password, and, where applicable, billing information. Breez AI
+                            may also collect information you provide when contacting customer support.
+                        </p>
+
+                        <h3 class="terms-subheading">4.2 Dietary Preferences, Restrictions, and Goals</h3>
+                        <p>
+                            Breez AI may collect information about your dietary preferences, eating habits, food dislikes,
+                            and nutritional goals, including information you enter directly into the Services or that is
+                            derived from your use of the Services. This may include preferences such as vegetarian, vegan,
+                            pescatarian, or other dietary patterns, as well as specific nutritional goals such as weight
+                            loss, weight maintenance, muscle gain, or management of a specific dietary condition.
+                        </p>
+
+                        <h3 class="terms-subheading">4.3 Health Metrics</h3>
+                        <p>
+                            Breez AI may collect health-related metrics you choose to provide, such as height, weight,
+                            body mass index (BMI), age, biological sex, calorie targets, macronutrient targets, and other
+                            body composition or metabolic data. This information is used to personalize meal plans, recipe
+                            suggestions, and nutritional analysis.
+                        </p>
+
+                        <h3 class="terms-subheading">4.4 Allergen and Intolerance Information</h3>
+                        <p>
+                            Breez AI may collect information about food allergies, food intolerances, and sensitivities
+                            you disclose when configuring your profile or using the Services. This category of data may
+                            include, for example, nut allergies, gluten intolerance, lactose intolerance, shellfish
+                            allergies, and similar conditions.
+                        </p>
+
+                        <h3 class="terms-subheading">4.5 Religious and Cultural Dietary Practices</h3>
+                        <p>
+                            Breez AI may collect information about religious or cultural dietary practices that you
+                            voluntarily provide, such as kosher, halal, or other faith-based or culturally specific
+                            dietary requirements. This category of data is treated as Sensitive Personal Data and is
+                            subject to the heightened protections described in Section 5.
+                        </p>
+
+                        <h3 class="terms-subheading">4.6 Meal Plan Inputs and Recipe Interactions</h3>
+                        <p>
+                            Breez AI may collect data about how you interact with the Services, including meal plans you
+                            generate or customize, recipes you view, save, rate, or share, ingredient substitutions you
+                            make, and feedback you provide about suggested content.
+                        </p>
+
+                        <h3 class="terms-subheading">4.7 Purchase History Received from Retailer</h3>
+                        <p>
+                            Where you use the Services through a Retailer&rsquo;s platform and have consented or where
+                            otherwise permitted under applicable law, the Retailer may provide Breez AI with data
+                            regarding your grocery purchase history. This data may include items purchased, purchase
+                            frequency, and spending patterns. Breez AI may use this data to personalize meal plans, recipe
+                            suggestions, and nutritional analysis.
+                        </p>
+
+                        <h3 class="terms-subheading">4.8 AI-Generated Inferences</h3>
+                        <p>
+                            Breez AI&rsquo;s artificial intelligence and machine learning systems may generate inferences
+                            about your health status, nutritional habits, lifestyle patterns, dietary compliance, risk
+                            factors related to food choices, and other characteristics based on the data you provide and
+                            your interactions with the Services. These AI-Generated Inferences are themselves Personal
+                            Data and, in many cases, Sensitive Personal Data. See Section 5.
+                        </p>
+
+                        <h3 class="terms-subheading">4.9 Technical and Usage Data</h3>
+                        <p>
+                            Breez AI may collect technical information about your device and your use of the Services,
+                            including IP address, device identifiers, browser type and version, operating system,
+                            referring URLs, pages viewed, features used, time spent within the Services, and crash or
+                            error data.
+                        </p>
+
+                        <h3 class="terms-subheading">4.10 Data Provided by Retailers and Loyalty Program Providers</h3>
+                        <p>
+                            In addition to purchase history described in Section 4.9, a Retailer or its contracted loyalty
+                            program provider may provide Breez AI with other information about you, such as account
+                            identifiers, loyalty program membership identifiers, reward balances, or demographic
+                            information, subject to the terms of the agreement between Breez AI and the Retailer and
+                            applicable law.
+                        </p>
+
+                        <h3 class="terms-subheading">4.11 Contact and Consent Data for Outbound Communications</h3>
+                        <p>
+                            Where Breez AI sends personalised communications on behalf of a Retailer, Breez AI collects
+                            the recipient&rsquo;s email address, name where available, loyalty identifier, and marketing
+                            consent status from the Retailer or its contracted loyalty programme provider. See Section 11.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">5. Sensitive Personal Data</h2>
+                        <p>
+                            Certain categories of Personal Data collected in connection with the Services are inherently
+                            sensitive because they may reveal, or may be used to infer, information about an
+                            individual&rsquo;s health, medical conditions, disabilities, or religious beliefs. Breez AI
+                            treats the following categories as Sensitive Personal Data:
+                        </p>
+                        <ul class="terms-list">
+                            <li>Allergen and intolerance information, which may indicate underlying medical conditions or
+                                disabilities;</li>
+                            <li>Religious and cultural dietary practice data, which may reveal religious affiliation or
+                                belief;</li>
+                            <li>Health metrics, including weight, BMI, and calorie-related data, which may indicate
+                                medical conditions, health status, or disability;</li>
+                            <li>AI-Generated Inferences related to health, metabolism, dietary compliance, or lifestyle,
+                                which may reveal or be used to infer medical or health information;</li>
+                            <li>Data received from connected wearables or health applications that relates to a
+                                user&rsquo;s health or physical condition; and</li>
+                            <li>Dietary goal information that, taken together with other data, may indicate a medical
+                                diagnosis, treatment, or condition.</li>
+                        </ul>
+                        <p>
+                            Breez AI applies heightened security and access controls to Sensitive Personal Data. Breez AI
+                            does not sell Sensitive Personal Data. Breez AI does not use Sensitive Personal Data for
+                            cross-context behavioral advertising unrelated to your dietary needs. However, Breez AI and
+                            its Retailer and loyalty program partners may use your dietary preference data &mdash;
+                            including religious, cultural, and health-related dietary preferences &mdash; to present
+                            product recommendations, offers, and targeted advertising that are directly relevant to and
+                            consistent with your stated dietary needs. For example, if you indicate that you follow a
+                            kosher diet, Breez AI and its partners may surface kosher-certified products and relevant
+                            offers. This use of dietary preference data for relevant food and grocery recommendations is a
+                            core feature of the Services. You may opt out of personalized advertising as described in
+                            Section 13 (Privacy Choices and Rights). Breez AI obtains consent before processing Sensitive
+                            Personal Data for purposes beyond those reasonably necessary to provide the Services, to the
+                            extent required by applicable law.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">6. How We Use Personal Data</h2>
+                        <p>Breez AI may use Personal Data for the following purposes:</p>
+
+                        <h3 class="terms-subheading">6.1 Providing and Personalizing the Services</h3>
+                        <p>
+                            Breez AI uses Personal Data, including dietary preferences, health metrics, allergen
+                            information, cultural or religious practices, and AI-Generated Inferences, to generate
+                            personalized meal plans, recipe suggestions, and nutritional analyses tailored to each
+                            user&rsquo;s profile. AI and machine learning systems are integral to this personalization and
+                            are not optional features &mdash; they are core to how the Services function.
+                        </p>
+
+                        <h3 class="terms-subheading">6.2 Nutrition Analysis and Calorie Tracking</h3>
+                        <p>
+                            Breez AI uses Personal Data to analyze nutritional content of meals and recipes, track caloric
+                            intake against user-defined targets, and provide feedback on nutritional balance and goal
+                            progress.
+                        </p>
+
+                        <h3 class="terms-subheading">6.3 AI Model Training and Improvement</h3>
+                        <p>
+                            Breez AI may use user interaction data, dietary preference data, recipe feedback, and meal plan
+                            data to train, validate, and improve the artificial intelligence and machine learning models
+                            that power the Services. Where required by applicable law, Breez AI will seek appropriate
+                            consent before using Sensitive Personal Data for model training purposes. Users may have the
+                            right to opt out of certain uses of their data for model training; see Section 13 (Privacy
+                            Choices and Rights).
+                        </p>
+
+                        <h3 class="terms-subheading">6.4 Communication and Support</h3>
+                        <p>
+                            Breez AI may use contact information to respond to user inquiries, provide customer support,
+                            and send transactional communications related to the Services. Breez AI also sends personalised
+                            marketing communications, including to Retailer loyalty members who may not hold a Breez AI
+                            account; the basis for those communications and the means of withdrawing consent are described
+                            in Section 11.
+                        </p>
+
+                        <h3 class="terms-subheading">6.5 Safety and Allergen Alerts</h3>
+                        <p>
+                            Breez AI may use allergen and intolerance data to filter recipe suggestions and generate alerts
+                            regarding potentially unsafe ingredients.
+                        </p>
+
+                        <h3 class="terms-subheading">6.6 Analytics and Service Improvement</h3>
+                        <p>
+                            Breez AI may use aggregated, de-identified, or pseudonymized data derived from user
+                            interactions to analyze usage patterns, identify features for improvement, and conduct internal
+                            research and development.
+                        </p>
+
+                        <h3 class="terms-subheading">6.7 Legal Compliance and Protection of Rights</h3>
+                        <p>
+                            Breez AI may use Personal Data to comply with applicable legal obligations, respond to legal
+                            process, enforce its <a href="/terms/">Terms and Conditions</a>, and protect the rights,
+                            property, and safety of Breez AI, its users, and others.
+                        </p>
+
+                        <h3 class="terms-subheading">6.8 Retailer-Directed and Partner-Directed Purposes</h3>
+                        <p>
+                            Where Breez AI operates as a service provider or processor on behalf of a Retailer or
+                            contracted loyalty program provider, Breez AI may process Personal Data for purposes directed
+                            by those parties, consistent with Breez AI&rsquo;s contractual obligations and applicable law.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">7. How We Share Personal Data</h2>
+                        <p>Breez AI may disclose Personal Data in the following circumstances:</p>
+
+                        <h3 class="terms-subheading">7.1 Retailers and Loyalty Program Providers</h3>
+                        <p>
+                            Breez AI may share Personal Data with the Retailer through whose platform you access the
+                            Services, and with loyalty program providers contracted by that Retailer. Breez AI, the
+                            Retailer, and the loyalty program provider operate as three integrated partners in providing
+                            the full service experience &mdash; the Retailer provides the grocery platform and purchase
+                            context, the loyalty program provider manages rewards and engagement, and Breez AI provides
+                            the meal planning and nutrition intelligence. Where Breez AI sends outbound communications on
+                            behalf of a Retailer or their loyalty program provider, Breez AI may share data related to
+                            consumers&rsquo; interaction with such communications (such as open rate, interaction time
+                            periods, etc.) with the Retailer, loyalty provider or other third parties as directed by the
+                            Retailer. Data shared among these three parties may include user profile data, meal plan
+                            activity, recipe interaction data, dietary preferences, and AI-Generated Inferences, to the
+                            extent necessary to support the integrated experience. The Retailer&rsquo;s and loyalty
+                            provider&rsquo;s use of data they receive is governed by their own privacy policies and their
+                            agreements with Breez AI. See also Section 10 (Retailer and Partner Integration).
+                        </p>
+
+                        <h3 class="terms-subheading">7.2 Service Providers</h3>
+                        <p>
+                            Breez AI may share Personal Data with third-party vendors, contractors, and service providers
+                            that perform services on Breez AI&rsquo;s behalf, such as cloud hosting providers, data
+                            analytics vendors, customer support platforms, and communications service providers. These
+                            service providers are contractually required to use Personal Data only as directed by Breez AI
+                            and in accordance with this Privacy Policy.
+                        </p>
+
+                        <h3 class="terms-subheading">7.3 Business Transfers</h3>
+                        <p>
+                            In the event of a merger, acquisition, reorganization, bankruptcy, or sale of all or a portion
+                            of Breez AI&rsquo;s assets, Personal Data may be transferred to the acquiring or successor
+                            entity, subject to that entity&rsquo;s commitment to honor this Privacy Policy or provide
+                            advance notice of any material changes.
+                        </p>
+
+                        <h3 class="terms-subheading">7.4 Legal and Regulatory Disclosures</h3>
+                        <p>
+                            Breez AI may disclose Personal Data to comply with applicable law, regulation, or legal
+                            process, including in response to a court order, subpoena, or government inquiry, and to
+                            protect the rights and safety of Breez AI, its users, and others.
+                        </p>
+
+                        <h3 class="terms-subheading">7.5 Aggregate or De-Identified Data</h3>
+                        <p>
+                            Breez AI may share aggregated or de-identified data that does not reasonably identify
+                            individual users with third parties for research, industry analysis, or other purposes,
+                            provided that Breez AI takes reasonable steps to prevent re-identification.
+                        </p>
+
+                        <h3 class="terms-subheading">7.6 Limits on Use of Sensitive Personal Data</h3>
+                        <p>
+                            Breez AI does not sell Sensitive Personal Data. Breez AI does not disclose Sensitive Personal
+                            Data to third parties for cross-context behavioral advertising unrelated to a user&rsquo;s
+                            dietary needs. Sharing of dietary preference data, including religious and cultural dietary
+                            practice data, with Retailer and loyalty program partners is limited to the purpose of
+                            presenting food and grocery recommendations, offers, and promotions that are directly relevant
+                            to and consistent with the user&rsquo;s stated dietary needs and preferences.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">8. Not Medical Advice</h2>
+                        <p>
+                            THE SERVICES ARE NOT A SUBSTITUTE FOR PROFESSIONAL MEDICAL, DIETARY, OR NUTRITIONAL ADVICE,
+                            DIAGNOSIS, OR TREATMENT. MEAL PLANS, RECIPE SUGGESTIONS, NUTRITIONAL ANALYSES, CALORIE
+                            ESTIMATES, AND OTHER OUTPUTS GENERATED BY THE SERVICES &mdash; INCLUDING THOSE PRODUCED BY
+                            ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING SYSTEMS &mdash; ARE PROVIDED FOR GENERAL
+                            INFORMATIONAL AND CONVENIENCE PURPOSES ONLY. NO INFORMATION PROVIDED THROUGH THE SERVICES
+                            SHOULD BE CONSTRUED AS MEDICAL ADVICE OR RELIED UPON AS THE BASIS FOR ANY MEDICAL, DIETARY, OR
+                            HEALTH-RELATED DECISION. USERS WITH MEDICAL CONDITIONS, FOOD ALLERGIES, OR OTHER HEALTH
+                            CONCERNS SHOULD CONSULT A QUALIFIED HEALTHCARE PROVIDER BEFORE MAKING DIETARY CHANGES.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">9. Children&rsquo;s Privacy</h2>
+                        <p>
+                            The Services are not directed to children, and Breez AI does not create accounts for, or
+                            knowingly collect Personal Data from, individuals under the age of 13. Breez AI does not offer
+                            or support account profiles for minors.
+                        </p>
+                        <p>
+                            Adult users may provide household context for meal planning purposes &mdash; such as the
+                            number, ages, or food preferences of family members for whom they are cooking &mdash; and this
+                            information is collected and processed as the adult user&rsquo;s Personal Data, not as data
+                            belonging to any child. For example, an adult user may indicate that they are cooking for two
+                            young children with specific dietary preferences, and Breez AI may use that household context
+                            to inform meal plan suggestions. Breez AI does not use household context information to
+                            identify, profile, or contact any child, and does not permit children to independently access,
+                            register for, or use the Services.
+                        </p>
+                        <p>
+                            If Breez AI becomes aware that it has inadvertently collected Personal Data directly from a
+                            child under the age of 13, Breez AI will promptly delete that data. Parents or guardians who
+                            believe that a child has provided Personal Data directly to Breez AI may contact Breez AI
+                            using the information in Section 16 (Contact Us) to request deletion.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">10. Retailer and Partner Integration &mdash; Bidirectional Data Flows
+                        </h2>
+                        <p>
+                            The Services are designed to operate as one of three integrated components of a broader
+                            grocery and wellness experience &mdash; together with the Retailer&rsquo;s grocery platform
+                            and the Retailer&rsquo;s contracted loyalty program provider. Users should understand how data
+                            flows among these three parties.
+                        </p>
+                        <p>
+                            <strong>Data Breez AI receives from Retailers and loyalty program providers.</strong> The
+                            Retailer and its loyalty program provider may transmit to Breez AI information such as account
+                            identifiers, loyalty program status and reward balances, grocery purchase history, product
+                            browsing data, and demographic or household data. This data is used by Breez AI to enhance the
+                            personalization of meal plans and recipe suggestions, for example by surfacing recipes that
+                            incorporate items you commonly purchase or that align with your documented dietary patterns.
+                        </p>
+                        <p>
+                            <strong>Data Breez AI shares with Retailers and loyalty program providers.</strong> Breez AI
+                            may transmit to the Retailer and its loyalty program provider information about your use of the
+                            Services, including meal plan activity, recipe interaction data, nutritional goal progress,
+                            dietary preferences, your interactions with communications sent by Breez AI and, where
+                            applicable, AI-Generated Inferences relevant to the integrated service experience. This data
+                            may be used by the Retailer or loyalty program provider for purposes such as personalizing
+                            product recommendations, delivering relevant offers, awarding loyalty points for health and
+                            wellness activities, or measuring the performance of the integrated Services.
+                        </p>
+                        <p>
+                            <strong>Governing frameworks.</strong> The scope and conditions of data sharing among Breez AI,
+                            each Retailer, and each loyalty program provider are governed by written agreements. Users
+                            should review the relevant Retailer&rsquo;s and loyalty program provider&rsquo;s privacy
+                            policies for information about how those parties independently use data they receive. Breez AI
+                            is not responsible for the independent data practices of Retailers or loyalty program
+                            providers.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">11. Outbound Communications and Marketing Email</h2>
+
+                        <h3 class="terms-subheading">11.1 Communications Breez AI Sends</h3>
+                        <p>
+                            Breez AI sends two categories of electronic communication: transactional and service
+                            communications, and personalised marketing communications containing recipe suggestions, meal
+                            plan ideas, grocery offers, coupons, and product recommendations. Personalised marketing
+                            communications may be sent on a recurring basis, for example weekly.
+                        </p>
+
+                        <h3 class="terms-subheading">11.2 Recipients Who Do Not Have a Breez AI Account</h3>
+                        <p>
+                            Breez AI sends personalised marketing communications containing recipe suggestions, meal plan
+                            ideas, grocery offers, coupons, and product recommendations. Personalised marketing
+                            communications may be sent on a recurring basis, for example weekly.
+                        </p>
+
+                        <h3 class="terms-subheading">11.3 Legal Basis and Source of Consent</h3>
+                        <p>
+                            For personalised marketing communications sent to Retailer loyalty members, consent to
+                            marketing contact is obtained by the Retailer or its contracted loyalty programme provider at
+                            the point of loyalty program enrolment, and is transmitted to Breez AI as a consent indicator
+                            alongside the member&rsquo;s contact details. Breez AI does not independently obtain marketing
+                            consent from these recipients before the first communication.
+                        </p>
+                        <p>
+                            Breez AI sends only to recipients whose consent indicator is affirmative at the time of
+                            sending, and re-checks that indicator against the source system before each send.
+                        </p>
+                        <p>
+                            Breez AI does not purchase, rent, license, or otherwise acquire email addresses from data
+                            brokers, list vendors, or any source other than the Retailer and its contracted loyalty program
+                            provider, or direct provision by the individual.
+                        </p>
+
+                        <h3 class="terms-subheading">11.4 Sender Identity</h3>
+                        <p>
+                            Personalised marketing communications are transmitted using email infrastructure and a sending
+                            domain controlled by Breez AI, and may be presented under the Retailer&rsquo;s brand consistent
+                            with Section 1. Each communication identifies the sender and includes a valid physical postal
+                            address and a functioning unsubscribe mechanism.
+                        </p>
+
+                        <h3 class="terms-subheading">11.5 Engagement and Attribution Data</h3>
+                        <p>
+                            Breez AI collects data about how recipients interact with its communications, including:
+                        </p>
+                        <ul class="terms-list">
+                            <li>Whether a message was delivered, was undeliverable, or was reported as unwanted;</li>
+                            <li>Whether and when a message was opened, which may be recorded by means of a tracking image
+                                embedded in the message;</li>
+                            <li>Which links within a message were selected; and</li>
+                            <li>Whether a purchase of a promoted product subsequently occurred, determined by matching
+                                subsequent loyalty purchase records against products featured in the communication
+                                (&ldquo;attribution data&rdquo;).</li>
+                        </ul>
+                        <p>
+                            Engagement and attribution data is used to measure the effectiveness of the communications, to
+                            report performance to the Retailer and its loyalty program provider, and to improve future
+                            personalisation. Attribution data links a marketing communication to a subsequent grocery
+                            purchase and is therefore Personal Data; where the products concerned reveal dietary,
+                            religious, or health-related characteristics, it may constitute Sensitive Personal Data under
+                            Section 5.
+                        </p>
+                        <p>
+                            <strong>Tracking pixels.</strong> Emails sent by Breez AI contain a small, invisible image,
+                            commonly called a tracking pixel or web beacon, that loads when the message is displayed and
+                            records that the message was opened, the date and time, and technical information transmitted
+                            by your email client, which may include IP address, approximate location, device type, and
+                            email client. Most email applications allow you to block images from loading, in which case no
+                            open is recorded; conversely, some providers load images on your behalf, which may record an
+                            open whether or not you read the message. Open data is therefore an approximation. You may stop
+                            all tracking associated with Breez AI marketing email by using the unsubscribe link in any such
+                            message.
+                        </p>
+
+                        <h3 class="terms-subheading">11.6 Withdrawing Consent</h3>
+                        <p>
+                            Every personalised marketing communication contains a functioning unsubscribe link. No
+                            account, login, or password is required to use it. Unsubscribing takes effect promptly and in
+                            any event within the period required by applicable law, and Breez AI records the withdrawal so
+                            that no further marketing communication is sent to that address.
+                        </p>
+                        <p>
+                            Unsubscribing from Breez AI communications does not cancel Retailer loyalty program membership
+                            and does not stop communications sent independently by the Retailer or its loyalty programme
+                            provider.
+                        </p>
+                        <p>
+                            Recipients may also withdraw consent, or exercise any other right described in Section 13, by
+                            contacting Breez AI directly using the details in Section 16. Recipients who have no Breez AI
+                            account may exercise these rights, and Breez AI will not require account creation as a
+                            condition of doing so.
+                        </p>
+
+                        <h3 class="terms-subheading">11.7 Undeliverable Addresses and Suppression</h3>
+                        <p>
+                            Where a communication is permanently undeliverable, Breez AI records that outcome and
+                            suppresses further sending to the address concerned. Suppression data is retained to prevent
+                            repeat sending.
+                        </p>
+
+                        <h3 class="terms-subheading">11.8 Retention of Communication Data</h3>
+                        <p>
+                            Communication records, engagement data, and attribution data are retained for 12 months and
+                            thereafter deleted or de-identified. Suppression records are retained for as long as necessary
+                            to prevent further sending to an undeliverable or withdrawn address. Retention of these records
+                            is not tied to the existence of a Breez AI account, because a recipient may have none.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">12. Data Security, Storage, and Retention</h2>
+
+                        <h3 class="terms-subheading">12.1 Security Measures</h3>
+                        <p>
+                            Breez AI implements technical, administrative, and physical security measures reasonably
+                            designed to protect Personal Data against unauthorized access, disclosure, alteration, and
+                            destruction. These measures include, without limitation, encryption of data in transit and at
+                            rest, access controls, and regular security assessments. No security measures are perfect or
+                            impenetrable, and Breez AI cannot guarantee the security of any information transmitted through
+                            the Services.
+                        </p>
+
+                        <h3 class="terms-subheading">12.2 Data Storage</h3>
+                        <p>
+                            Personal Data collected by Breez AI may be stored and processed in the United States and, where
+                            applicable, in other countries in which Breez AI or its service providers operate. By using the
+                            Services, users acknowledge that their data may be transferred to and stored in countries
+                            outside of their country of residence, which may have different data protection laws.
+                        </p>
+
+                        <h3 class="terms-subheading">12.3 Retention</h3>
+                        <p>
+                            Breez AI retains Personal Data for as long as necessary to provide the Services, fulfill the
+                            purposes described in this Privacy Policy, comply with applicable legal obligations, resolve
+                            disputes, and enforce agreements. The appropriate retention period for a given category of data
+                            depends on its nature and sensitivity, the purposes for which it was collected, and applicable
+                            legal requirements. Health and dietary data associated with an active user account is retained
+                            for the duration of the account, plus any legally required retention period thereafter. Upon
+                            account deletion, Breez AI will delete or de-identify Personal Data in accordance with
+                            applicable law and its data retention schedules, except where retention is required by law or
+                            necessary for legitimate business purposes such as fraud prevention or legal compliance. Where
+                            Breez AI holds data about an individual who does not have a Breez AI account, such as a
+                            Retailer loyalty member receiving communications under Section 11, retention is governed by
+                            Section 11.8 rather than by account duration.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">13. Privacy Choices and Rights</h2>
+                        <p>
+                            Depending on applicable law and the nature of the data Breez AI holds about you, you may have
+                            some or all of the following rights:
+                        </p>
+                        <ul class="terms-list">
+                            <li><strong>Access and portability.</strong> You may request confirmation of whether Breez AI
+                                processes Personal Data about you and, if so, access to that data. You may also have the
+                                right to receive your Personal Data in a portable format.</li>
+                            <li><strong>Correction.</strong> You may request correction of inaccurate or incomplete
+                                Personal Data.</li>
+                            <li><strong>Deletion.</strong> You may request deletion of Personal Data that Breez AI holds
+                                about you, subject to exceptions for data that Breez AI is required or permitted to retain
+                                under applicable law.</li>
+                            <li><strong>Opt out of AI model training.</strong> Where required by applicable law, you may
+                                opt out of the use of your Personal Data for the purpose of training or improving Breez
+                                AI&rsquo;s AI and machine learning models. To submit an opt-out request, contact Breez AI
+                                at Breez AI Corporation, 9225 Bay Plaza Blvd, Suite 417 (1173), Tampa, FL 33619; or
+                                <a href="mailto:Legal@mybreezai.com">Legal@mybreezai.com</a>.</li>
+                            <li><strong>Opt out of sale or sharing.</strong> To the extent Breez AI sells or shares
+                                Personal Data as those terms are defined under applicable law, you may have the right to
+                                opt out of such sale or sharing.</li>
+                            <li><strong>Withdraw consent.</strong> Where processing is based on consent, you may withdraw
+                                consent at any time. Withdrawal of consent does not affect the lawfulness of processing
+                                that occurred prior to withdrawal.</li>
+                            <li><strong>Limit sensitive data processing.</strong> You may have the right to limit Breez
+                                AI&rsquo;s processing of Sensitive Personal Data to uses necessary to provide the Services.
+                            </li>
+                            <li><strong>Non-discrimination.</strong> Breez AI will not discriminate against you for
+                                exercising your privacy rights.</li>
+                        </ul>
+                        <p>
+                            To submit a privacy rights request, contact Breez AI using the information in Section 16
+                            (Contact Us). Breez AI may need to verify your identity before processing certain requests.
+                            Breez AI will respond to verifiable requests within the time periods required by applicable
+                            law. Where a request is submitted through a Retailer&rsquo;s platform, Breez AI may require
+                            that you contact Breez AI directly to exercise your rights with respect to data Breez AI
+                            controls.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">14. Third-Party Links and Integrations</h2>
+                        <p>
+                            The Services may contain links to or integrations with third-party websites, applications, or
+                            services. This Privacy Policy does not apply to those third parties. Breez AI is not
+                            responsible for the privacy practices of third-party platforms, including Retailers, loyalty
+                            program providers, wearable device providers, or health application providers. Users are
+                            encouraged to review the privacy policies of any third-party services they access in connection
+                            with the Services.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">15. Changes to This Privacy Policy</h2>
+                        <p>
+                            Breez AI may update this Privacy Policy from time to time. When Breez AI makes material
+                            changes, it will update the effective date at the top of the Policy and, where required by
+                            applicable law or where Breez AI determines it is appropriate, provide notice through the
+                            Services or by email. Continued use of the Services following the posting of an updated Privacy
+                            Policy constitutes acceptance of the changes to the extent permitted by applicable law.
+                        </p>
+                        <p>
+                            Breez AI conducts a scheduled review of this Privacy Policy on a quarterly basis to assess
+                            whether updates are required in light of changes to applicable law, changes to the Services, or
+                            changes to data practices. The next scheduled review date is noted at the top of this document.
+                        </p>
+                    </div>
+
+                    <div class="terms-section-block">
+                        <h2 class="terms-heading">16. Contact Us</h2>
+                        <p>
+                            For questions about this Privacy Policy, to submit a privacy rights request, or to report a
+                            concern about Breez AI&rsquo;s data practices, contact:
+                        </p>
+                        <p>
+                            Breez AI Corporation<br>
+                            Attn: Privacy<br>
+                            9225 Bay Plaza Blvd, Suite 417 (1173)<br>
+                            Tampa, FL 33619<br>
+                            Email: <a href="mailto:Legal@mybreezai.com">Legal@mybreezai.com</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="terms-footer">
+                    <div class="terms-footer-inner">
+                        <div class="terms-footer-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="terms-footer-content">
+                            <h3>Questions about privacy?</h3>
+                            <p>We’re here to help. <a href="/contactus/">Contact us!</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Partial -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('/partials/footer.html')
+            .then(function (r) { return r.text(); })
+            .then(function (html) {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+    </script>
+
+    <script>
+        // Scroll handling for header
+        const header = document.getElementById('header');
+
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+
+            if (scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News & Resources | Breez AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="/content/BreezWebLogo.png">
+
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/hamburgermenu.css">
+  <link rel="stylesheet" href="blog.css?v=21">
+
+  <!-- HubSpot Tracking Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244231130.js"></script>
+</head>
+
+<body>
+  <!-- Header Partial -->
+  <div id="header-placeholder" style="min-height: 80px;"></div>
+
+  <script>
+    fetch('/partials/header.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        initializeHeader();
+      });
+
+    function initializeHeader() {
+      var btn = document.getElementById('mobileMenuBtn');
+      var menu = document.getElementById('mobileMenu');
+      var dropdownTriggers = document.querySelectorAll('.mobile-menu-dropdown-trigger');
+      var menuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-menu-dropdown-items a, .mobile-menu-demo a');
+
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function () {
+        btn.classList.toggle('active');
+        menu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+
+      dropdownTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          trigger.parentElement.classList.toggle('open');
+        });
+      });
+
+      menuLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1000) {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      });
+
+      // Mark the active nav link based on current URL
+      var path = window.location.pathname;
+      document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(function (link) {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('nav-link--active');
+        }
+      });
+    }
+  </script>
+
+  <!-- Blog Hero -->
+  <section class="blog-hero">
+    <div class="blog-hero-inner reveal">
+      <span class="blog-label">News & Resources</span>
+      <h1>Breez Bites</h1>
+      <p>Insights, tips, and news about AI-powered grocery solutions and the future of retail.</p>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="blog-filters">
+    <div class="blog-filters-inner">
+      <button class="filter-btn active" data-category="all">All Posts</button>
+      <button class="filter-btn" data-category="breez-news">Breez News</button>
+      <button class="filter-btn" data-category="breez-in-the-news">Breez in the News</button>
+      <button class="filter-btn" data-category="breez-insights">Breez Insights</button>
+    </div>
+  </section>
+
+  <!-- Blog Posts Grid -->
+  <section class="blog-posts-section">
+    <div class="blog-posts-container">
+
+      <!-- Loading State -->
+      <div class="blog-loading" id="blogLoading">
+        <div class="loading-spinner"></div>
+        <p>Loading latest posts...</p>
+      </div>
+
+      <!-- Error State -->
+      <div class="blog-error" id="blogError" style="display: none;">
+        <div class="error-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <h3>Unable to load posts</h3>
+        <p>Please check back later or refresh the page.</p>
+        <button class="retry-btn" onclick="loadBlogPosts()">Try Again</button>
+      </div>
+
+      <!-- Empty State -->
+      <div class="blog-empty" id="blogEmpty" style="display: none;">
+        <div class="empty-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+        <h3>No posts yet</h3>
+        <p>We're working on great content. Check back soon!</p>
+      </div>
+
+      <!-- Posts Grid (populated by JavaScript) -->
+      <div class="blog-grid" id="blogGrid"></div>
+
+      <!-- Load More Button -->
+      <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+        <button class="load-more-btn" id="loadMoreBtn">
+          Load More Articles
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="newsletter-section">
+    <div class="newsletter-card reveal">
+      <div class="newsletter-content">
+        <span class="newsletter-label" id="newsletterLabel1">Stay Updated</span>
+        <h2 id="newsletterLabel2">Get the latest from Breez</h2>
+        <p id="newsletterLabel3">Subscribe to receive new articles, product updates, and industry insights directly in
+          your inbox.</p>
+
+        <form class="newsletter-form" id="newsletterForm" data-hs-do-not-collect="true">
+          <div class="form-row">
+            <input type="email" class="form-input" name="email" placeholder="Enter your email" required>
+            <button type="submit" class="form-btn">Subscribe</button>
+          </div>
+          <p class="form-note">No spam, unsubscribe anytime.</p>
+        </form>
+
+        <!-- Success State -->
+        <div class="newsletter-success" id="newsletterSuccess">
+          <div class="newsletter-success-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <h3>You're subscribed!</h3>
+          <p>Thanks for joining. You'll receive our latest articles and updates in your inbox.</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="newsletter-error" id="newsletterError">
+          <p>Something went wrong. Please try again.</p>
+        </div>
+      </div>
+      <div class="newsletter-decoration" id="newsletterDecoration">
+        <svg viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="100" r="80" stroke="currentColor" stroke-width="0.5" opacity="0.3" />
+          <circle cx="100" cy="100" r="60" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+          <circle cx="100" cy="100" r="40" stroke="currentColor" stroke-width="0.5" opacity="0.5" />
+          <circle cx="100" cy="100" r="20" fill="currentColor" opacity="0.1" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="cta-inner reveal">
+      <h2>Ready to transform your grocery experience?</h2>
+      <p>See how Breez AI can help you increase basket sizes and build customer loyalty.</p>
+      <div class="cta-buttons">
+        <a href="/bookdemo/" class="btn-primary">
+          <span class="btn-primary-bg"></span>
+          <span class="btn-primary-spotlight"></span>
+          <span class="btn-primary-content">
+            <span class="btn-primary-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M18.7414 12.6903C19.6452 15.1301 18.7559 18.3585 17.1721 19.9423C15.1512 21.9632 9.50358 22.1168 7.65461 19.8175C6.48129 18.3585 5.56933 16.5877 4.99449 15.001C4.68618 14.15 5.13859 13.2323 5.98366 12.9082C6.73171 12.6212 7.57895 12.8838 8.03363 13.5435L9.16905 15.1908V6.08708C9.16905 5.21056 9.87961 4.5 10.7561 4.5C11.6231 4.5 12.3297 5.19579 12.343 6.06271L12.4061 10.1687C14.6272 10.3808 17.8433 10.2662 18.7414 12.6903Z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M9.01733 9.5C7.93016 8.86052 7.19531 7.63895 7.19531 6.23711C7.19531 4.17316 8.78825 2.5 10.7532 2.5C12.7182 2.5 14.3112 4.17316 14.3112 6.23711C14.3112 7.61658 13.5996 8.82148 12.5409 9.46894"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </span>
+            <span class="btn-primary-text">Schedule a Demo</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Partial -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch('/partials/footer.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
+
+  <script>
+    const HUBSPOT_PORTAL_ID = '244231130';
+    const HUBSPOT_NEWSLETTER_FORM_ID = 'fbf9e8be-47f5-49b4-803f-afbd7afefc53';
+
+    const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSP089cptBQQqPgcBh3XxtpnHHTzn0J-oYIZWLal_3ZCkx6T23cdC94aLCc-kLMeNV3k4GgZ0yZBD5O/pub?gid=0&single=true&output=csv';
+
+    const POSTS_PER_PAGE = 9;
+    let allPosts = [];
+    let filteredPosts = [];
+    let currentPage = 1;
+    let currentCategory = 'all';
+
+    // Legacy category values from before the News/Insights split.
+    // Anything in this map is auto-folded into the new structure so the page
+    // doesn't break if a sheet row hasn't been re-tagged yet.
+    // NOTE: legacy 'news' is intentionally NOT in this map — old "Company News"
+    // rows must be manually re-tagged to either 'breez-news' (press release)
+    // or 'breez-in-the-news' (editorial coverage) since we can't tell which
+    // is which programmatically. A console warning fires when one is detected.
+    const CATEGORY_ALIASES = {
+      'tips': 'breez-insights',
+      'product': 'breez-insights',
+      'insights': 'breez-insights'
+    };
+
+    const VALID_CATEGORIES = new Set([
+      'breez-news',
+      'breez-in-the-news',
+      'breez-insights'
+    ]);
+
+    function normalizeCategory(post) {
+      const original = post.category;
+      if (CATEGORY_ALIASES[original]) {
+        post.category = CATEGORY_ALIASES[original];
+      } else if (original === 'news') {
+        console.warn(
+          `[blog] Post "${post.slug || post.title}" has legacy category "news" — ` +
+          `re-tag in the sheet to either "breez-news" (press release) or ` +
+          `"breez-in-the-news" (editorial). Defaulting to breez-in-the-news for now.`
+        );
+        post.category = 'breez-in-the-news';
+      } else if (!VALID_CATEGORIES.has(original)) {
+        console.warn(
+          `[blog] Post "${post.slug || post.title}" has unrecognized category "${original}". ` +
+          `Defaulting to breez-insights.`
+        );
+        post.category = 'breez-insights';
+      }
+    }
+
+    // Robust truthy check for spreadsheet boolean cells.
+    // Handles "TRUE", "True", "true", "T", "YES", "Y", "1", checkbox exports, etc.
+    // Anything else (including "F", "FALSE", "", null, undefined) returns false.
+    function isTrue(value) {
+      if (value === true) return true;
+      if (value === false || value == null) return false;
+      const s = String(value).trim().toUpperCase();
+      return s === 'TRUE' || s === 'T' || s === 'YES' || s === 'Y' || s === '1';
+    }
+
+    // Parse CSV to JSON (handles multi-line content in quoted fields)
+    function parseCSV(csv) {
+      const posts = [];
+      let pos = 0;
+
+      // Helper to read a field (handles quotes and multi-line content)
+      function readField() {
+        let field = '';
+        let inQuotes = false;
+
+        // Check if field starts with a quote
+        if (csv[pos] === '"') {
+          inQuotes = true;
+          pos++;
+        }
+
+        while (pos < csv.length) {
+          const char = csv[pos];
+
+          if (inQuotes) {
+            if (char === '"') {
+              // Check for escaped quote ("")
+              if (csv[pos + 1] === '"') {
+                field += '"';
+                pos += 2;
+              } else {
+                // End of quoted field
+                pos++;
+                inQuotes = false;
+              }
+            } else {
+              field += char;
+              pos++;
+            }
+          } else {
+            if (char === ',' || char === '\n' || char === '\r') {
+              break;
+            }
+            field += char;
+            pos++;
+          }
+        }
+
+        return field.trim();
+      }
+
+      // Helper to read a row
+      function readRow() {
+        const fields = [];
+        while (pos < csv.length) {
+          fields.push(readField());
+
+          if (csv[pos] === ',') {
+            pos++;
+          } else if (csv[pos] === '\r') {
+            pos++;
+            if (csv[pos] === '\n') pos++;
+            break;
+          } else if (csv[pos] === '\n') {
+            pos++;
+            break;
+          } else {
+            break;
+          }
+        }
+        return fields;
+      }
+
+      // Read header row
+      const headers = readRow().map(h => {
+        // Normalize column name: publishedDate -> publishDate
+        return h === 'publishedDate' ? 'publishDate' : h;
+      });
+
+      // Read data rows
+      while (pos < csv.length) {
+        // Skip empty lines
+        while (pos < csv.length && (csv[pos] === '\n' || csv[pos] === '\r')) {
+          pos++;
+        }
+        if (pos >= csv.length) break;
+
+        const values = readRow();
+        if (values.length === 0 || (values.length === 1 && values[0] === '')) continue;
+
+        const post = {};
+        headers.forEach((header, index) => {
+          post[header] = values[index] || '';
+        });
+
+        // Only include published posts
+        if (isTrue(post.published)) {
+          normalizeCategory(post);
+          posts.push(post);
+        }
+      }
+
+      // Sort by date (newest first). Use slug/title as a stable tiebreaker so
+      // posts with identical publishDates always render in the same order
+      // across reloads — otherwise the "first featured" can shift.
+      posts.sort((a, b) => {
+        const dateDiff = new Date(b.publishDate) - new Date(a.publishDate);
+        if (dateDiff && !Number.isNaN(dateDiff)) return dateDiff;
+        const aKey = (a.slug || a.title || '').toLowerCase();
+        const bKey = (b.slug || b.title || '').toLowerCase();
+        return aKey.localeCompare(bKey);
+      });
+      return posts;
+    }
+
+    // Sanitize post.imageFocus into a safe object-position value.
+    // Accepts up to 2 space-separated tokens, each a keyword
+    // (top/bottom/left/right/center) or a number with %/px units.
+    // Anything else is rejected so we never inject arbitrary CSS.
+    function getFocusStyle(post) {
+      const v = (post.imageFocus || '').trim();
+      if (!v) return '';
+      const tokens = v.split(/\s+/);
+      if (tokens.length < 1 || tokens.length > 2) return '';
+      const tokenOk = /^(top|bottom|left|right|center|-?\d+(\.\d+)?(%|px))$/i;
+      if (!tokens.every(t => tokenOk.test(t))) return '';
+      return ` style="object-position: ${v}"`;
+    }
+
+    // Format date
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+
+    // Get category display name (used for the badge on cards)
+    function getCategoryName(category) {
+      const names = {
+        'breez-news': 'Press Release',
+        'breez-in-the-news': 'Breez in the News',
+        'breez-insights': 'Breez Insights'
+      };
+      return names[category] || category;
+    }
+
+    // Create blog post card HTML
+    function createPostCard(post, isFeatured = false) {
+      const cardClass = isFeatured ? 'blog-card blog-card-featured' : 'blog-card';
+      const isExternal = isTrue(post.external);
+
+      // A post is treated as a press release if it's tagged breez-news OR the
+      // byline is empty / set to a "Press Release" placeholder. This means
+      // Debbie can drive the PR treatment from the sheet by either tagging
+      // the category or just clearing the author field — both work.
+      const rawAuthor = (post.author || '').trim();
+      const authorMissing = rawAuthor === '' || rawAuthor.toLowerCase() === 'press release';
+      const isPressRelease = post.category === 'breez-news' || authorMissing;
+
+      // Author name - linked if external profile exists
+      const authorNameHtml = post.externalProfile
+        ? `<a href="${post.externalProfile}" target="_blank" rel="noopener" class="author-name author-link" onclick="event.stopPropagation()">${post.author}</a>`
+        : `<span class="author-name">${post.author}</span>`;
+
+      // Press releases get a "PR" avatar circle and "Press Release" label in
+      // place of the byline. Everything else renders the normal author block.
+      const authorBlockHtml = isPressRelease
+        ? `
+              <div class="blog-card-author">
+                <div class="author-avatar-placeholder author-avatar-placeholder--press-release">PR</div>
+                <div class="author-info">
+                  <span class="author-name">Press Release</span>
+                </div>
+              </div>`
+        : `
+              <div class="blog-card-author">
+                ${post.authorImage ? `<img src="${post.authorImage}" alt="${post.author}" class="author-avatar">` : `<div class="author-avatar-placeholder">${post.author.charAt(0)}</div>`}
+                <div class="author-info">
+                  ${authorNameHtml}
+                  ${post.authorRole ? `<span class="author-role">${post.authorRole}</span>` : ''}
+                </div>
+              </div>`;
+
+      return `
+        <article class="${cardClass}" onclick="window.location.href='/blog/post/#${post.slug}'" style="cursor: pointer;">
+          <div class="blog-card-link">
+            <div class="blog-card-image">
+              <img src="${post.featuredImage}" alt="${post.title}" loading="lazy"${getFocusStyle(post)}>
+            </div>
+            <div class="blog-card-content">
+              <time class="blog-card-date">${formatDate(post.publishDate)}</time>
+              <h3 class="blog-card-title">${post.title}</h3>
+              <p class="blog-card-excerpt">${post.excerpt}</p>
+              ${authorBlockHtml}
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // Render posts
+    function renderPosts() {
+      const grid = document.getElementById('blogGrid');
+      const loadMoreContainer = document.getElementById('loadMoreContainer');
+
+      const startIndex = 0;
+      const endIndex = currentPage * POSTS_PER_PAGE;
+      const postsToShow = filteredPosts.slice(startIndex, endIndex);
+
+      if (postsToShow.length === 0) {
+        document.getElementById('blogEmpty').style.display = 'flex';
+        grid.innerHTML = '';
+        loadMoreContainer.style.display = 'none';
+        return;
+      }
+
+      document.getElementById('blogEmpty').style.display = 'none';
+
+      // Find the featured post. If multiple posts are marked featured, take
+      // the most recent one (postsToShow is already sorted newest-first with
+      // a stable tiebreaker), and warn the user so they can fix the sheet.
+      const featuredPosts = postsToShow.filter(p => isTrue(p.featured));
+      const featuredPost = featuredPosts[0];
+      if (featuredPosts.length > 1) {
+        console.warn(
+          `[blog] ${featuredPosts.length} posts are marked featured=TRUE in the sheet. ` +
+          `Only the most recent one will be shown as featured. Set the others to FALSE.`,
+          featuredPosts.map(p => p.slug || p.title)
+        );
+      }
+      const regularPosts = postsToShow.filter(p => p !== featuredPost);
+
+      let html = '';
+
+      // Featured post first (if exists and on first page)
+      if (featuredPost && currentPage === 1 && currentCategory === 'all') {
+        html += createPostCard(featuredPost, true);
+      } else if (featuredPost) {
+        regularPosts.unshift(featuredPost);
+      }
+
+      // Regular posts
+      regularPosts.forEach(post => {
+        html += createPostCard(post);
+      });
+
+      grid.innerHTML = html;
+
+      // Show/hide load more button
+      if (endIndex < filteredPosts.length) {
+        loadMoreContainer.style.display = 'flex';
+      } else {
+        loadMoreContainer.style.display = 'none';
+      }
+
+      // Animate cards
+      setTimeout(() => {
+        document.querySelectorAll('.blog-card').forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, index * 100);
+        });
+      }, 100);
+    }
+
+    // Filter posts by category
+    function filterPosts(category) {
+      currentCategory = category;
+      currentPage = 1;
+
+      if (category === 'all') {
+        filteredPosts = [...allPosts];
+      } else {
+        filteredPosts = allPosts.filter(post => post.category === category);
+      }
+
+      renderPosts();
+    }
+
+    // Load blog posts from Google Sheets
+    async function loadBlogPosts() {
+      const loadingEl = document.getElementById('blogLoading');
+      const errorEl = document.getElementById('blogError');
+      const gridEl = document.getElementById('blogGrid');
+      const emptyEl = document.getElementById('blogEmpty');
+
+      // Show loading
+      loadingEl.style.display = 'flex';
+      errorEl.style.display = 'none';
+      emptyEl.style.display = 'none';
+      gridEl.innerHTML = '';
+
+      // Check if URL is configured
+      if (!GOOGLE_SHEET_CSV_URL || GOOGLE_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE') {
+        loadingEl.style.display = 'none';
+        emptyEl.style.display = 'flex';
+        emptyEl.querySelector('h3').textContent = 'Blog Coming Soon';
+        emptyEl.querySelector('p').textContent = 'We\'re setting up our blog. Check back shortly!';
+        return;
+      }
+
+      try {
+        const response = await fetch(GOOGLE_SHEET_CSV_URL);
+        if (!response.ok) throw new Error('Failed to fetch');
+
+        const csv = await response.text();
+        allPosts = parseCSV(csv);
+        filteredPosts = [...allPosts];
+
+        loadingEl.style.display = 'none';
+        renderPosts();
+
+      } catch (error) {
+        console.error('Error loading blog posts:', error);
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'flex';
+      }
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      // Load posts
+      loadBlogPosts();
+
+      // Category filter buttons
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          filterPosts(btn.dataset.category);
+        });
+      });
+
+      // Load more button
+      document.getElementById('loadMoreBtn').addEventListener('click', () => {
+        currentPage++;
+        renderPosts();
+      });
+
+      // Newsletter form submission with HubSpot API
+      const newsletterForm = document.getElementById('newsletterForm');
+      const newsletterSuccess = document.getElementById('newsletterSuccess');
+      const newsletterError = document.getElementById('newsletterError');
+      const newsletterDecoration = document.getElementById('newsletterDecoration');
+      const newsletterLabel1 = document.getElementById('newsletterLabel1');
+      const newsletterLabel2 = document.getElementById('newsletterLabel2');
+      const newsletterLabel3 = document.getElementById('newsletterLabel3');
+
+      newsletterForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Get submit button and add loading state
+        const submitBtn = newsletterForm.querySelector('.form-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Subscribing...';
+        submitBtn.disabled = true;
+        newsletterError.style.display = 'none';
+
+        // Get email value
+        const email = newsletterForm.querySelector('input[name="email"]').value;
+
+        // Get HubSpot tracking cookie (hutk) for contact association
+        function getHubspotCookie() {
+          const cookies = document.cookie.split(';');
+          for (let cookie of cookies) {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'hubspotutk') {
+              return value;
+            }
+          }
+          return null;
+        }
+
+        const hutk = getHubspotCookie();
+
+        // Build context object
+        const context = {
+          pageUri: window.location.href,
+          pageName: document.title
+        };
+
+        // Add hutk if available (for contact tracking)
+        if (hutk) {
+          context.hutk = hutk;
+        }
+
+        // Prepare HubSpot API payload
+        const hubspotData = {
+          submittedAt: Date.now(),
+          fields: [
+            {
+              name: 'email',
+              value: email
+            }
+          ],
+          context: context
+        };
+
+        // Log for debugging (remove in production)
+        console.log('Submitting to HubSpot:', {
+          portalId: HUBSPOT_PORTAL_ID,
+          formId: HUBSPOT_NEWSLETTER_FORM_ID,
+          email: email,
+          hutk: hutk ? 'present' : 'not found'
+        });
+
+        try {
+          const response = await fetch(
+            `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_NEWSLETTER_FORM_ID}`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(hubspotData)
+            }
+          );
+
+          const responseData = await response.json();
+          console.log('HubSpot response:', responseData);
+
+          if (response.ok) {
+            // Success! Hide form, show success message
+            newsletterForm.style.display = 'none';
+            newsletterLabel1.style.display = 'none';
+            newsletterLabel2.style.display = 'none';
+            newsletterLabel3.style.display = 'none';
+            newsletterDecoration.style.display = 'none';
+            newsletterSuccess.style.display = 'block';
+          } else {
+            // Handle HubSpot errors
+            console.error('HubSpot submission error:', responseData);
+
+            // Show specific error if available
+            if (responseData.errors && responseData.errors.length > 0) {
+              const errorMsg = responseData.errors.map(e => e.message).join(', ');
+              newsletterError.querySelector('p').textContent = errorMsg;
+            }
+
+            newsletterError.style.display = 'block';
+
+            // Restore button
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+        } catch (error) {
+          console.error('Network error:', error);
+          newsletterError.style.display = 'block';
+
+          // Restore button
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      });
+    });
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+
+</html>

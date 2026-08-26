@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading... | Breez AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="/content/BreezWebLogo.png">
+
+  <link rel="stylesheet" href="/styles.css?v=5">
+  <link rel="stylesheet" href="/hamburgermenu.css">
+  <link rel="stylesheet" href="/blog/blog.css?v=8">
+
+  <!-- Open Graph tags - will be updated dynamically -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Breez AI">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body>
+  <!-- Header Partial -->
+  <div id="header-placeholder" style="min-height: 80px;"></div>
+
+  <script>
+    fetch('/partials/header.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        initializeHeader();
+      });
+
+    function initializeHeader() {
+      var btn = document.getElementById('mobileMenuBtn');
+      var menu = document.getElementById('mobileMenu');
+      var dropdownTriggers = document.querySelectorAll('.mobile-menu-dropdown-trigger');
+      var menuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-menu-dropdown-items a, .mobile-menu-demo a');
+
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function () {
+        btn.classList.toggle('active');
+        menu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+
+      dropdownTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          trigger.parentElement.classList.toggle('open');
+        });
+      });
+
+      menuLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1000) {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      });
+
+      // Mark the active nav link based on current URL
+      var path = window.location.pathname;
+      document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(function (link) {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('nav-link--active');
+        }
+      });
+    }
+  </script>
+
+  <!-- Article Loading State -->
+  <div class="article-loading" id="articleLoading">
+    <div class="loading-spinner"></div>
+    <p>Loading article...</p>
+  </div>
+
+  <!-- Article Error State -->
+  <div class="article-error" id="articleError" style="display: none;">
+    <div class="error-content">
+      <div class="error-icon">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+      </div>
+      <h2>Article Not Found</h2>
+      <p>The article you're looking for doesn't exist or may have been moved.</p>
+      <a href="/blog/" class="back-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Blog
+      </a>
+    </div>
+  </div>
+
+  <!-- Article Content (populated by JavaScript) -->
+  <article class="article-container" id="articleContainer" style="display: none;">
+
+    <!-- Breadcrumb -->
+    <div class="article-breadcrumb">
+      <a href="/blog/">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to all articles
+      </a>
+    </div>
+
+    <!-- Article Header -->
+    <header class="article-header">
+      <span class="article-category" id="articleCategory"></span>
+      <h1 class="article-title" id="articleTitle"></h1>
+      <p class="article-excerpt" id="articleExcerpt"></p>
+
+      <div class="article-meta">
+        <div class="article-author">
+          <div class="author-avatar-wrapper" id="authorAvatarWrapper"></div>
+          <div class="author-details">
+            <span class="author-name" id="authorName"></span>
+            <span class="author-role" id="authorRole"></span>
+          </div>
+        </div>
+        <div class="article-date-share">
+          <time class="article-date" id="articleDate"></time>
+          <div class="article-share">
+            <button class="share-btn" id="shareLinkedIn" title="Share on LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </button>
+            <button class="share-btn" id="shareTwitter" title="Share on Twitter/X">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                </path>
+              </svg>
+            </button>
+            <button class="share-btn" id="copyLink" title="Copy link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Image -->
+    <div class="article-featured-image" id="articleFeaturedImage">
+      <img src="" alt="" id="featuredImg">
+    </div>
+
+    <!-- Article Body -->
+    <div class="article-body" id="articleBody">
+    </div>
+
+    <!-- Article Footer -->
+    <footer class="article-footer">
+      <div class="article-tags" id="articleTags">
+      </div>
+
+      <div class="article-cta">
+        <h3>Want to learn more about AI-powered grocery solutions?</h3>
+        <p>See how Breez AI can transform your customer experience.</p>
+        <div class="cta-buttons">
+          <a href="/bookdemo/" class="btn-demo">
+            <span class="btn-demo-bg"></span>
+            <span class="btn-demo-spotlight"></span>
+            <span class="btn-demo-content">
+              <span class="btn-demo-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M18.7414 12.6903C19.6452 15.1301 18.7559 18.3585 17.1721 19.9423C15.1512 21.9632 9.50358 22.1168 7.65461 19.8175C6.48129 18.3585 5.56933 16.5877 4.99449 15.001C4.68618 14.15 5.13859 13.2323 5.98366 12.9082C6.73171 12.6212 7.57895 12.8838 8.03363 13.5435L9.16905 15.1908V6.08708C9.16905 5.21056 9.87961 4.5 10.7561 4.5C11.6231 4.5 12.3297 5.19579 12.343 6.06271L12.4061 10.1687C14.6272 10.3808 17.8433 10.2662 18.7414 12.6903Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path
+                    d="M9.01733 9.5C7.93016 8.86052 7.19531 7.63895 7.19531 6.23711C7.19531 4.17316 8.78825 2.5 10.7532 2.5C12.7182 2.5 14.3112 4.17316 14.3112 6.23711C14.3112 7.61658 13.5996 8.82148 12.5409 9.46894"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              <span class="btn-demo-text">Schedule a demo</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+  <!-- Related Posts -->
+  <section class="related-posts-section" id="relatedPostsSection" style="display: none;">
+    <div class="related-posts-inner">
+      <h2>More from Breez Bites</h2>
+      <div class="related-posts-grid" id="relatedPostsGrid">
+      </div>
+      <a href="/blog/" class="view-all-btn">View All Articles</a>
+    </div>
+  </section>
+
+  <!-- Footer Partial -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch('/partials/footer.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
+
+  <script>
+    const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSP089cptBQQqPgcBh3XxtpnHHTzn0J-oYIZWLal_3ZCkx6T23cdC94aLCc-kLMeNV3k4GgZ0yZBD5O/pub?gid=0&single=true&output=csv';
+
+    // Get slug from URL
+    function getSlugFromURL() {
+      return window.location.hash.slice(1) || null;
+    }
+
+    // Parse CSV to JSON (handles multi-line content in quoted fields)
+    function parseCSV(csv) {
+      const posts = [];
+      let pos = 0;
+
+      // Helper to read a field (handles quotes and multi-line content)
+      function readField() {
+        let field = '';
+        let inQuotes = false;
+
+        // Check if field starts with a quote
+        if (csv[pos] === '"') {
+          inQuotes = true;
+          pos++;
+        }
+
+        while (pos < csv.length) {
+          const char = csv[pos];
+
+          if (inQuotes) {
+            if (char === '"') {
+              // Check for escaped quote ("")
+              if (csv[pos + 1] === '"') {
+                field += '"';
+                pos += 2;
+              } else {
+                // End of quoted field
+                pos++;
+                inQuotes = false;
+              }
+            } else {
+              field += char;
+              pos++;
+            }
+          } else {
+            if (char === ',' || char === '\n' || char === '\r') {
+              break;
+            }
+            field += char;
+            pos++;
+          }
+        }
+
+        return field.trim();
+      }
+
+      // Helper to read a row
+      function readRow() {
+        const fields = [];
+        while (pos < csv.length) {
+          fields.push(readField());
+
+          if (csv[pos] === ',') {
+            pos++;
+          } else if (csv[pos] === '\r') {
+            pos++;
+            if (csv[pos] === '\n') pos++;
+            break;
+          } else if (csv[pos] === '\n') {
+            pos++;
+            break;
+          } else {
+            break;
+          }
+        }
+        return fields;
+      }
+
+      // Read header row
+      const headers = readRow().map(h => {
+        // Normalize column name: publishedDate -> publishDate
+        return h === 'publishedDate' ? 'publishDate' : h;
+      });
+
+      // Read data rows
+      while (pos < csv.length) {
+        // Skip empty lines
+        while (pos < csv.length && (csv[pos] === '\n' || csv[pos] === '\r')) {
+          pos++;
+        }
+        if (pos >= csv.length) break;
+
+        const values = readRow();
+        if (values.length === 0 || (values.length === 1 && values[0] === '')) continue;
+
+        const post = {};
+        headers.forEach((header, index) => {
+          post[header] = values[index] || '';
+        });
+
+        // Only include published posts
+        if (post.published && post.published.toUpperCase() === 'TRUE') {
+          posts.push(post);
+        }
+      }
+
+      // Sort by date (newest first)
+      posts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+      return posts;
+    }
+
+    // Format date
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+
+    // Sanitize post.imageFocus into a safe object-position value.
+    // Accepts up to 2 space-separated tokens, each a keyword
+    // (top/bottom/left/right/center) or a number with %/px units.
+    // Anything else is rejected so we never inject arbitrary CSS.
+    function getFocusStyle(post) {
+      const v = (post.imageFocus || '').trim();
+      if (!v) return '';
+      const tokens = v.split(/\s+/);
+      if (tokens.length < 1 || tokens.length > 2) return '';
+      const tokenOk = /^(top|bottom|left|right|center|-?\d+(\.\d+)?(%|px))$/i;
+      if (!tokens.every(t => tokenOk.test(t))) return '';
+      return ` style="object-position: ${v}"`;
+    }
+
+    // Get category display name
+    function getCategoryName(category) {
+      const names = {
+        'news': 'Company News',
+        'insights': 'Industry Insights',
+        'tips': 'Tips & Guides',
+        'product': 'Product Updates'
+      };
+      return names[category] || category;
+    }
+
+    // Process content (convert line breaks and basic formatting)
+    function processContent(content) {
+      if (!content) return '';
+
+      // Handle explicit HTML if present
+      if (content.includes('<p>') || content.includes('<h')) {
+        return content;
+      }
+
+      // Convert markdown-style formatting
+      let processed = content
+        // Headers
+        .replace(/^### (.*$)/gm, '<h3>$1</h3>')
+        .replace(/^## (.*$)/gm, '<h2>$1</h2>')
+        // Bold
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        // Italic
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        // Links
+        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
+        // Line breaks to paragraphs
+        .split(/\n\n+/)
+        .map(p => p.trim())
+        .filter(p => p)
+        .map(p => {
+          if (p.startsWith('<h')) return p;
+          return `<p>${p.replace(/\n/g, '<br>')}</p>`;
+        })
+        .join('\n');
+
+      return processed;
+    }
+
+    // Create related post card
+    function createRelatedCard(post) {
+      return `
+        <article class="related-card">
+          <a href="/blog/post/#${post.slug}">
+            <div class="related-card-image">
+              <img src="${post.featuredImage}" alt="${post.title}" loading="lazy"${getFocusStyle(post)}>
+            </div>
+            <div class="related-card-content">
+              <span class="related-card-category">${getCategoryName(post.category)}</span>
+              <h3>${post.title}</h3>
+              <time>${formatDate(post.publishDate)}</time>
+            </div>
+          </a>
+        </article>
+      `;
+    }
+
+    // Render article
+    function renderArticle(post, allPosts) {
+      // Update page title and meta
+      document.title = `${post.title} | Breez AI Blog`;
+
+      // Update Open Graph tags
+      document.querySelector('meta[property="og:title"]')?.setAttribute('content', post.title);
+      document.querySelector('meta[property="og:description"]')?.setAttribute('content', post.excerpt);
+      document.querySelector('meta[property="og:image"]')?.setAttribute('content', post.featuredImage);
+
+      // Populate article elements
+      document.getElementById('articleCategory').textContent = getCategoryName(post.category);
+      document.getElementById('articleTitle').textContent = post.title;
+      document.getElementById('articleExcerpt').textContent = post.excerpt;
+
+      // Author name - linked if external profile exists
+      const authorNameEl = document.getElementById('authorName');
+      if (post.externalProfile) {
+        authorNameEl.innerHTML = `<a href="${post.externalProfile}" target="_blank" rel="noopener" class="author-link">${post.author}</a>`;
+      } else {
+        authorNameEl.textContent = post.author;
+      }
+
+      document.getElementById('authorRole').textContent = post.authorRole || '';
+      document.getElementById('articleDate').textContent = formatDate(post.publishDate);
+
+      // Author avatar
+      const avatarWrapper = document.getElementById('authorAvatarWrapper');
+      if (post.authorImage) {
+        avatarWrapper.innerHTML = `<img src="${post.authorImage}" alt="${post.author}" class="author-avatar">`;
+      } else {
+        avatarWrapper.innerHTML = `<div class="author-avatar-placeholder">${post.author.charAt(0)}</div>`;
+      }
+
+      // Featured image
+      const featuredImg = document.getElementById('featuredImg');
+      featuredImg.src = post.featuredImage;
+      featuredImg.alt = post.title;
+
+      // Article body
+      document.getElementById('articleBody').innerHTML = processContent(post.content);
+
+      // Set up share buttons
+      // Use external article URL if available, otherwise use current page URL
+      const shareUrl = post.externalArticle || window.location.href;
+      const shareText = `${post.title} - ${post.excerpt}`;
+
+      document.getElementById('shareLinkedIn').onclick = () => {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
+      };
+
+      document.getElementById('shareTwitter').onclick = () => {
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`, '_blank');
+      };
+
+      document.getElementById('copyLink').onclick = () => {
+        navigator.clipboard.writeText(shareUrl);
+        const btn = document.getElementById('copyLink');
+        btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+        setTimeout(() => {
+          btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>`;
+        }, 2000);
+      };
+
+      // Related posts (same category, excluding current)
+      const relatedPosts = allPosts
+        .filter(p => p.slug !== post.slug && p.category === post.category)
+        .slice(0, 3);
+
+      if (relatedPosts.length > 0) {
+        document.getElementById('relatedPostsGrid').innerHTML = relatedPosts.map(createRelatedCard).join('');
+        document.getElementById('relatedPostsSection').style.display = 'block';
+      }
+
+      // Show article
+      document.getElementById('articleLoading').style.display = 'none';
+      document.getElementById('articleContainer').style.display = 'block';
+      document.getElementById('articleContainer').classList.add('visible');
+    }
+
+    // Load article
+    async function loadArticle() {
+      const slug = getSlugFromURL();
+
+      if (!slug) {
+        document.getElementById('articleLoading').style.display = 'none';
+        document.getElementById('articleError').style.display = 'flex';
+        return;
+      }
+
+      if (!GOOGLE_SHEET_CSV_URL || GOOGLE_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE') {
+        document.getElementById('articleLoading').style.display = 'none';
+        document.getElementById('articleError').style.display = 'flex';
+        return;
+      }
+
+      try {
+        const response = await fetch(GOOGLE_SHEET_CSV_URL);
+        if (!response.ok) throw new Error('Failed to fetch');
+
+        const csv = await response.text();
+        const allPosts = parseCSV(csv);
+        const post = allPosts.find(p => p.slug === slug);
+
+        if (!post) {
+          document.getElementById('articleLoading').style.display = 'none';
+          document.getElementById('articleError').style.display = 'flex';
+          return;
+        }
+
+        renderArticle(post, allPosts);
+
+      } catch (error) {
+        console.error('Error loading article:', error);
+        document.getElementById('articleLoading').style.display = 'none';
+        document.getElementById('articleError').style.display = 'flex';
+      }
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', loadArticle);
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+  </script>
+</body>
+
+</html>

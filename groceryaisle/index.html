@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EveryAisle | AI-Powered Grocery Platform | Breez AI</title>
+    <meta name="description"
+        content="EveryAisle is the complete AI-powered grocery platform – from personalized meal planning to widgets, coupons, and retail media. Built for grocers, loved by shoppers.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/content/BreezWebLogo.png">
+
+    <link rel="stylesheet" href="/styles.css?v=47">
+    <link rel="stylesheet" href="/hamburgermenu.css">
+    <link rel="stylesheet" href="groceryaisles.css?v=47">
+</head>
+
+<body>
+    <!-- Header Partial -->
+    <div id="header-placeholder" style="min-height: 80px;"></div>
+
+    <script>
+        fetch('/partials/header.html')
+            .then(function (r) { return r.text(); })
+            .then(function (html) {
+                document.getElementById('header-placeholder').innerHTML = html;
+                initializeHeader();
+            });
+
+        function initializeHeader() {
+            var btn = document.getElementById('mobileMenuBtn');
+            var menu = document.getElementById('mobileMenu');
+            var dropdownTriggers = document.querySelectorAll('.mobile-menu-dropdown-trigger');
+            var menuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-menu-dropdown-items a, .mobile-menu-demo a');
+
+            if (!btn || !menu) return;
+
+            btn.addEventListener('click', function () {
+                btn.classList.toggle('active');
+                menu.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+
+            dropdownTriggers.forEach(function (trigger) {
+                trigger.addEventListener('click', function () {
+                    trigger.parentElement.classList.toggle('open');
+                });
+            });
+
+            menuLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    btn.classList.remove('active');
+                    menu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 1000) {
+                    btn.classList.remove('active');
+                    menu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                }
+            });
+
+            // Mark the active nav link based on current URL
+            var path = window.location.pathname;
+            document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(function (link) {
+                if (link.getAttribute('href') === path) {
+                    link.classList.add('nav-link--active');
+                }
+            });
+        }
+    </script>
+
+    <main>
+        <!-- ============ HERO SECTION WITH EMBEDDED NAVIGATION ============ -->
+        <section class="groceryaisle-hero" id="groceryaisle-hero">
+            <div class="groceryaisle-hero-bg"></div>
+            <div class="groceryaisle-hero-inner">
+                <!-- Left Column: Content -->
+                <div class="groceryaisle-hero-content">
+                    <div class="groceryaisle-hero-badge">
+                        <span class="groceryaisle-hero-badge-dot"></span>
+                        <span>Live in 80+ Stores</span>
+                    </div>
+
+                    <h1 class="groceryaisle-hero-title">
+                        <img src="/content/EveryAisleLogo.png" alt="EveryAisle" class="groceryaisle-hero-logo">
+                    </h1>
+
+                    <p class="groceryaisle-hero-tagline">Where AI meets the grocery aisle</p>
+
+                    <p class="groceryaisle-hero-mainheadline">Let's make shopping easy and inspiring</p>
+
+                    <p class="groceryaisle-hero-description">
+                        Personalized meal planning. Intelligent shopping assistance. Automatic coupon application.
+                        Retail media opportunities. EveryAisle is the all-in-one platform that grows baskets and
+                        strengthens loyalty.
+                    </p>
+
+                    <div class="groceryaisle-hero-actions">
+                        <a href="/bookdemo/" class="btn-primary btn-primary--orange">
+                            <span class="btn-primary-bg"></span>
+                            <span class="btn-primary-spotlight"></span>
+                            <span class="btn-primary-content">
+                                <span class="btn-primary-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M18.7414 12.6903C19.6452 15.1301 18.7559 18.3585 17.1721 19.9423C15.1512 21.9632 9.50358 22.1168 7.65461 19.8175C6.48129 18.3585 5.56933 16.5877 4.99449 15.001C4.68618 14.15 5.13859 13.2323 5.98366 12.9082C6.73171 12.6212 7.57895 12.8838 8.03363 13.5435L9.16905 15.1908V6.08708C9.16905 5.21056 9.87961 4.5 10.7561 4.5C11.6231 4.5 12.3297 5.19579 12.343 6.06271L12.4061 10.1687C14.6272 10.3808 17.8433 10.2662 18.7414 12.6903Z"
+                                            stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                        <path
+                                            d="M9.01733 9.5C7.93016 8.86052 7.19531 7.63895 7.19531 6.23711C7.19531 4.17316 8.78825 2.5 10.7532 2.5C12.7182 2.5 14.3112 4.17316 14.3112 6.23711C14.3112 7.61658 13.5996 8.82148 12.5409 9.46894"
+                                            stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round"></path>
+                                    </svg>
+                                </span>
+                                <span class="btn-primary-text">Schedule a Demo</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Section Navigation -->
+                <nav class="groceryaisle-hero-nav ga-nav-video-mode" aria-label="Page sections">
+
+                    <!-- Video: fills entire card on load, collapses when done -->
+                    <div class="ga-video-wrapper" id="ga-video-wrapper">
+                        <video id="ga-hero-video" class="ga-hero-video" muted playsinline autoplay>
+                            <source src="/content/SmartMealsVertical.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <!-- Nav content: hidden while video plays -->
+                    <div class="ga-nav-content" id="ga-nav-content">
+                        <div class="groceryaisle-hero-nav-header">
+                            <span class="groceryaisle-hero-nav-label">Navigate</span>
+                            <button class="ga-nav-play-btn" id="ga-nav-play-btn"
+                                aria-label="Replay intro video" title="Replay video">
+                                <svg id="Play Right" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.18416 19.7655C11.9756 18.6407 15.6497 16.2818 17.6796 14.4433C19.5318 12.8166 19.5318 11.189 17.6796 9.56139C15.6497 7.72384 11.9756 5.36491 9.18416 4.24012C6.91212 3.50295 5.60377 4.47152 5.19174 7.02964C5.01209 8.6309 4.92714 10.2927 4.93398 12.0023C4.92714 13.712 5.01209 15.3748 5.19174 16.976C5.5901 19.5429 6.91407 20.4861 9.18416 19.7655Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <ul class="groceryaisle-hero-nav-list">
+                        <li class="groceryaisle-hero-nav-item">
+                            <a href="#platform-overview" class="groceryaisle-hero-nav-link"
+                                data-section="platform-overview">
+                                <span class="groceryaisle-hero-nav-number">01</span>
+                                <span class="groceryaisle-hero-nav-text">Platform Overview</span>
+                                <svg class="groceryaisle-hero-nav-arrow" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="groceryaisle-hero-nav-item">
+                            <a href="#core-features" class="groceryaisle-hero-nav-link" data-section="core-features">
+                                <span class="groceryaisle-hero-nav-number">02</span>
+                                <span class="groceryaisle-hero-nav-text">Core Features</span>
+                                <svg class="groceryaisle-hero-nav-arrow" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="groceryaisle-hero-nav-item">
+                            <a href="#the-widget" class="groceryaisle-hero-nav-link" data-section="the-widget">
+                                <span class="groceryaisle-hero-nav-number">03</span>
+                                <span class="groceryaisle-hero-nav-text-wrap">
+                                    <span class="groceryaisle-hero-nav-text">The Widget</span>
+                                    <span class="groceryaisle-hero-nav-tag">Coming Soon</span>
+                                </span>
+                                <svg class="groceryaisle-hero-nav-arrow" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="groceryaisle-hero-nav-item">
+                            <a href="#coupons" class="groceryaisle-hero-nav-link" data-section="coupons">
+                                <span class="groceryaisle-hero-nav-number">04</span>
+                                <span class="groceryaisle-hero-nav-text">Coupons</span>
+                                <svg class="groceryaisle-hero-nav-arrow" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="groceryaisle-hero-nav-item">
+                            <a href="#rmn" class="groceryaisle-hero-nav-link" data-section="rmn">
+                                <span class="groceryaisle-hero-nav-number">05</span>
+                                <span class="groceryaisle-hero-nav-text">Retail Media (RMN)</span>
+                                <svg class="groceryaisle-hero-nav-arrow" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="groceryaisle-hero-nav-item">
+                            <a href="#partner-success" class="groceryaisle-hero-nav-link"
+                                data-section="partner-success">
+                                <span class="groceryaisle-hero-nav-number">06</span>
+                                <span class="groceryaisle-hero-nav-text">Partner Success</span>
+                                <svg class="groceryaisle-hero-nav-arrow" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="groceryaisle-hero-nav-item">
+                            <a href="#roadmap" class="groceryaisle-hero-nav-link" data-section="roadmap">
+                                <span class="groceryaisle-hero-nav-number">07</span>
+                                <span class="groceryaisle-hero-nav-text">Roadmap</span>
+                                <svg class="groceryaisle-hero-nav-arrow" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    </div><!-- /.ga-nav-content -->
+                </nav>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="groceryaisle-hero-scroll-hint">
+                <span>Scroll to explore</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ============ PLATFORM OVERVIEW SECTION ============ -->
+        <section class="groceryaisle-section groceryaisle-overview" id="platform-overview">
+            <div class="groceryaisle-section-inner">
+
+                <div class="groceryaisle-overview-editorial reveal">
+                    <div class="groceryaisle-overview-editorial-left">
+                        <span class="groceryaisle-section-label">Platform Overview</span>
+                        <h2 class="groceryaisle-overview-headline">Effortless shopping and meal planning. Measurable
+                            Results.</h2>
+                    </div>
+                    <div class="groceryaisle-overview-editorial-right">
+                        <p class="groceryaisle-overview-lead">EveryAisle is a generative AI shopping companion that
+                            transforms how people plan, shop, and cook. Built for today's consumer and integrated
+                            directly into your online platform, it helps shoppers go from "What's for dinner?" to
+                            checkout in under two minutes – personalized to their tastes, goals, and budgets.</p>
+                        <div class="groceryaisle-overview-pillars">
+                            <div class="groceryaisle-overview-pillar">
+                                <span class="groceryaisle-overview-pillar-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        width="18" height="18">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                </span>
+                                Personalized to every shopper
+                            </div>
+                            <div class="groceryaisle-overview-pillar">
+                                <span class="groceryaisle-overview-pillar-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        width="18" height="18">
+                                        <circle cx="9" cy="21" r="1"></circle>
+                                        <circle cx="20" cy="21" r="1"></circle>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+                                        </path>
+                                    </svg>
+                                </span>
+                                Larger baskets, higher loyalty
+                            </div>
+                            <div class="groceryaisle-overview-pillar">
+                                <span class="groceryaisle-overview-pillar-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        width="18" height="18">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                    </svg>
+                                </span>
+                                New retail media revenue
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="groceryaisle-overview-metrics reveal delay-1">
+                    <div class="groceryaisle-overview-metric">
+                        <span class="groceryaisle-overview-metric-num">22%</span>
+                        <span class="groceryaisle-overview-metric-label">basket size</span>
+                    </div>
+                    <div class="groceryaisle-overview-metric-divider"></div>
+                    <div class="groceryaisle-overview-metric">
+                        <span class="groceryaisle-overview-metric-num">2 min</span>
+                        <span class="groceryaisle-overview-metric-label">plan to cart</span>
+                    </div>
+                    <div class="groceryaisle-overview-metric-divider"></div>
+                    <div class="groceryaisle-overview-metric">
+                        <span class="groceryaisle-overview-metric-num">72%</span>
+                        <span class="groceryaisle-overview-metric-label">loyalty surge</span>
+                    </div>
+                    <div class="groceryaisle-overview-metric-divider"></div>
+                    <div class="groceryaisle-overview-metric">
+                        <span class="groceryaisle-overview-metric-num">310%</span>
+                        <span class="groceryaisle-overview-metric-label">ROI</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============ CORE FEATURES SECTION ============ -->
+        <section class="groceryaisle-section groceryaisle-features" id="core-features">
+            <div class="groceryaisle-section-inner">
+                <header class="groceryaisle-section-header reveal">
+                    <span class="groceryaisle-section-label">Core Features</span>
+                    <h2 class="groceryaisle-section-title">Turn down the mealtime heat</h2>
+                    <p class="groceryaisle-section-subtitle">
+                        EveryAisle calms the nightly "What's for dinner?" stress. Personalized meal plans, instant
+                        shopping lists, recipes that fit any budget or dietary need for them. Bigger baskets and repeat
+                        visits for you.
+                    </p>
+                </header>
+
+                <!-- Feature: Meal Planning -->
+                <div class="groceryaisle-feature-block reveal" id="meal-planning">
+                    <div class="groceryaisle-feature-content">
+                        <span class="groceryaisle-feature-tag">AI-Powered Intelligence</span>
+                        <h3 class="groceryaisle-feature-title">Personalized Meal Planning</h3>
+                        <p class="groceryaisle-feature-desc">
+                            Every shopper gets a tailored experience. Breez AI remembers preferences, respects budgets,
+                            and adapts to what's actually in stock.
+                        </p>
+                        <ul class="groceryaisle-feature-list">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Learns allergies, health goals, and cooking preferences</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Budget-aware planning with deal integration</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Live inventory integration – no dead ends</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="groceryaisle-feature-visual">
+                        <div class="groceryaisle-split-visual-display">
+                            <img src="/content/ChatScreen.png" alt="SmartMeals meal planning interface">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature: Shopping List -->
+                <div class="groceryaisle-feature-block groceryaisle-feature-block--reverse reveal" id="shopping-list">
+                    <div class="groceryaisle-feature-content">
+                        <span class="groceryaisle-feature-tag">Smart Automation</span>
+                        <h3 class="groceryaisle-feature-title">Intelligent Shopping Lists</h3>
+                        <p class="groceryaisle-feature-desc">
+                            Recipes automatically generate organized shopping lists. Items are grouped by aisle,
+                            quantities are combined, and everything syncs directly to cart.
+                        </p>
+                        <ul class="groceryaisle-feature-list">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Auto-organized by store aisle</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>One-tap add entire meal to cart</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Smart substitutions for out-of-stock items</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="groceryaisle-feature-visual">
+                        <div class="groceryaisle-split-visual-display">
+                            <img src="/content/oneclick-shoppinglist.png" alt="GroceryAisle one-click shopping list">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature: Recipes -->
+                <div class="groceryaisle-feature-block reveal" id="recipes">
+                    <div class="groceryaisle-feature-content">
+                        <span class="groceryaisle-feature-tag">Step-by-Step</span>
+                        <h3 class="groceryaisle-feature-title">Recipes that Flex</h3>
+                        <p class="groceryaisle-feature-desc">
+                            Each recipe includes clear cooking instructions with dynamic ingredient scaling.
+                            A recipe for two adjusts cleanly to feed six – perfect for families of any size.
+                        </p>
+                        <ul class="groceryaisle-feature-list">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Dynamic serving size adjustment</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Nutritional information per serving</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Food is Medicine health-aligned recipes</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="groceryaisle-feature-visual">
+                        <div class="groceryaisle-recipe-phone-display">
+                            <div class="groceryaisle-mockup-screen--recipe" id="recipe-mockup-screen">
+                                <div class="recipe-screen-rotator">
+                                    <img class="recipe-screen recipe-screen--active" src="/content/recipescreen1.png"
+                                        alt="GroceryAisle recipe directions screen">
+                                    <img class="recipe-screen recipe-screen--landscape" src="/content/recipescreen2.png"
+                                        alt="GroceryAisle cooking mode screen">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature: White Label - split layout with rotating logo + screenshot -->
+                <div class="groceryaisle-whitelabel-showcase reveal" id="white-label">
+                    <div class="groceryaisle-split">
+                        <div class="groceryaisle-split-visual">
+                            <div class="groceryaisle-whitelabel-display" id="whitelabel-display">
+                                <img class="whitelabel-screen whitelabel-screen--active"
+                                    src="/content/WhiteLabel-Domats.png" alt="GroceryAisle branded for Domat's">
+                                <img class="whitelabel-screen" src="/content/WhiteLabel-Clinks.png"
+                                    alt="GroceryAisle branded for Clink's">
+                                <img class="whitelabel-screen" src="/content/WhiteLabel-Carney.png"
+                                    alt="GroceryAisle branded for Carney's">
+                            </div>
+                        </div>
+                        <div class="groceryaisle-split-content">
+                            <span class="groceryaisle-feature-tag">Your Brand</span>
+                            <h3 class="groceryaisle-feature-title">Complete White-Label Solution</h3>
+                            <p class="groceryaisle-feature-desc">
+                                EveryAisle seamlessly adapts to your brand identity. From colors and logos to the
+                                entire user experience &mdash; your customers will see your brand, not ours.
+                            </p>
+                            <div class="groceryaisle-whitelabel-logo-rotator" id="whitelabel-logos">
+                                <img class="whitelabel-logo whitelabel-logo--active" src="/content/domats.webp"
+                                    alt="Domat's Family Foods">
+                                <img class="whitelabel-logo" src="/content/clinks.png" alt="Clink's Supermarket">
+                                <img class="whitelabel-logo" src="/content/carneys.png" alt="Carney's Supermarket">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============ THE WIDGET SECTION ============ -->
+        <section class="groceryaisle-section groceryaisle-widget" id="the-widget">
+            <div class="groceryaisle-section-inner">
+                <header class="groceryaisle-section-header reveal">
+                    <span class="groceryaisle-section-label">Coming Soon</span>
+                    <h2 class="groceryaisle-section-title">The Widget</h2>
+                    <p class="groceryaisle-section-subtitle">
+                        The full EveryAisle experience as a persistent overlay – giving shoppers instant access to
+                        Chat, Recipes, and their Shopping List without ever leaving your store.
+                    </p>
+                </header>
+
+                <div class="groceryaisle-widget-showcase reveal delay-1">
+                    <div class="groceryaisle-widget-demo" id="widget-demo">
+                        <div class="groceryaisle-widget-demo-browser">
+                            <div class="groceryaisle-widget-demo-bar">
+                                <span></span><span></span><span></span>
+                                <div class="groceryaisle-widget-demo-url" id="widget-url-bar">
+                                    <span class="url-text url-active">yourstore.com/home</span>
+                                    <span class="url-text">yourstore.com/products</span>
+                                    <span class="url-text">yourstore.com/recipes</span>
+                                    <span class="url-text">yourstore.com/locations</span>
+                                    <span class="url-text">yourstore.com/weekly-deals</span>
+                                </div>
+                            </div>
+                            <div class="groceryaisle-widget-demo-content">
+                                <div class="groceryaisle-widget-demo-page">
+                                    <div class="groceryaisle-widget-demo-header"></div>
+                                    <div class="groceryaisle-widget-demo-grid">
+                                        <div class="groceryaisle-widget-demo-product"></div>
+                                        <div class="groceryaisle-widget-demo-product"></div>
+                                        <div class="groceryaisle-widget-demo-product"></div>
+                                    </div>
+                                </div>
+                                <div class="groceryaisle-widget-overlay" id="widget-overlay">
+                                    <img class="groceryaisle-widget-closed" src="/content/closed-widget.png"
+                                        alt="GroceryAisle widget closed">
+                                    <img class="groceryaisle-widget-opened" src="/content/opened-widget.png"
+                                        alt="GroceryAisle widget open">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="groceryaisle-widget-benefits">
+                        <div class="groceryaisle-widget-benefit">
+                            <div class="groceryaisle-widget-benefit-header">
+                                <div class="groceryaisle-widget-benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                                    </svg>
+                                </div>
+                                <h4>Persistent, On-Site Overlay</h4>
+                            </div>
+                            <p>Always available across your site – full EveryAisle functionality without disrupting
+                                browsing.</p>
+                        </div>
+                        <div class="groceryaisle-widget-benefit">
+                            <div class="groceryaisle-widget-benefit-header">
+                                <div class="groceryaisle-widget-benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                        <path
+                                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h4>Fully Customizable</h4>
+                            </div>
+                            <p>Styled to match your brand – button colors and treatments feel native to your storefront.
+                            </p>
+                        </div>
+                        <div class="groceryaisle-widget-benefit">
+                            <div class="groceryaisle-widget-benefit-header">
+                                <div class="groceryaisle-widget-benefit-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                    </svg>
+                                </div>
+                                <h4>Built for Engagement</h4>
+                            </div>
+                            <p>Build lists, generate meal plans, and export to Instacart – all without mandatory login.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============ COUPONS SECTION ============ -->
+        <section class="groceryaisle-section groceryaisle-coupons" id="coupons">
+            <div class="groceryaisle-section-inner">
+                <div class="groceryaisle-split reveal">
+                    <div class="groceryaisle-split-content">
+                        <span class="groceryaisle-section-label">Savings Integration</span>
+                        <h2 class="groceryaisle-section-title">Coupons & Deals Built In</h2>
+                        <p class="groceryaisle-split-desc">
+                            EveryAisle surfaces relevant digital coupons and loyalty offers alongside recipes,
+                            making it easy for shoppers to save and for your store to drive redemption.
+                        </p>
+                        <ul class="groceryaisle-split-list">
+                            <li>
+                                <div class="groceryaisle-split-list-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Contextual Coupon Surfacing</strong>
+                                    <span>Show relevant deals when shoppers are most receptive</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="groceryaisle-split-list-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Loyalty Program Integration</strong>
+                                    <span>Connects with your existing rewards and points systems</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="groceryaisle-split-list-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Higher Redemption Rates</strong>
+                                    <span>Coupons tied to meal plans see higher clip rates</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="groceryaisle-split-visual">
+                        <div class="groceryaisle-coupons-display">
+                            <div class="groceryaisle-coupons-phone">
+                                <img src="/content/coupons-screen.png" alt="GroceryAisle coupons screen">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ RMN SECTION ============ -->
+        <section class="groceryaisle-section groceryaisle-rmn" id="rmn">
+            <div class="groceryaisle-section-inner">
+                <div class="groceryaisle-split reveal">
+                    <div class="groceryaisle-split-visual">
+                        <div class="groceryaisle-rmn-display">
+                            <img src="/content/RMN-example.png" alt="Retail Media Network">
+                        </div>
+                    </div>
+                    <div class="groceryaisle-split-content">
+                        <span class="groceryaisle-section-label">Revenue Generation</span>
+                        <h2 class="groceryaisle-section-title">Retail Media Network</h2>
+                        <p class="groceryaisle-split-desc">
+                            Unlock new revenue streams with native ads that feel helpful, not intrusive – plus
+                            integrated sponsored recipes, featured products, and brand partnerships.
+                        </p>
+                        <ul class="groceryaisle-split-list">
+                            <li>
+                                <div class="groceryaisle-split-list-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Sponsored Recipes</strong>
+                                    <span>Feature CPG brands naturally within the meal planning experience</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="groceryaisle-split-list-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Featured Products</strong>
+                                    <span>Premium placement in shopping lists and ingredient suggestions</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="groceryaisle-split-list-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Performance Analytics</strong>
+                                    <span>Track impressions, engagement, and conversions in real time</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PARTNER SUCCESS SECTION ============ -->
+        <section class="groceryaisle-section groceryaisle-success" id="partner-success">
+            <div class="groceryaisle-section-inner">
+                <header class="groceryaisle-section-header reveal">
+                    <span class="groceryaisle-section-label">Proven Results</span>
+                    <h2 class="groceryaisle-section-title">Built with grocers. Proven in the field.</h2>
+                    <p class="groceryaisle-section-subtitle">
+                        EveryAisle is live across 80+ independent grocers through AWG (Associated Wholesale Grocers)
+                        under the SmartMeals brand.
+                    </p>
+                </header>
+            </div>
+
+            <div class="groceryaisle-section-inner">
+                <div class="groceryaisle-success-evidence reveal delay-1">
+
+                    <!-- SmartMeals logo -->
+                    <div class="groceryaisle-success-smartmeals-logo">
+                        <img src="/content/smartmeals-singleline-gradient.webp" alt="SmartMeals">
+                    </div>
+
+                    <!-- Context note -->
+                    <p class="groceryaisle-success-context">
+                        Data measured across pilot stores over a 90-day deployment window at two pilot stores operating
+                        under the AWG umbrella.
+                    </p>
+
+                    <!-- Three proof cards -->
+                    <div class="groceryaisle-success-cards">
+                        <div class="groceryaisle-success-card">
+                            <div class="groceryaisle-success-card-stat">72%</div>
+                            <div class="groceryaisle-success-card-label">Loyalty Signups Surge</div>
+                            <p class="groceryaisle-success-card-desc">Pilot stores saw a 72% surge in loyalty program
+                                signups – shoppers who engage with EveryAisle have a natural reason to join and stay
+                                enrolled.</p>
+                        </div>
+                        <div class="groceryaisle-success-card groceryaisle-success-card--featured">
+                            <div class="groceryaisle-success-card-stat">22%</div>
+                            <div class="groceryaisle-success-card-label">Basket size lift</div>
+                            <p class="groceryaisle-success-card-desc">Shoppers who planned meals with EveryAisle spent
+                                <b>22% more per trip</b> than other loyalty members – driven by complete meal plans that
+                                naturally fill the cart.
+                            </p>
+                        </div>
+                        <div class="groceryaisle-success-card">
+                            <div class="groceryaisle-success-card-stat">310%</div>
+                            <div class="groceryaisle-success-card-label">ROI</div>
+                            <p class="groceryaisle-success-card-desc">Pilot stores saw a 310% return on their
+                                EveryAisle investment.</p>
+                        </div>
+                    </div>
+
+                    <!-- Partner note -->
+                    <div class="groceryaisle-success-partner-note reveal delay-2">
+                        <div class="groceryaisle-success-partner-logo-row">
+                            <img src="/content/awg.png" alt="AWG – Associated Wholesale Grocers">
+                        </div>
+                        <p>Breez AI is partnered with <strong>AWG (Associated Wholesale Grocers)</strong> – the largest
+                            member-owned grocery cooperative in the United States, serving 3,000+ retail locations.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ============ ROADMAP SECTION ============ -->
+        <section class="groceryaisle-section groceryaisle-roadmap" id="roadmap">
+            <div class="groceryaisle-section-inner">
+                <header class="groceryaisle-section-header reveal">
+                    <span class="groceryaisle-section-label">What's Next</span>
+                    <h2 class="groceryaisle-section-title">Product Roadmap</h2>
+                    <p class="groceryaisle-section-subtitle">
+                        We're constantly evolving EveryAisle to deliver more value. Here's what's live, what's coming
+                        soon, and what's on the horizon.
+                    </p>
+                </header>
+
+                <div class="groceryaisle-roadmap-timeline reveal delay-1">
+                    <!-- Live -->
+                    <div class="groceryaisle-roadmap-phase groceryaisle-roadmap-phase--live">
+                        <div class="groceryaisle-roadmap-phase-header">
+                            <span class="groceryaisle-roadmap-phase-badge groceryaisle-roadmap-phase-badge--live">Live
+                                Now</span>
+                            <h3>V1.0</h3>
+                        </div>
+                        <ul class="groceryaisle-roadmap-items">
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>AI-Powered Meal Planning</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Budget-Aware Planning</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>White-Label Customization</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Live Inventory Integration</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>RMN Integration</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Coupon Integration</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Instacart Integration</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Live -->
+                    <div class="groceryaisle-roadmap-phase groceryaisle-roadmap-phase--live">
+                        <div class="groceryaisle-roadmap-phase-header">
+                            <span class="groceryaisle-roadmap-phase-badge groceryaisle-roadmap-phase-badge--live">Live
+                                Now</span>
+                            <h3>V2.0</h3>
+                        </div>
+                        <ul class="groceryaisle-roadmap-items">
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Modernized, streamlined user experience</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Deeper customer personalization</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Faster meal-to-cart journey</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>AI-powered recommendation foundation</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item groceryaisle-roadmap-item--complete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Proactive shopping assistant readiness</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Future -->
+                    <div class="groceryaisle-roadmap-phase groceryaisle-roadmap-phase--future">
+                        <div class="groceryaisle-roadmap-phase-header">
+                            <span class="groceryaisle-roadmap-phase-badge groceryaisle-roadmap-phase-badge--future">On
+                                the Horizon</span>
+                            <h3>Beyond V2.0</h3>
+                        </div>
+                        <ul class="groceryaisle-roadmap-items">
+                            <li class="groceryaisle-roadmap-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                                <span>Embeddable Widget</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                                <span>Doordash Integration</span>
+                            </li>
+                            <li class="groceryaisle-roadmap-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                                <span>Smart Pantry Tracking</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ BACK TO HERO FLOATING BUTTON ============ -->
+        <button class="ga-back-to-hero" id="ga-back-to-hero" aria-label="Back to navigation"
+            onclick="document.getElementById('groceryaisle-hero').scrollIntoView({behavior:'smooth'})">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+            <span>Back to Top</span>
+        </button>
+
+        <!-- ============ CTA SECTION ============ -->
+        <section class="cta">
+            <div class="cta-inner">
+                <h2>Ready to compete in the AI era?</h2>
+                <p>Join 80+ grocers already using EveryAisle to drive loyalty, increase basket size, and delight
+                    shoppers.</p>
+                <div class="cta-buttons">
+                    <a href="/bookdemo/" class="btn-primary">
+                        <span class="btn-primary-bg"></span>
+                        <span class="btn-primary-spotlight"></span>
+                        <span class="btn-primary-content">
+                            <span class="btn-primary-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.7414 12.6903C19.6452 15.1301 18.7559 18.3585 17.1721 19.9423C15.1512 21.9632 9.50358 22.1168 7.65461 19.8175C6.48129 18.3585 5.56933 16.5877 4.99449 15.001C4.68618 14.15 5.13859 13.2323 5.98366 12.9082C6.73171 12.6212 7.57895 12.8838 8.03363 13.5435L9.16905 15.1908V6.08708C9.16905 5.21056 9.87961 4.5 10.7561 4.5C11.6231 4.5 12.3297 5.19579 12.343 6.06271L12.4061 10.1687C14.6272 10.3808 17.8433 10.2662 18.7414 12.6903Z"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path
+                                        d="M9.01733 9.5C7.93016 8.86052 7.19531 7.63895 7.19531 6.23711C7.19531 4.17316 8.78825 2.5 10.7532 2.5C12.7182 2.5 14.3112 4.17316 14.3112 6.23711C14.3112 7.61658 13.5996 8.82148 12.5409 9.46894"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                            <span class="btn-primary-text">Schedule a Demo</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <!-- Footer Partial -->
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('/partials/footer.html')
+            .then(function (r) { return r.text(); })
+            .then(function (html) {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // ─── Widget rotating animation ──────────────────────────────────────────────
+            const widgetSection = document.getElementById('the-widget');
+            const widgetOverlay = document.getElementById('widget-overlay');
+            let widgetTimer = null;
+            let widgetAnimated = false;
+
+            function resetWidget() {
+                if (widgetOverlay) {
+                    widgetOverlay.classList.remove('widget-opened');
+                    widgetAnimated = false;
+                }
+            }
+
+            function startWidgetAnimation() {
+                if (widgetAnimated) return;
+                widgetAnimated = true;
+                widgetTimer = setTimeout(() => {
+                    if (widgetOverlay) widgetOverlay.classList.add('widget-opened');
+                }, 3000);
+            }
+
+            // ─── Recipe screen rotation (portrait → landscape) ────────────────────
+            const recipeScreen = document.getElementById('recipe-mockup-screen');
+            if (recipeScreen) {
+                const screen1 = recipeScreen.querySelector('.recipe-screen--active');
+                const screen2 = recipeScreen.querySelector('.recipe-screen--landscape');
+                let recipeRotated = false;
+                let recipeTimer = null;
+
+                function runRecipeAnimation() {
+                    if (recipeRotated) return;
+                    recipeTimer = setTimeout(() => {
+                        screen1.classList.add('recipe-screen--fade-out');
+                        recipeScreen.classList.add('recipe-screen-rotating');
+                        setTimeout(() => {
+                            screen2.classList.add('recipe-screen--visible');
+                            recipeRotated = true;
+                        }, 700);
+                    }, 5000);
+                }
+
+                function resetRecipeAnimation() {
+                    clearTimeout(recipeTimer);
+                    recipeRotated = false;
+                    screen1.classList.remove('recipe-screen--fade-out');
+                    screen2.classList.remove('recipe-screen--visible');
+                    recipeScreen.classList.remove('recipe-screen-rotating');
+                }
+
+                const recipeFeatureBlock = recipeScreen.closest('.groceryaisle-feature-block');
+                if (recipeFeatureBlock) {
+                    const recipeObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                runRecipeAnimation();
+                            } else {
+                                resetRecipeAnimation();
+                            }
+                        });
+                    }, { threshold: 0.4 });
+                    recipeObserver.observe(recipeFeatureBlock);
+                }
+            }
+
+            // ─── White-label screenshot + logo rotator ────────────────────────────
+            const wlDisplay = document.getElementById('whitelabel-display');
+            const wlLogos = document.getElementById('whitelabel-logos');
+            if (wlDisplay && wlLogos) {
+                const wlScreens = wlDisplay.querySelectorAll('.whitelabel-screen');
+                const wlLogoImgs = wlLogos.querySelectorAll('.whitelabel-logo');
+                let wlIndex = 0;
+                setInterval(() => {
+                    wlScreens[wlIndex].classList.remove('whitelabel-screen--active');
+                    wlLogoImgs[wlIndex].classList.remove('whitelabel-logo--active');
+                    wlIndex = (wlIndex + 1) % wlScreens.length;
+                    wlScreens[wlIndex].classList.add('whitelabel-screen--active');
+                    wlLogoImgs[wlIndex].classList.add('whitelabel-logo--active');
+                }, 3000);
+            }
+
+            // ─── URL bar rotator ────────────────────────────────────────────────────
+            const urlBar = document.getElementById('widget-url-bar');
+            if (urlBar) {
+                const urlTexts = urlBar.querySelectorAll('.url-text');
+                let urlIndex = 0;
+                setInterval(() => {
+                    urlTexts[urlIndex].classList.remove('url-active');
+                    urlIndex = (urlIndex + 1) % urlTexts.length;
+                    urlTexts[urlIndex].classList.add('url-active');
+                }, 2000);
+            }
+
+            if (widgetSection && widgetOverlay) {
+                const widgetObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            startWidgetAnimation();
+                        } else {
+                            clearTimeout(widgetTimer);
+                            resetWidget();
+                        }
+                    });
+                }, { threshold: 0.3 });
+                widgetObserver.observe(widgetSection);
+            }
+
+
+            // ─── Hero nav video intro ──────────────────────────────────────────────
+            const gaVideo      = document.getElementById('ga-hero-video');
+            const gaVideoWrap  = document.getElementById('ga-video-wrapper');
+            const gaNavContent = document.getElementById('ga-nav-content');
+            const gaHeroNav    = document.querySelector('.groceryaisle-hero-nav');
+            const gaPlayBtn    = document.getElementById('ga-nav-play-btn');
+            let gaVideoFallbackTimer = null;
+
+            function gaShowNav() {
+                clearTimeout(gaVideoFallbackTimer);
+                gaVideoWrap.classList.add('ga-video-hidden');
+                gaHeroNav.classList.remove('ga-nav-video-mode');
+                gaNavContent.classList.remove('ga-nav-content-hidden');
+            }
+
+            function gaShowVideo() {
+                gaNavContent.classList.add('ga-nav-content-hidden');
+                gaHeroNav.classList.add('ga-nav-video-mode');
+                gaVideoWrap.classList.remove('ga-video-hidden');
+                gaVideo.currentTime = 0;
+                gaVideo.play().catch(gaShowNav);
+                // Safety net: if video stalls, fall back to nav after 5s
+                gaVideoFallbackTimer = setTimeout(gaShowNav, 5000);
+            }
+
+            if (gaVideo && gaVideoWrap && gaNavContent) {
+                // Start with nav content hidden — video fills the card
+                gaNavContent.classList.add('ga-nav-content-hidden');
+
+                // Safety net: if video never loads/plays, show nav after 4s
+                gaVideoFallbackTimer = setTimeout(gaShowNav, 4000);
+
+                // Video loaded and playing — clear the fallback timer
+                gaVideo.addEventListener('playing', () => {
+                    clearTimeout(gaVideoFallbackTimer);
+                    // Reset timer to video duration + small buffer
+                    // (belt-and-suspenders alongside the 'ended' event)
+                });
+
+                // Autoplay was blocked by browser — immediately show nav
+                gaVideo.addEventListener('canplay', () => {
+                    const playPromise = gaVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(gaShowNav);
+                    }
+                });
+
+                // Video finished — reveal nav
+                gaVideo.addEventListener('ended', gaShowNav);
+
+                // Video failed to load (bad URL, CORS, wrong content-type) — show nav
+                gaVideo.addEventListener('error', gaShowNav);
+                gaVideo.querySelector('source')?.addEventListener('error', gaShowNav);
+
+                // Play button replays the video
+                if (gaPlayBtn) gaPlayBtn.addEventListener('click', gaShowVideo);
+            }
+
+            // ─── Smooth scroll for navigation links ───────────────────────────────
+            document.querySelectorAll('.groceryaisle-hero-nav-link, .groceryaisle-btn-secondary').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            const headerEl = document.getElementById('header');
+                            const headerHeight = headerEl ? headerEl.offsetHeight : 80;
+                            const targetTop = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+                            window.scrollTo({
+                                top: targetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // ─── Reveal animations on scroll ───────────────────────────────────────
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // ─── Hero nav active state based on scroll ─────────────────────────────
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.groceryaisle-hero-nav-link');
+
+            function updateActiveNav() {
+                const scrollPos = window.scrollY + 200;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('data-section') === sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveNav, { passive: true });
+            updateActiveNav();
+
+            // ─── Hide hero nav after scrolling past hero ───────────────────────────
+            const heroSection = document.getElementById('groceryaisle-hero');
+            const heroNav = document.querySelector('.groceryaisle-hero-nav');
+
+            const backToHeroBtn = document.getElementById('ga-back-to-hero');
+
+            if (heroSection && heroNav) {
+                const heroObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            heroNav.classList.remove('hidden');
+                            if (backToHeroBtn) backToHeroBtn.classList.remove('ga-back-to-hero--visible');
+                            // Skip to nav only if the intro video has already started/finished.
+                            // On initial load currentTime is 0, so we let the video play through.
+                            if (gaVideo && gaVideo.currentTime > 0 && typeof gaShowNav === 'function') {
+                                gaShowNav();
+                            }
+                        } else {
+                            heroNav.classList.add('hidden');
+                            if (backToHeroBtn) backToHeroBtn.classList.add('ga-back-to-hero--visible');
+                            // Pause video if user scrolls away mid-play
+                            if (gaVideo && !gaVideo.paused) gaVideo.pause();
+                        }
+                    });
+                }, {
+                    threshold: 0,
+                    rootMargin: '-100px 0px 0px 0px'
+                });
+
+                heroObserver.observe(heroSection);
+            }
+
+            // ─── Header scroll effect ──────────────────────────────────────────────
+            const header = document.getElementById('header');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.scrollY;
+
+                if (currentScroll > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                lastScroll = currentScroll;
+            }, { passive: true });
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story | Breez AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="/content/BreezWebLogo.png">
+
+  <link rel="stylesheet" href="/styles.css?v=9">
+  <link rel="stylesheet" href="/hamburgermenu.css">
+  <link rel="stylesheet" href="ourstory.css?v=1">
+</head>
+
+<body>
+  <!-- Header Partial -->
+  <div id="header-placeholder" style="min-height: 80px;"></div>
+
+  <script>
+    fetch('/partials/header.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        initializeHeader();
+      });
+
+    function initializeHeader() {
+      var btn = document.getElementById('mobileMenuBtn');
+      var menu = document.getElementById('mobileMenu');
+      var dropdownTriggers = document.querySelectorAll('.mobile-menu-dropdown-trigger');
+      var menuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-menu-dropdown-items a, .mobile-menu-demo a');
+
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function () {
+        btn.classList.toggle('active');
+        menu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+
+      dropdownTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          trigger.parentElement.classList.toggle('open');
+        });
+      });
+
+      menuLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1000) {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      });
+
+      // Mark the active nav link based on current URL
+      var path = window.location.pathname;
+      document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(function (link) {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('nav-link--active');
+        }
+      });
+    }
+  </script>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <span class="page-hero-label">Our Mission</span>
+      <h1 class="page-hero-title">Empowering independent grocers to thrive in the AI era</h1>
+      <p class="page-hero-subtitle">
+        Breez AI builds AI-powered shopping technology for regional and independent grocers, helping them grow basket
+        size, deepen customer loyalty, and capture retail media revenue that has historically gone to the largest
+        chains. The platform's flexible, white-label technology integrates directly into retailer ecosystems, connecting
+        personalized meal planning, digital savings, and loyalty data into a seamless shopping experience.
+      </p>
+    </section>
+
+    <!-- The Opportunity Section -->
+    <section class="opportunity-section reveal">
+      <div class="opportunity-container">
+        <div class="opportunity-header">
+          <span class="section-label">The Opportunity</span>
+          <h2 class="section-title">The future is unfolding before our eyes</h2>
+        </div>
+        <div class="opportunity-grid">
+          <div class="opportunity-card">
+            <div class="opportunity-icon">
+              <svg id="Lamp" width="24" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.4"
+                  d="M3.54581 11.5918H3.64168M20.4542 11.5918H20.3806M6.0224 5.61331L6.09019 5.6811M17.9782 17.5691L17.9259 17.5168M17.9783 5.61331L17.9106 5.6811M6.02258 17.5691L6.07487 17.5168M12.0008 3.13672V3.23259"
+                  stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M6.14648 11.6423C6.14648 14.0284 7.59421 16.0727 9.65782 16.9432V18.8645C9.65782 20.1156 10.6814 21.1382 11.9316 21.1382C13.1817 21.1382 14.2053 20.1156 14.2053 18.8645V16.9529C16.6108 15.9361 18.1757 13.2857 17.5791 10.4106C17.1201 8.20945 15.3393 6.44022 13.1391 5.98993C9.42347 5.23653 6.14648 8.05354 6.14648 11.6423Z"
+                  stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M9.6582 16.957H14.2115" stroke=currentColor stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <h3>AI is transforming expectations</h3>
+            <p>Consumers now expect personalization, convenience, and value from every shopping experience. AI will
+              change what customers expect from all their service and goods providers.</p>
+          </div>
+          <div class="opportunity-card">
+            <div class="opportunity-icon">
+              <svg id="bar Chart house" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M13.3978 4.24757C12.5839 3.58414 11.4163 3.58414 10.6025 4.24757L5.02833 8.78744C5.02827 8.78748 5.02838 8.78739 5.02833 8.78744C4.51213 9.20848 4.21265 9.83877 4.21265 10.5044V17.6782C4.21265 19.0982 5.36373 20.25 6.78442 20.25H17.2158C18.6365 20.25 19.7876 19.0982 19.7876 17.6782V10.5044C19.7876 9.83877 19.4883 9.20861 18.9721 8.78757C18.972 8.78753 18.9721 8.78762 18.9721 8.78757L13.3978 4.24757ZM14.3453 3.08472C12.9797 1.97176 11.0205 1.97176 9.65495 3.08472C9.65486 3.08479 9.65503 3.08465 9.65495 3.08472L4.08071 7.62468C3.21537 8.33035 2.71265 9.38759 2.71265 10.5044V17.6782C2.71265 19.9264 4.53501 21.75 6.78442 21.75H17.2158C19.4652 21.75 21.2876 19.9264 21.2876 17.6782V10.5044C21.2876 9.38759 20.7852 8.33065 19.9199 7.62497L14.3453 3.08472C14.3454 3.08479 14.3452 3.08465 14.3453 3.08472Z"
+                  fill=currentColor></path>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M15.5639 10.5117C15.9781 10.5117 16.3139 10.8475 16.3139 11.2617V17.2485C16.3139 17.6627 15.9781 17.9985 15.5639 17.9985C15.1497 17.9985 14.8139 17.6627 14.8139 17.2485V11.2617C14.8139 10.8475 15.1497 10.5117 15.5639 10.5117ZM8.43945 11.5664C8.85367 11.5664 9.18945 11.9022 9.18945 12.3164V17.2495C9.18945 17.6637 8.85367 17.9995 8.43945 17.9995C8.02524 17.9995 7.68945 17.6637 7.68945 17.2495V12.3164C7.68945 11.9022 8.02524 11.5664 8.43945 11.5664ZM12.0311 14.4806C12.4454 14.4806 12.7811 14.8164 12.7811 15.2306V17.2486C12.7811 17.6628 12.4454 17.9986 12.0311 17.9986C11.6169 17.9986 11.2811 17.6628 11.2811 17.2486V15.2306C11.2811 14.8164 11.6169 14.4806 12.0311 14.4806Z"
+                  fill=currentColor></path>
+              </svg>
+
+            </div>
+            <h3>Large grocers will adapt</h3>
+            <p>Major chains have the resources to build AI-powered experiences. They'll find the way. The question is:
+              will independent grocers have the same opportunity?</p>
+          </div>
+          <div class="opportunity-card featured">
+            <div class="opportunity-icon">
+              <svg id="Leaves" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.0824 7.19624C11.4547 7.2878 10.8165 7.19536 10.1827 7.21033C8.7134 7.24554 7.56194 8.48768 6.44392 9.32928C5.87171 9.76064 5.07237 9.70342 4.56706 9.19547C4.00629 8.63294 4.00629 7.72004 4.56706 7.15663C5.77487 5.94442 6.84183 4.81848 8.47924 4.182C10.7514 3.29815 12.8589 3.72775 15.16 4.182M12.0842 7.22423H10.8438"
+                  stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M4.14648 20.5H5.07699C5.78742 20.5 6.22934 19.9991 6.22934 19.2895V15.1353C6.22934 14.4257 5.78742 13.924 5.07699 13.924H4.14648"
+                  stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M13.5458 13.7501C12.5246 13.4939 11.5052 13.2923 10.4391 13.3187C8.74889 13.3592 7.56749 14.3012 6.22852 15.1982"
+                  stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M11.9184 16.8029C12.5461 16.7113 13.1844 16.8037 13.8182 16.7888C15.2875 16.7536 16.4389 15.5114 17.5569 14.6698C18.1292 14.2385 18.9285 14.2957 19.4338 14.8036C19.9946 15.3662 19.9946 16.2791 19.4338 16.8425C18.226 18.0547 17.159 19.1806 15.5216 19.8171C13.2495 20.701 11.142 20.2714 8.84082 19.8171M11.9167 16.7749H13.1571"
+                  stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M10.4546 10.2508C11.4758 10.507 12.4952 10.7086 13.5613 10.6822C15.2515 10.6417 16.4329 9.69973 17.7719 8.80267"
+                  stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M19.8543 3.5H18.9238C18.2134 3.5 17.7715 4.00091 17.7715 4.71045V8.86472C17.7715 9.57426 18.2134 10.076 18.9238 10.076H19.8543"
+                  stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+
+            </div>
+            <h3>That's where Breez comes in</h3>
+            <p>We believe independent grocers deserve access to the same AI-powered tools as the giants – helping them
+              compete, thrive, and strengthen their communities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder Vision Section -->
+    <section class="vision-section reveal">
+      <div class="vision-container">
+        <div class="vision-portrait">
+          <div class="portrait-wrapper">
+            <img src="/team/tal.png" alt="Tal Zlotnitsky, Founder & CEO of Breez AI" class="portrait-img" />
+          </div>
+          <div class="portrait-info">
+            <span class="portrait-name">Tal Zlotnitsky</span>
+            <span class="portrait-title">Founder & CEO</span>
+          </div>
+        </div>
+        <div class="vision-content">
+          <span class="section-label">From Our Founder</span>
+          <h2 class="vision-title">Why I started Breez</h2>
+          <div class="vision-text">
+            <p>
+              I saw an opportunity to simplify and improve how people plan and shop for meals – and a chance to help the
+              grocers who serve them do it better.
+            </p>
+            <p>
+              My desire was to create a solution that combines <strong>personalization, convenience, and value</strong>.
+              I believed that AI could fundamentally enhance the grocery shopping experience for everyone involved.
+            </p>
+            <p>
+              But more than that, I wanted to provide opportunities for <strong>regional and independent grocers to
+                compete and thrive</strong> – not just survive – in a rapidly changing market.
+            </p>
+            <p class="vision-highlight">
+              Breez exists to level the playing field. To give every grocer the tools to deliver experiences that keep
+              customers coming back.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section reveal">
+      <div class="mission-container">
+        <div class="mission-header">
+          <span class="section-label">Our Goal</span>
+          <h2 class="section-title">Empowering independent grocery stores to better serve their customers</h2>
+        </div>
+        <div class="mission-content">
+          <p class="mission-lead">
+            We help grocers deliver a seamless, personalized shopping experience that makes meal planning and grocery
+            shopping easier, more personalized, more affordable, and more convenient for their customers.
+          </p>
+          <div class="mission-values">
+            <div class="value-item">
+              <div class="value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="22 4 12 14.01 9 11.01" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="value-content">
+                <h4>Choice</h4>
+                <p>Give customers diverse, personalized meal options that fit their needs</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round" />
+                  <polyline points="12 6 12 12 16 14" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="value-content">
+                <h4>Efficiency</h4>
+                <p>Streamline shopping to save time and reduce food waste</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">
+                <svg id="Relieved" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M7.78216 3H16.2169C19.165 3 21 5.08119 21 8.02638V15.9736C21 18.9188 19.165 21 16.2159 21H7.78216C4.83405 21 3 18.9188 3 15.9736V8.02638C3 5.08119 4.84281 3 7.78216 3Z"
+                    stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path
+                    d="M9.10352 14.3516C9.82352 15.2885 10.8841 15.8733 12.0614 15.8733C13.2387 15.8733 14.2992 15.2885 15.0192 14.3516"
+                    stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path
+                    d="M8.07422 9.17188C8.34568 9.52604 8.74654 9.7469 9.19119 9.7469C9.63584 9.7469 10.0367 9.52604 10.3082 9.17188"
+                    stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path
+                    d="M13.6914 9.17188C13.9629 9.52604 14.3637 9.7469 14.8084 9.7469C15.253 9.7469 15.6539 9.52604 15.9254 9.17188"
+                    stroke=currentColor stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <div class="value-content">
+                <h4>Accessibility</h4>
+                <p>Make affordable, high-quality meals achievable for every household</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="partnership-section reveal">
+      <div class="partnership-container">
+        <div class="partnership-header">
+          <span class="section-label">The Partnership</span>
+          <h2 class="section-title">How we work with grocers</h2>
+          <p class="partnership-intro">We're not just a vendor – we're a partner invested in your success.</p>
+        </div>
+        <div class="partnership-grid">
+          <div class="partnership-card">
+            <span class="partnership-number">01</span>
+            <h3>Strengthen your competitive edge</h3>
+            <p>Offer your customers personalized grocery shopping experiences tailored to their budget and
+              lifestyle – driving satisfaction, loyalty, and increased basket size.</p>
+          </div>
+          <div class="partnership-card">
+            <span class="partnership-number">02</span>
+            <h3>Enhance customer loyalty</h3>
+            <p>Our white-labeled integration creates a frictionless experience that builds lasting customer stickiness
+              with your brand, not ours.</p>
+          </div>
+          <div class="partnership-card">
+            <span class="partnership-number">03</span>
+            <h3>Capture market opportunity together</h3>
+            <p>Co-create a market-leading AI solution that delivers results and value – positioning you as a preferred
+              destination for modern shoppers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo CTA -->
+    <section class="story-cta reveal">
+      <div class="story-cta-inner">
+        <h2 class="story-cta-title">Ready to transform your grocery experience?</h2>
+        <p class="story-cta-text">
+          Let's explore how Breez can help your stores deliver the personalized shopping experience your customers
+          deserve.
+        </p>
+        <a href="/bookdemo/" class="btn-primary">
+          <span class="btn-primary-bg"></span>
+          <span class="btn-primary-spotlight"></span>
+          <span class="btn-primary-content">
+            <span class="btn-primary-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M18.7414 12.6903C19.6452 15.1301 18.7559 18.3585 17.1721 19.9423C15.1512 21.9632 9.50358 22.1168 7.65461 19.8175C6.48129 18.3585 5.56933 16.5877 4.99449 15.001C4.68618 14.15 5.13859 13.2323 5.98366 12.9082C6.73171 12.6212 7.57895 12.8838 8.03363 13.5435L9.16905 15.1908V6.08708C9.16905 5.21056 9.87961 4.5 10.7561 4.5C11.6231 4.5 12.3297 5.19579 12.343 6.06271L12.4061 10.1687C14.6272 10.3808 17.8433 10.2662 18.7414 12.6903Z"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path
+                  d="M9.01733 9.5C7.93016 8.86052 7.19531 7.63895 7.19531 6.23711C7.19531 4.17316 8.78825 2.5 10.7532 2.5C12.7182 2.5 14.3112 4.17316 14.3112 6.23711C14.3112 7.61658 13.5996 8.82148 12.5409 9.46894"
+                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </span>
+            <span class="btn-primary-text">Schedule a Demo</span>
+          </span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Partial -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch('/partials/footer.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
+
+  <script>
+    // Scroll handling for header
+    const header = document.getElementById('header');
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+
+</html>

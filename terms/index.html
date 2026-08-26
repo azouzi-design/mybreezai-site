@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms & Conditions | Breez AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="/content/BreezWebLogo.png">
+
+  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/hamburgermenu.css">
+  <link rel="stylesheet" href="termsandconditions.css">
+</head>
+
+<body>
+  <!-- Header Partial -->
+  <div id="header-placeholder" style="min-height: 80px;"></div>
+
+  <script>
+    fetch('/partials/header.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        initializeHeader();
+      });
+
+    function initializeHeader() {
+      var btn = document.getElementById('mobileMenuBtn');
+      var menu = document.getElementById('mobileMenu');
+      var dropdownTriggers = document.querySelectorAll('.mobile-menu-dropdown-trigger');
+      var menuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-menu-dropdown-items a, .mobile-menu-demo a');
+
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function () {
+        btn.classList.toggle('active');
+        menu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+
+      dropdownTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          trigger.parentElement.classList.toggle('open');
+        });
+      });
+
+      menuLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1000) {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      });
+
+      // Mark the active nav link based on current URL
+      var path = window.location.pathname;
+      document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(function (link) {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('nav-link--active');
+        }
+      });
+    }
+  </script>
+
+  <main>
+    <section class="page-hero">
+      <span class="page-hero-label">Legal</span>
+      <h1 class="page-hero-title">Terms &amp; Conditions</h1>
+      <p class="page-hero-subtitle">
+        Please read these terms carefully before using the AI-powered meal planning, recipe, and nutrition services
+        provided by Breez AI Corporation.
+      </p>
+    </section>
+
+    <section class="terms-section">
+      <div class="terms-container">
+        <div class="terms-meta">
+          <div class="terms-meta-item">
+            <span class="terms-meta-label">Effective Date</span>
+            <span class="terms-meta-value">August 18, 2026</span>
+          </div>
+          <div class="terms-meta-item">
+            <span class="terms-meta-label">Scheduled Review</span>
+            <span class="terms-meta-value">Quarterly</span>
+          </div>
+          <div class="terms-meta-item">
+            <span class="terms-meta-label">Contact</span>
+            <span class="terms-meta-value">
+              <a href="mailto:Legal@mybreezai.com">Legal@mybreezai.com</a>
+            </span>
+          </div>
+        </div>
+
+        <div class="terms-content">
+          <div class="terms-intro">
+            <p>
+              By accessing or using the AI-powered meal planning, recipe suggestion, and nutrition and calorie tracking
+              services (the &ldquo;Services&rdquo;) provided by Breez AI Corporation (&ldquo;Breez AI,&rdquo;
+              &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), you agree to be bound by these Terms and
+              Conditions (these &ldquo;Terms&rdquo;). If you do not agree to these Terms, you may not access or use the
+              Services.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">1. Acceptance of Terms and White Label Disclosure</h2>
+
+            <h3 class="terms-subheading">1.1 Agreement to Terms</h3>
+            <p>
+              These Terms constitute a legally binding agreement between you and Breez AI. If you access the Services
+              through a mobile application, website, or other digital interface operated by a third-party grocery
+              retailer (a &ldquo;Retailer&rdquo;), these Terms apply to your use of the Breez AI Services embedded within
+              or accessible through that Retailer&rsquo;s platform, in addition to any terms imposed by the Retailer with
+              respect to the Retailer&rsquo;s own platform.
+            </p>
+
+            <h3 class="terms-subheading">1.2 White Label Disclosure</h3>
+            <p>
+              The Services may be presented to you under a Retailer&rsquo;s brand name or under a separate brand name
+              rather than the Breez AI brand. Regardless of the branding or visual presentation under which the Services
+              appear, Breez AI Corporation is the provider of the underlying AI-powered meal planning, recipe, and
+              nutrition technology. Breez AI is a separate and independent company from any Retailer through whose
+              platform you access the Services. By accepting these Terms, you acknowledge that you understand and accept
+              this relationship.
+            </p>
+
+            <h3 class="terms-subheading">1.3 Updates to Terms</h3>
+            <p>
+              Breez AI may update these Terms from time to time. When Breez AI makes material changes, it will update the
+              effective date at the top of the document and, where practicable, provide notice through the Services or by
+              email. Your continued use of the Services after the effective date of any updated Terms constitutes your
+              acceptance of the updated Terms. If you do not agree to updated Terms, you must stop using the Services.
+              Breez AI conducts a scheduled review of these Terms on a quarterly basis; the next scheduled review date is
+              noted at the top of this document.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">2. Description of Services</h2>
+            <p>
+              Breez AI provides an AI-powered platform that offers personalized meal planning, recipe suggestions,
+              nutritional analysis, and calorie tracking functionality. The Services use artificial intelligence and
+              machine learning systems as a core and integral component of their operation to generate recommendations,
+              analyze nutritional content, personalize user experiences, and improve over time. The following features may
+              be included in the Services depending on your account configuration and the scope of Services made
+              available through your Retailer&rsquo;s platform:
+            </p>
+            <ul class="terms-list">
+              <li>AI-generated personalized meal plans based on dietary preferences, health metrics, goals, allergen data,
+                and other user-provided inputs;</li>
+              <li>Recipe suggestions and discovery features powered by machine learning models;</li>
+              <li>Nutritional analysis and calorie tracking tools that estimate macronutrient and micronutrient content
+                of meals and recipes;</li>
+              <li>Integration with connected wearable devices and third-party health applications, where enabled;</li>
+              <li>Integration with Retailer purchase history and grocery data to enhance personalization;</li>
+              <li>User account and profile management features; and</li>
+              <li>Recurring personalized email communications, presented under the Retailer&rsquo;s brand, which you may
+                receive without holding a Breez AI account.</li>
+            </ul>
+            <p>
+              The specific features and functionality available to any user may vary depending on the user&rsquo;s account
+              type, the Retailer through whose platform the Services are accessed, geographic location, and other
+              factors. Breez AI reserves the right to modify, add, or remove features of the Services at any time.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">3. Not Medical Advice &mdash; Mandatory Acknowledgment</h2>
+            <p>
+              <strong>THIS SECTION IS MATERIAL AND FORMS AN ESSENTIAL PART OF YOUR AGREEMENT WITH BREEZ AI. BY USING THE
+                SERVICES, YOU EXPRESSLY ACKNOWLEDGE AND AGREE TO THE FOLLOWING:</strong>
+            </p>
+            <p>
+              The Services are provided for general informational and convenience purposes only. Breez AI is not a
+              healthcare provider, dietitian, nutritionist, or licensed medical professional, and the Services do not
+              constitute the practice of medicine, dietetics, or any other licensed healthcare profession.
+            </p>
+            <p>
+              Meal plans, recipe suggestions, nutritional analyses, calorie estimates, macronutrient calculations, dietary
+              recommendations, and all other outputs generated by the Services &mdash; including those produced by
+              artificial intelligence and machine learning systems &mdash; are not medical advice. They are not a
+              substitute for the advice, diagnosis, or treatment of a qualified physician, registered dietitian, licensed
+              nutritionist, or other healthcare professional.
+            </p>
+            <p>
+              You should not rely on any output from the Services as the basis for any medical, dietary, or health-related
+              decision. If you have a medical condition, food allergy, metabolic disorder, or other health concern
+              &mdash; or if you are pregnant, nursing, taking prescription medications, or recovering from an illness or
+              surgery &mdash; you should consult a qualified healthcare provider before making any change to your diet
+              based on content delivered through the Services.
+            </p>
+            <p>
+              <strong>Breez AI expressly disclaims all responsibility for any health-related consequences arising from
+                reliance on the Services as medical or dietary advice.</strong>
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">4. Health Data Consent</h2>
+
+            <h3 class="terms-subheading">4.1 Voluntary Provision of Health Data</h3>
+            <p>
+              If you choose to share health-related or dietary information with us, Breez AI can use it to personalize
+              your experience. This may include information such as height, weight, body mass index, age, biological sex,
+              calorie targets, macronutrient targets, food allergies and intolerances, religious or cultural dietary
+              practices, dietary preferences and restrictions, health and fitness goals, and data from connected wearable
+              devices or health applications. You are never required to provide this information, but the more context you
+              share, the more personalized and useful the Services can be for you. If you tell us nothing, we can still
+              provide general meal plans and recipe suggestions; we just cannot tailor them to your specific needs.
+            </p>
+
+            <h3 class="terms-subheading">4.2 Explicit Consent to Sensitive Health and Dietary Data Collection</h3>
+            <p>
+              By using the Services and providing health and dietary data as described above, you expressly consent to
+              Breez AI&rsquo;s collection and processing of that data for the purposes described in these Terms and in
+              Breez AI&rsquo;s Privacy Policy. You acknowledge that certain categories of this data &mdash; including data
+              that may reveal or allow inference of your religious affiliation, medical conditions, or physical or mental
+              health status &mdash; constitute sensitive personal data and are subject to heightened protections under
+              applicable law and under Breez AI&rsquo;s Privacy Policy.
+            </p>
+
+            <h3 class="terms-subheading">4.3 Accuracy of Health Data</h3>
+            <p>
+              You represent that health and dietary data you provide to the Services is accurate to the best of your
+              knowledge. Breez AI relies on user-provided data to generate personalized outputs and bears no
+              responsibility for recommendations generated on the basis of inaccurate, incomplete, or misleading
+              information you provide.
+            </p>
+
+            <h3 class="terms-subheading">4.4 No Medical Record</h3>
+            <p>
+              The Services are not a medical records platform, and data stored within the Services does not constitute or
+              substitute for a medical record. You should maintain independent records of health information with your
+              healthcare providers.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">5. AI Services Consent</h2>
+
+            <h3 class="terms-subheading">5.1 AI as a Core Service Component</h3>
+            <p>
+              You acknowledge and agree that artificial intelligence and machine learning systems are a baseline and
+              mandatory component of the Services. Personalized meal plans, recipe suggestions, nutritional analyses, and
+              related outputs are generated by AI models. AI-generated outputs may reflect probabilities, predictions, and
+              patterns derived from large datasets, and such outputs may not be accurate, complete, or appropriate for
+              your specific circumstances in every instance. See Section 9 (Accuracy Disclaimer).
+            </p>
+
+            <h3 class="terms-subheading">5.2 Consent to AI Model Training</h3>
+            <p>
+              By using the Services, you acknowledge that Breez AI may use data derived from your interactions with the
+              Services, including dietary preferences, recipe ratings, meal plan selections, and feedback, to train,
+              validate, refine, and improve Breez AI&rsquo;s AI and machine learning models. Where required by applicable
+              law, Breez AI will seek your explicit consent before using Sensitive Personal Data (as defined in Breez
+              AI&rsquo;s Privacy Policy) for AI model training purposes. You may have the right to opt out of certain uses
+              of your data for model training; to exercise that right, follow the procedures described in Breez AI&rsquo;s
+              <a href="/privacy/">Privacy Policy</a>.
+            </p>
+
+            <h3 class="terms-subheading">5.3 No Autonomous Medical Decision-Making</h3>
+            <p>
+              Breez AI&rsquo;s AI systems are not designed or intended to make autonomous decisions about your medical
+              care, diagnosis, or treatment. Any output that could be interpreted as health-related is informational only
+              and is subject to the disclaimers in Section 3 of these Terms.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">6. Retailer Integration Terms</h2>
+
+            <h3 class="terms-subheading">6.1 Nature of the Retailer Relationship</h3>
+            <p>
+              Where you access the Services through a Retailer&rsquo;s application or website, Breez AI, the Retailer, and
+              the Retailer&rsquo;s contracted loyalty program provider may exchange data about you in connection with
+              providing the integrated service experience. These three parties operate as an integrated network: the
+              Retailer provides the grocery platform and purchase context; the loyalty program provider manages rewards
+              and member engagement; and Breez AI provides the meal planning and nutrition intelligence. The specific
+              scope of data exchange is described in Breez AI&rsquo;s <a href="/privacy/">Privacy Policy</a> (Section 10
+              &mdash; Retailer and Partner Integration) and is governed by written agreements among the parties.
+            </p>
+
+            <h3 class="terms-subheading">6.2 Consent to Data Sharing with Retailer and Loyalty Program Provider</h3>
+            <p>
+              By using the Services through a Retailer&rsquo;s platform, you consent to Breez AI&rsquo;s receipt of data
+              from the Retailer and the Retailer&rsquo;s loyalty program provider &mdash; including grocery purchase
+              history, loyalty program membership data, reward balances, and account identifiers &mdash; and to Breez
+              AI&rsquo;s sharing of your Services usage data, meal plan activity, dietary preferences, and related
+              information back to the Retailer and the loyalty program provider, in each case for the purpose of enabling
+              and personalizing the integrated service experience. The Retailer&rsquo;s and loyalty program
+              provider&rsquo;s use of data they receive from Breez AI is governed by their own privacy policies and terms.
+            </p>
+
+            <h3 class="terms-subheading">6.3 Retailer Terms</h3>
+            <p>
+              Your use of a Retailer&rsquo;s application or website is also governed by that Retailer&rsquo;s terms of
+              service and privacy policy, which are separate from these Terms. Breez AI is not responsible for any
+              Retailer&rsquo;s terms, policies, or conduct.
+            </p>
+
+            <h3 class="terms-subheading">6.4 Service Availability Through Retailers</h3>
+            <p>
+              Breez AI may make the Services available through a Retailer&rsquo;s platform pursuant to a commercial
+              agreement between Breez AI and the Retailer. If that commercial relationship is modified or terminated, the
+              availability of the Services through that Retailer&rsquo;s platform may change or cease. Breez AI will use
+              reasonable efforts to provide advance notice of any material changes to Service availability, but cannot
+              guarantee continuity of access through any particular Retailer&rsquo;s platform.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">7. Email and Other Outbound Communications</h2>
+
+            <h3 class="terms-subheading">7.1 Communications You May Receive</h3>
+            <p>
+              Breez AI may send you email or other electronic communications relating to the Services, including:
+            </p>
+            <ul class="terms-list">
+              <li>Transactional and service communications, such as account confirmations, security notices, responses to
+                your inquiries, and notices required by law or by these Terms; and</li>
+              <li>Personalised marketing communications, including recurring emails containing recipe suggestions, meal
+                plan ideas, grocery offers, coupons, loyalty rewards information, and product recommendations.</li>
+            </ul>
+            <p>
+              Personalised marketing communications may be sent on a recurring basis, for example weekly.
+            </p>
+
+            <h3 class="terms-subheading">7.2 How You May Come to Receive Marketing Communications</h3>
+            <p>
+              You may receive personalised marketing communications from Breez AI in either of two ways:
+            </p>
+            <ul class="terms-list">
+              <li><strong>Direct enrollment.</strong> You provided your email address to Breez AI and consented to receive
+                marketing communications.</li>
+              <li><strong>Retailer loyalty program enrollment.</strong> You enrolled in a grocery Retailer&rsquo;s loyalty
+                program and, in connection with that enrollment, consented to receive marketing communications about
+                products, offers, and services related to that program. Where a Retailer has engaged Breez AI to provide
+                personalized recipes and offer communications as part of that program, Breez AI may send those
+                communications to you on the Retailer&rsquo;s behalf, relying on the consent you gave to the Retailer or
+                its loyalty program provider.</li>
+            </ul>
+            <p>
+              You may receive communications without having created a Breez AI account and without having used the Breez
+              AI application. Breez AI receives your email address and your marketing consent status from the Retailer or
+              its contracted loyalty program provider. Breez AI does not purchase, rent, or otherwise acquire email
+              addresses from data brokers or third-party list vendors.
+            </p>
+
+            <h3 class="terms-subheading">7.3 Sender Identity and Branding</h3>
+            <p>
+              Personalised marketing communications are sent using email infrastructure and a sending domain controlled by
+              Breez AI, and may be presented under the Retailer&rsquo;s brand name consistent with the white-label
+              disclosure in Section 1.2. Every such communication identifies Breez AI as the sender or as sending on the
+              Retailer&rsquo;s behalf, and includes a valid physical postal address as required by applicable law.
+            </p>
+
+            <h3 class="terms-subheading">7.4 Personalisation and Content</h3>
+            <p>
+              Personalised marketing communications may be generated using the data described in Breez AI&rsquo;s
+              <a href="/privacy/">Privacy Policy</a>, including grocery purchase history received from the Retailer,
+              purchase patterns, dietary preferences, and AI-Generated Inferences. Recipe suggestions and offers contained
+              in these communications are produced by AI and machine learning systems and are subject to the accuracy
+              disclaimer in Section 8 and the medical advice disclaimer in Section 3. In particular, nothing contained in
+              any Breez AI communication constitutes medical or dietary advice, and offers, coupons, and product
+              recommendations are not representations that any product is suitable for your health condition, allergy, or
+              dietary requirement.
+            </p>
+
+            <h3 class="terms-subheading">7.5 Withdrawing Consent and Unsubscribing</h3>
+            <p>
+              Every personalised marketing communication from Breez AI contains a functioning unsubscribe link. Using that
+              link withdraws your consent to receive further marketing communications from Breez AI and takes effect
+              promptly, and in any event within the period required by applicable law. No account, login, or password is
+              required to unsubscribe.
+            </p>
+            <p>Unsubscribing from Breez AI marketing communications:</p>
+            <ul class="terms-list">
+              <li>Does stop further personalised marketing communications from Breez AI;</li>
+              <li>Does not by itself cancel your Retailer loyalty program membership, nor stop communications sent
+                independently by the Retailer or its loyalty program provider, which must be managed with those parties
+                directly;</li>
+              <li>Does not stop transactional or service communications that Breez AI is required or permitted to send.
+              </li>
+            </ul>
+            <p>
+              You may also contact Breez AI using the details in Section 14 to withdraw consent or to ask what data Breez
+              AI holds about you.
+            </p>
+
+            <h3 class="terms-subheading">7.6 Offer Validity</h3>
+            <p>
+              Coupons, offers, and loyalty rewards presented in Breez AI communications originate with the Retailer or its
+              loyalty program provider and are subject to their terms, availability, and expiry. Breez AI does not issue,
+              honour, or guarantee any offer, and product availability and pricing shown may change or be inaccurate at
+              the time you shop.
+            </p>
+
+            <h3 class="terms-subheading">7.7 Accuracy of Contact Information</h3>
+            <p>
+              Breez AI relies on contact information supplied by you or by the Retailer or its loyalty program provider.
+              Where a communication is undeliverable, Breez AI suppresses further sending to that address.
+            </p>
+
+            <h3 class="terms-subheading">7.8 Anti-Spam Commitment</h3>
+            <p>
+              <strong>Anti-Spam.</strong> We will not send, or to knowingly assist others in sending, unsolicited bulk or
+              commercial messages, chain letters, or communications that violate applicable anti-spam laws, including the
+              CAN-SPAM Act and the Telephone Consumer Protection Act (TCPA), or the acceptable-use policies of any
+              recipient&rsquo;s email, messaging, or telecom provider.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">8. User-Generated Content</h2>
+
+            <h3 class="terms-subheading">8.1 Definition</h3>
+            <p>
+              &ldquo;User-Generated Content&rdquo; means any content, data, or material that you submit, upload, post, or
+              otherwise provide through the Services, including dietary preferences, health goals, custom meal plan
+              configurations, recipe ratings, reviews, feedback, comments, and other inputs.
+            </p>
+
+            <h3 class="terms-subheading">8.2 License to Breez AI</h3>
+            <p>
+              By submitting User-Generated Content through the Services, you grant Breez AI a non-exclusive, worldwide,
+              royalty-free, sublicensable license to use, reproduce, process, adapt, publish, and display your
+              User-Generated Content for the purpose of operating, improving, and providing the Services, including for
+              purposes of AI model training as described in Section 5.2. This license is subject to the terms of Breez
+              AI&rsquo;s Privacy Policy with respect to Personal Data included in User-Generated Content.
+            </p>
+
+            <h3 class="terms-subheading">8.3 Your Representations Regarding User-Generated Content</h3>
+            <p>
+              You represent and warrant that (a) you have the right to submit any User-Generated Content you provide
+              through the Services; (b) your User-Generated Content does not violate the rights of any third party; and
+              (c) your User-Generated Content does not contain false, misleading, or fraudulent information about your
+              health status that could cause harm to you or others.
+            </p>
+
+            <h3 class="terms-subheading">8.4 No Obligation to Retain</h3>
+            <p>
+              Breez AI is not obligated to retain, display, or act upon any User-Generated Content and may remove or
+              modify User-Generated Content in its discretion, subject to applicable law and its Privacy Policy.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">9. Accuracy Disclaimer</h2>
+
+            <h3 class="terms-subheading">9.1 AI-Generated Outputs</h3>
+            <p>
+              Meal plans, recipe suggestions, calorie estimates, macronutrient calculations, nutritional analyses, and
+              other outputs generated by Breez AI&rsquo;s AI and machine learning systems are produced through statistical
+              modeling and pattern recognition processes. These outputs may contain errors, omissions, or inaccuracies.
+              Nutritional content estimates are approximations based on available data and may not precisely reflect the
+              nutritional content of specific products, preparation methods, or ingredient variations.
+            </p>
+
+            <h3 class="terms-subheading">9.2 Third-Party Data</h3>
+            <p>
+              The Services may incorporate nutritional data, product information, ingredient data, and other content
+              obtained from third-party databases, food manufacturers, or Retailers. Breez AI does not independently
+              verify all such third-party data and makes no warranty as to its accuracy or completeness.
+            </p>
+
+            <h3 class="terms-subheading">9.3 No Warranty of Fitness</h3>
+            <p>
+              AI-generated meal plans and recipe suggestions are designed to be generally consistent with user-provided
+              preferences and goals, but Breez AI does not warrant that any meal plan, recipe, or nutritional
+              recommendation is suitable for your specific health condition, medical history, or individual circumstances.
+              See Section 3 (Not Medical Advice).
+            </p>
+
+            <h3 class="terms-subheading">9.4 User Responsibility</h3>
+            <p>
+              You are responsible for independently verifying the accuracy of nutritional information, ingredient lists,
+              and allergen data before consuming any meal or product identified through the Services, particularly if you
+              have a food allergy, intolerance, or medical condition that requires strict dietary compliance.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">10. Intellectual Property</h2>
+
+            <h3 class="terms-subheading">10.1 Ownership of Platform and Technology</h3>
+            <p>
+              Breez AI owns or holds licenses to all right, title, and interest in and to the Services, including all
+              software, source code, artificial intelligence models, machine learning algorithms, training data (excluding
+              identifiable personal data subject to applicable privacy law), proprietary datasets, platform architecture,
+              user interface designs, and related intellectual property (collectively, the &ldquo;Breez AI
+              Technology&rdquo;). This ownership is not affected by the white-label branding or presentation of the
+              Services under a Retailer&rsquo;s name or a third-party brand name. A Retailer&rsquo;s use of Breez
+              AI&rsquo;s Technology under a white-label arrangement does not transfer any ownership of that Technology to
+              the Retailer or to any user.
+            </p>
+
+            <h3 class="terms-subheading">10.2 Retailer-Provided Branding</h3>
+            <p>
+              Where the Services are presented under a Retailer&rsquo;s brand, the Retailer&rsquo;s trademarks, trade
+              names, logos, and other brand elements remain the property of the Retailer. Breez AI does not claim
+              ownership of Retailer branding. Similarly, any Retailer-specific content or data provided to Breez AI by the
+              Retailer remains the property of the Retailer, subject to the terms of the agreement between Breez AI and
+              the Retailer.
+            </p>
+
+            <h3 class="terms-subheading">10.3 Limited License to Users</h3>
+            <p>
+              Subject to your compliance with these Terms, Breez AI grants you a limited, non-exclusive, non-transferable,
+              revocable license to access and use the Services for your personal, non-commercial purposes. You may not
+              copy, modify, distribute, sell, sublicense, reverse engineer, or create derivative works from the Services
+              or any Breez AI Technology without Breez AI&rsquo;s prior written consent.
+            </p>
+
+            <h3 class="terms-subheading">10.4 Feedback</h3>
+            <p>
+              If you provide Breez AI with feedback, suggestions, or ideas regarding the Services, you grant Breez AI the
+              right to use such feedback without restriction and without any obligation of compensation or attribution.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">11. Privacy and Data Consent &mdash; Cross Reference</h2>
+            <p>
+              Your use of the Services is subject to Breez AI&rsquo;s Privacy Policy, available at
+              <a href="https://www.mybreezai.com/privacy/">https://www.mybreezai.com/privacy/</a>, which is incorporated
+              into these Terms by reference. The Privacy Policy describes in detail how Breez AI collects, uses, shares,
+              and protects Personal Data, including Sensitive Personal Data related to health, dietary practices, and
+              religious or cultural affiliations. By accepting these Terms, you also acknowledge that you have read and
+              understood Breez AI&rsquo;s Privacy Policy.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">12. Disclaimers</h2>
+
+            <h3 class="terms-subheading">12.1 No Medical Advice</h3>
+            <p>
+              As stated in Section 3, the Services do not constitute medical advice. Breez AI disclaims all responsibility
+              for health-related consequences arising from reliance on Services outputs as medical, dietary, or
+              nutritional guidance.
+            </p>
+
+            <h3 class="terms-subheading">12.2 AI Errors and Limitations</h3>
+            <p>
+              Breez AI disclaims all warranties regarding the accuracy, completeness, timeliness, or fitness for a
+              particular purpose of AI-generated meal plans, recipe suggestions, nutritional analyses, calorie estimates,
+              or other outputs. Artificial intelligence and machine learning systems are subject to inherent limitations,
+              including the potential for errors, biases, and outputs that may not be appropriate for individual
+              circumstances. Breez AI does not warrant that AI-generated outputs will be free from error.
+            </p>
+
+            <h3 class="terms-subheading">12.3 Third-Party Content</h3>
+            <p>
+              The Services may incorporate or link to content, products, services, or information provided by third
+              parties, including Retailers, food database providers, and health information sources. Breez AI disclaims
+              all warranties with respect to the accuracy, completeness, safety, or reliability of third-party content.
+            </p>
+
+            <h3 class="terms-subheading">12.4 Service Availability</h3>
+            <p>
+              Breez AI does not warrant that the Services will be available without interruption, error-free, or free from
+              security vulnerabilities. Breez AI may modify, suspend, or discontinue the Services at any time.
+            </p>
+
+            <h3 class="terms-subheading">12.5 General Disclaimer of Warranties</h3>
+            <p>
+              TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SERVICES ARE PROVIDED &ldquo;AS IS&rdquo; AND
+              &ldquo;AS AVAILABLE&rdquo; WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR
+              OTHERWISE, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND
+              NON-INFRINGEMENT.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">13. Limitation of Liability</h2>
+            <p>
+              TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, BREEZ AI AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS,
+              LICENSORS, AND SERVICE PROVIDERS SHALL NOT BE LIABLE TO YOU FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+              CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE
+              THE SERVICES, INCLUDING DAMAGES FOR PERSONAL INJURY OR HEALTH-RELATED CONSEQUENCES, LOSS OF PROFITS, LOSS OF
+              DATA, LOSS OF GOODWILL, OR BUSINESS INTERRUPTION, EVEN IF BREEZ AI HAS BEEN ADVISED OF THE POSSIBILITY OF
+              SUCH DAMAGES.
+            </p>
+            <p>
+              TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, BREEZ AI&rsquo;S TOTAL CUMULATIVE LIABILITY TO YOU FOR
+              ANY CLAIMS ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICES, WHETHER IN CONTRACT, TORT, STRICT
+              LIABILITY, OR OTHERWISE, SHALL NOT EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID TO BREEZ AI FOR THE
+              SERVICES DURING THE TWELVE-MONTH PERIOD PRECEDING THE CLAIM, OR (B) ONE HUNDRED U.S. DOLLARS ($100.00).
+            </p>
+            <p>
+              NOTHING IN THESE TERMS SHALL LIMIT OR EXCLUDE LIABILITY THAT CANNOT BE LIMITED OR EXCLUDED UNDER APPLICABLE
+              LAW, INCLUDING LIABILITY FOR PERSONAL INJURY CAUSED BY GROSS NEGLIGENCE OR WILLFUL MISCONDUCT, OR FOR FRAUD.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">14. Dispute Resolution</h2>
+
+            <h3 class="terms-subheading">14.1 Agreement to Arbitrate</h3>
+            <p>
+              Except for claims that may be brought in small claims court and except as set forth in Section 14.4, you and
+              Breez AI agree that any dispute, claim, or controversy arising out of or relating to these Terms or the
+              Services &mdash; including any question of arbitrability &mdash; shall be resolved by binding individual
+              arbitration administered by JAMS under its then-current applicable rules. The arbitration shall be conducted
+              in Tampa, Florida or, if you prefer, by telephone or video conference. The arbitrator shall have authority to
+              award the same damages and relief that a court could award, subject to the limitations of liability in these
+              Terms.
+            </p>
+
+            <h3 class="terms-subheading">14.2 Class Action Waiver</h3>
+            <p>
+              YOU AND BREEZ AI EACH WAIVE THE RIGHT TO PURSUE ANY DISPUTE AS A CLASS, COLLECTIVE, OR REPRESENTATIVE
+              ACTION, OR TO PARTICIPATE AS A CLASS MEMBER IN ANY SUCH ACTION BROUGHT BY ANOTHER PARTY. ARBITRATION SHALL
+              BE CONDUCTED ON AN INDIVIDUAL BASIS ONLY.
+            </p>
+
+            <h3 class="terms-subheading">14.3 Opt-Out Right</h3>
+            <p>
+              You may opt out of this arbitration agreement by sending written notice to Breez AI at Breez AI Corporation,
+              9225 Bay Plaza Blvd, Suite 417 (1173), Tampa, FL 33619 within 60 days of first accepting these Terms. Your
+              notice must include your name, account information, and a clear statement that you are opting out of the
+              arbitration agreement.
+            </p>
+
+            <h3 class="terms-subheading">14.4 Exceptions</h3>
+            <p>
+              Notwithstanding the foregoing, either party may seek emergency injunctive or other equitable relief from a
+              court of competent jurisdiction to prevent actual or threatened infringement, misappropriation, or violation
+              of intellectual property rights.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">15. Governing Law</h2>
+            <p>
+              These Terms and any dispute arising out of or related to these Terms or the Services shall be governed by and
+              construed in accordance with the laws of the State of Florida, without regard to its conflict of law
+              principles, except to the extent that applicable federal law preempts state law. Nothing in this section
+              limits the application of mandatory consumer protection laws in the user&rsquo;s jurisdiction of residence
+              that cannot be contractually waived.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">16. General Provisions</h2>
+
+            <h3 class="terms-subheading">16.1 Entire Agreement</h3>
+            <p>
+              These Terms, together with Breez AI&rsquo;s Privacy Policy and any additional terms applicable to specific
+              features of the Services, constitute the entire agreement between you and Breez AI with respect to the
+              Services and supersede all prior agreements, representations, and understandings.
+            </p>
+
+            <h3 class="terms-subheading">16.2 Severability</h3>
+            <p>
+              If any provision of these Terms is found to be invalid, unlawful, or unenforceable under applicable law,
+              that provision shall be modified to the minimum extent necessary to make it enforceable, or, if modification
+              is not possible, severed from these Terms, and the remaining provisions shall continue in full force and
+              effect.
+            </p>
+
+            <h3 class="terms-subheading">16.3 Waiver</h3>
+            <p>
+              Breez AI&rsquo;s failure to enforce any right or provision of these Terms shall not constitute a waiver of
+              that right or provision. A waiver of any breach or default shall not constitute a waiver of any subsequent
+              breach or default.
+            </p>
+
+            <h3 class="terms-subheading">16.4 Assignment</h3>
+            <p>
+              You may not assign or transfer any rights or obligations under these Terms without Breez AI&rsquo;s prior
+              written consent. Breez AI may assign these Terms, in whole or in part, in connection with a merger,
+              acquisition, reorganization, or sale of assets, provided that the assignee assumes Breez AI&rsquo;s
+              obligations under these Terms.
+            </p>
+
+            <h3 class="terms-subheading">16.5 Force Majeure</h3>
+            <p>
+              Breez AI shall not be liable for any failure or delay in performing its obligations under these Terms to the
+              extent such failure or delay is caused by circumstances beyond its reasonable control, including acts of
+              God, natural disasters, pandemic or epidemic events, civil unrest, governmental actions, or failure of
+              third-party infrastructure.
+            </p>
+
+            <h3 class="terms-subheading">16.6 Headings</h3>
+            <p>
+              Section headings in these Terms are for convenience only and shall not affect the interpretation of these
+              Terms.
+            </p>
+
+            <h3 class="terms-subheading">16.7 No Third-Party Beneficiaries</h3>
+            <p>
+              These Terms do not create any third-party beneficiary rights. Nothing in these Terms shall be construed to
+              give any person or entity other than you and Breez AI any right, remedy, or claim under or in respect of
+              these Terms, except as may be expressly provided in any agreement between Breez AI and a Retailer with
+              respect to that Retailer&rsquo;s rights.
+            </p>
+          </div>
+
+          <div class="terms-section-block">
+            <h2 class="terms-heading">17. Contact Us</h2>
+            <p>
+              For questions about these Terms or the Services, contact:
+            </p>
+            <p>
+              Breez AI Corporation<br>
+              Attn: Legal<br>
+              9225 Bay Plaza Blvd, Suite 417 (1173)<br>
+              Tampa, FL 33619<br>
+              Email: <a href="mailto:Legal@mybreezai.com">Legal@mybreezai.com</a><br>
+              Website: <a href="https://www.mybreezai.com">https://www.mybreezai.com</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="terms-footer">
+          <div class="terms-footer-inner">
+            <div class="terms-footer-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <div class="terms-footer-content">
+              <h3>Questions about these terms?</h3>
+              <p>We're here to help. <a href="/contactus/">Contact us!</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Partial -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch('/partials/footer.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
+
+  <script>
+    // Scroll handling for header
+    const header = document.getElementById('header');
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+  </script>
+</body>
+
+</html>

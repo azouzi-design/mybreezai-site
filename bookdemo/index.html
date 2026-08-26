@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Demo | Breez AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="/content/BreezWebLogo.png">
+
+  <link rel="stylesheet" href="/styles.css?v=9">
+  <link rel="stylesheet" href="/hamburgermenu.css">
+  <link rel="stylesheet" href="bookdemo.css">
+
+  <!-- Flatpickr Date Picker -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+  <!-- Header Partial -->
+  <div id="header-placeholder" style="min-height: 80px;"></div>
+
+  <script>
+    fetch('/partials/header.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        initializeHeader();
+      });
+
+    function initializeHeader() {
+      var btn = document.getElementById('mobileMenuBtn');
+      var menu = document.getElementById('mobileMenu');
+      var dropdownTriggers = document.querySelectorAll('.mobile-menu-dropdown-trigger');
+      var menuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-menu-dropdown-items a, .mobile-menu-demo a');
+
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function () {
+        btn.classList.toggle('active');
+        menu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+
+      dropdownTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          trigger.parentElement.classList.toggle('open');
+        });
+      });
+
+      menuLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1000) {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      });
+
+      // Mark the active nav link based on current URL
+      var path = window.location.pathname;
+      document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(function (link) {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('nav-link--active');
+        }
+      });
+    }
+  </script>
+
+  <main>
+    <section class="demo-section">
+      <div class="demo-container">
+        <!-- Left Side - Animated Visual -->
+        <div class="demo-visual">
+          <div class="demo-visual-content">
+            <span class="demo-visual-label">See Breez in Action</span>
+            <h1 class="demo-visual-title">Transform your grocery experience</h1>
+            <p class="demo-visual-text">
+              Discover how Breez AI can increase basket sizes, boost customer loyalty, and deliver personalized
+              shopping
+              experiences.
+            </p>
+
+            <!-- Animated SVG Illustration -->
+            <div class="demo-animation">
+              <!-- later -->
+            </div>
+
+            <!-- Stats teaser -->
+            <div class="demo-stats">
+              <div class="demo-stat">
+                <span class="demo-stat-number">22%</span>
+                <span class="demo-stat-label">Larger Baskets</span>
+              </div>
+              <div class="demo-stat">
+                <span class="demo-stat-number">72%</span>
+                <span class="demo-stat-label">More Loyalty Sign-ups</span>
+              </div>
+              <div class="demo-stat">
+                <span class="demo-stat-number">&lt;2min</span>
+                <span class="demo-stat-label">To Checkout</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side - Form -->
+        <div class="demo-form-container">
+          <div class="demo-form-header">
+            <h2 class="demo-form-title">Request Your Demo</h2>
+            <p class="demo-form-subtitle">Fill out the form below and we'll be in touch within 24 hours to schedule
+              your
+              demo.</p>
+          </div>
+
+          <form class="demo-form" id="demoForm">
+            <!-- Contact Information -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </span>
+                Contact Information
+              </h3>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name <span class="required">*</span></label>
+                  <input type="text" id="firstName" name="firstname" required placeholder="John">
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name <span class="required">*</span></label>
+                  <input type="text" id="lastName" name="lastname" required placeholder="Smith">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Work Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="john@groceryco.com">
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+              </div>
+
+              <div class="form-group">
+                <label for="jobTitle">Job Title <span class="required">*</span></label>
+                <input type="text" id="jobTitle" name="jobtitle" required placeholder="VP of Digital">
+              </div>
+            </div>
+
+            <!-- Company Information -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </span>
+                Company Information
+              </h3>
+
+              <div class="form-group">
+                <label for="company">Company/Grocer Name</label>
+                <input type="text" id="company" name="company" placeholder="Grocery Co.">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="storeCount">Number of Stores</label>
+                  <select id="storeCount" name="number_of_stores">
+                    <option value="">Select range</option>
+                    <option value="1-10">1-10 stores</option>
+                    <option value="11-50">11-50 stores</option>
+                    <option value="51-100">51-100 stores</option>
+                    <option value="101-500">101-500 stores</option>
+                    <option value="500+">500+ stores</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="region">Primary Region</label>
+                  <select id="region" name="primary_region">
+                    <option value="">Select region</option>
+                    <option value="northeast">Northeast US</option>
+                    <option value="southeast">Southeast US</option>
+                    <option value="midwest">Midwest US</option>
+                    <option value="southwest">Southwest US</option>
+                    <option value="west">West US</option>
+                    <option value="canada">Canada</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="website">Company Website</label>
+                <input type="url" id="website" name="website" placeholder="https://groceryco.com">
+              </div>
+            </div>
+
+            <!-- Demo Preferences -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </span>
+                Demo Preferences
+              </h3>
+
+              <div class="form-group">
+                <label for="timeline">Implementation Timeline</label>
+                <select id="timeline" name="implementation_timeline">
+                  <option value="">When are you looking to implement?</option>
+                  <option value="immediate">As soon as possible</option>
+                  <option value="1-3months">1-3 months</option>
+                  <option value="3-6months">3-6 months</option>
+                  <option value="6-12months">6-12 months</option>
+                  <option value="exploring">Just exploring options</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group date-input-wrapper">
+                  <label for="preferredDate">Preferred Demo Date</label>
+                  <input type="text" id="preferredDate" name="preferred_demo_date" placeholder="Select a date" readonly>
+                  <span class="form-hint">Weekdays only</span>
+                </div>
+                <div class="form-group">
+                  <label for="preferredTime">Preferred Time</label>
+                  <select id="preferredTime" name="preferred_time">
+                    <option value="">Select time</option>
+                    <option value="morning">Morning (9am-12pm ET)</option>
+                    <option value="afternoon">Afternoon (12pm-3pm ET)</option>
+                    <option value="late-afternoon">Late Afternoon (3pm-5pm ET)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="timezone">Your Timezone</label>
+                <select id="timezone" name="timezone">
+                  <option value="">Select timezone</option>
+                  <option value="ET">Eastern Time (ET)</option>
+                  <option value="CT">Central Time (CT)</option>
+                  <option value="MT">Mountain Time (MT)</option>
+                  <option value="PT">Pacific Time (PT)</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="form-section">
+              <h3 class="form-section-title">
+                <span class="form-section-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                </span>
+                Additional Information
+              </h3>
+
+              <div class="form-group">
+                <label for="currentSolutions">Current Digital Solutions</label>
+                <textarea id="currentSolutions" name="current_digital_solutions" rows="2"
+                  placeholder="Tell us about your current eCommerce platform, apps, or digital tools..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="goals">Goals & Challenges</label>
+                <textarea id="goals" name="goals_and_challenges" rows="3"
+                  placeholder="What are you hoping to achieve with Breez AI? Any specific challenges you're facing?"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="howHeard">How did you hear about us?</label>
+                <select id="howHeard" name="how_did_you_hear_about_us">
+                  <option value="">Select option</option>
+                  <option value="search">Search Engine</option>
+                  <option value="linkedin">LinkedIn</option>
+                  <option value="conference">Conference/Event</option>
+                  <option value="referral">Referral</option>
+                  <option value="article">Article/Press</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-submit">
+              <button type="submit" class="btn-submit">
+                <span class="btn-submit-bg"></span>
+                <span class="btn-submit-content">
+                  <span class="btn-submit-text">Request Demo</span>
+                  <span class="btn-submit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </span>
+                </span>
+              </button>
+              <p class="form-disclaimer">
+                By submitting this form, you agree to our <a href="/privacy/">Privacy Policy</a> and consent to
+                being contacted about Breez AI products and services.
+              </p>
+            </div>
+          </form>
+
+          <!-- Success Message -->
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h3>Thank You!</h3>
+            <p>Your demo request has been received. Our team will reach out within 24 business hours to confirm your
+              demo.</p>
+            <a href="/home/" class="btn-back-home">Back to Home</a>
+          </div>
+
+          <!-- Error Message -->
+          <div class="form-error" id="formError"
+            style="display: none; margin-top: 1rem; padding: 1rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; color: #dc2626; text-align: center;">
+            <p>Something went wrong. Please try again or contact us directly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Partial -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch('/partials/footer.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
+
+  <!-- Flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+  <script>
+    // ============ HUBSPOT CONFIGURATION ============
+    const HUBSPOT_PORTAL_ID = '244231130';
+    const HUBSPOT_FORM_ID = 'db36c8ab-d796-4192-b4f3-daa2db2eaa49';
+
+    // Scroll handling for header
+    const header = document.getElementById('header');
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Form handling with HubSpot API submission
+    const form = document.getElementById('demoForm');
+    const formSuccess = document.getElementById('formSuccess');
+    const formError = document.getElementById('formError');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('.btn-submit');
+      submitBtn.classList.add('loading');
+      formError.style.display = 'none';
+
+      // Collect form data
+      const formData = new FormData(form);
+
+      // Build HubSpot fields array
+      // Map your form field names to HubSpot property internal names
+      const fields = [];
+
+      // Standard HubSpot contact properties
+      const standardFields = ['firstname', 'lastname', 'email', 'phone', 'jobtitle', 'company', 'website'];
+
+      // Custom properties (you may need to create these in HubSpot first)
+      const customFields = [
+        'number_of_stores',
+        'primary_region',
+        'implementation_timeline',
+        'preferred_demo_date',
+        'preferred_time',
+        'timezone',
+        'current_digital_solutions',
+        'goals_and_challenges',
+        'how_did_you_hear_about_us'
+      ];
+
+      // Add all fields to the submission
+      [...standardFields, ...customFields].forEach(fieldName => {
+        const value = formData.get(fieldName);
+        if (value) {
+          fields.push({
+            name: fieldName,
+            value: value
+          });
+        }
+      });
+
+      // Prepare HubSpot API payload
+      const hubspotData = {
+        fields: fields,
+        context: {
+          pageUri: window.location.href,
+          pageName: document.title
+        }
+      };
+
+      try {
+        const response = await fetch(
+          `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(hubspotData)
+          }
+        );
+
+        if (response.ok) {
+          // Success! Show success message
+          form.style.display = 'none';
+          document.querySelector('.demo-form-header').style.display = 'none';
+          formSuccess.classList.add('visible');
+        } else {
+          // Handle HubSpot errors
+          const errorData = await response.json();
+          console.error('HubSpot submission error:', errorData);
+          formError.style.display = 'block';
+
+          // If there are specific field errors, you could display them
+          if (errorData.errors && errorData.errors.length > 0) {
+            const errorMessages = errorData.errors.map(err => err.message).join(', ');
+            formError.querySelector('p').textContent = errorMessages;
+          }
+        }
+      } catch (error) {
+        console.error('Network error:', error);
+        formError.style.display = 'block';
+        formError.querySelector('p').textContent = 'Network error. Please check your connection and try again.';
+      } finally {
+        submitBtn.classList.remove('loading');
+      }
+    });
+
+    // Calculate minimum date (at least 48 hours from now)
+    const getMinDate = () => {
+      const now = new Date();
+      const minDate = new Date(now.getTime() + (48 * 60 * 60 * 1000)); // Add 48 hours
+
+      // If min date falls on a weekend, move to Monday
+      const day = minDate.getDay();
+      if (day === 0) { // Sunday
+        minDate.setDate(minDate.getDate() + 1);
+      } else if (day === 6) { // Saturday
+        minDate.setDate(minDate.getDate() + 2);
+      }
+
+      return minDate;
+    };
+
+    // Initialize Flatpickr date picker
+    const dateInput = document.getElementById('preferredDate');
+    const minDate = getMinDate();
+
+    flatpickr(dateInput, {
+      minDate: minDate,
+      dateFormat: "F j, Y", // e.g., "January 27, 2026"
+      disableMobile: true, // Use custom picker on mobile too
+
+      // Disable weekends
+      disable: [
+        function (date) {
+          // Return true to disable the date
+          return (date.getDay() === 0 || date.getDay() === 6);
+        }
+      ],
+
+      // Locale settings
+      locale: {
+        firstDayOfWeek: 1 // Start week on Monday
+      },
+
+      // Callbacks
+      onReady: function (selectedDates, dateStr, instance) {
+        // Add custom class to calendar container
+        instance.calendarContainer.classList.add('breez-calendar');
+      }
+    });
+  </script>
+</body>
+
+</html>
