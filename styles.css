@@ -24,10 +24,11 @@
 
 html {
     scroll-behavior: smooth;
+    text-wrap: balance;
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--cream);
     color: var(--text-primary);
     line-height: 1.6;
@@ -60,55 +61,14 @@ body.intro-active {
 }
 
 .intro-logo-container {
-    width: 120px;
-    height: 120px;
+    width: 123px;
+    height: 107px;
 }
 
-.intro-logo-container img {
+.intro-logo-container svg {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-}
-
-.intro-logo-container.intro-pulse {
-    animation: introPulse 1.5s ease-in-out;
-}
-
-.intro-logo-container.intro-ready {
-    transform: scale(1);
-}
-
-.intro-logo-container.intro-expand-fly {
-    animation: intro-expand-fly 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes introPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.15);
-    }
-}
-
-@keyframes intro-expand-fly {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    30% {
-        transform: scale(1.3);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(20);
-        opacity: 0;
-    }
+    overflow: visible;
 }
 
 #mainSiteWrapper {
@@ -168,29 +128,9 @@ body.intro-active {
 }
 
 .logo img {
-    height: 6.5vh;
+    height: 48px;
     width: auto;
-    display: none;
-}
-
-@media (min-width: 1099px) {
-    .logo img.logo-desktop {
-        display: block;
-    }
-}
-
-@media (max-width: 1098px) and (min-width: 801px) {
-    .logo img.logo-tablet {
-        display: block;
-        height: clamp(3rem, 5vh, 4.5rem);
-    }
-}
-
-@media (max-width: 800px) {
-    .logo img.logo-phone {
-        display: block;
-        height: clamp(3rem, 8vh, 4.5rem);
-    }
+    display: block;
 }
 
 .nav {
@@ -260,7 +200,7 @@ body.intro-active {
     background: var(--white);
     border-radius: 16px;
     padding: 0.75rem;
-    min-width: 200px;
+    min-width: max-content;
     box-shadow: 0 10px 40px rgba(61, 52, 40, 0.12);
 }
 
@@ -271,6 +211,7 @@ body.intro-active {
     color: var(--text-primary);
     font-size: 0.9rem;
     border-radius: 10px;
+    white-space: nowrap;
     transition: background 0.2s ease;
 }
 
@@ -434,45 +375,22 @@ body.intro-active {
 }
 
 .hero-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2.5rem, 4vw, 4.5rem);
-    font-weight: 400;
-    line-height: 2;
+    font-weight: 600;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
     overflow: visible;
-}
-
-#heroLine1 {
-  line-height: 1.15;
-}
-
-.hero-line {
-    display: block;
     opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
     will-change: transform, opacity;
 }
 
-.hero-line-1 {
-    transform: translateX(-50px);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
-}
-
-
-.hero-line-2 {
-    transform: translateX(50px);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
-}
-
-.hero-line-1.visible {
+.hero-title.visible {
     opacity: 1;
-    transform: translateX(0);
-    transition: none;
-}
-
-.hero-line-2.visible {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
     transition: none;
 }
 
@@ -526,9 +444,9 @@ body.intro-active {
 
 .partners-heading {
     text-align: center;
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
     letter-spacing: -0.5px;
     padding-bottom: 2rem;
@@ -688,9 +606,9 @@ body.intro-active {
 }
 
 .products-header h2 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
     line-height: 1.3;
 }
@@ -777,9 +695,9 @@ body.intro-active {
 }
 
 .product-card-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 2.25rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     width: 100%;
     text-align: center;
@@ -857,9 +775,9 @@ body.intro-active {
 }
 
 .stats-header h2 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: 1rem;
 }
 
@@ -902,7 +820,7 @@ body.intro-active {
 }
 
 .stat-value {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 3.5rem;
     font-weight: 500;
     line-height: 1;
@@ -950,9 +868,9 @@ body.intro-active {
 }
 
 .benefits-header h2 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
 }
 
@@ -994,9 +912,9 @@ body.intro-active {
 }
 
 .benefit-content h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.35rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
@@ -1019,9 +937,9 @@ body.intro-active {
 }
 
 .cta h2 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--white);
     margin-bottom: 1.5rem;
 }
@@ -1209,18 +1127,22 @@ body.intro-active {
     }
 }
 
+.footer-brand .logo img {
+    height: 40px;
+}
+
 .footer-brand p {
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.7;
-    margin-top: 1rem;
+    margin-top: 20px;
     max-width: 300px;
 }
 
 .footer-column h4 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 1.25rem;
 }
@@ -1322,6 +1244,10 @@ body.intro-active {
         display: none;
     }
 
+    .header-actions {
+        gap: 20px;
+    }
+
     .mobile-menu-btn {
         display: flex;
         flex-direction: column;
@@ -1333,6 +1259,12 @@ body.intro-active {
         height: 2px;
         background: var(--text-primary);
         transition: all 0.3s ease;
+    }
+}
+
+@media (max-width: 560px) {
+    .header-actions .btn-demo {
+        display: none;
     }
 }
 /* ============ PRODUCT FEATURE SECTION ============ */
@@ -1349,14 +1281,6 @@ body.intro-active {
     margin-bottom: 1.5rem;
 }
 
-.product-feature-logo {
-    display: block;
-    width: clamp(280px, 40%, 480px);
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 2rem;
-}
-
 .product-feature-inner {
     width: 100%;
     border: 1px solid rgba(245, 166, 35, 0.15);
@@ -1364,6 +1288,21 @@ body.intro-active {
     padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 5vw, 4.5rem);
     position: relative;
     overflow: hidden;
+}
+
+.product-feature-inner.reveal.visible {
+    opacity: 0.1;
+}
+
+.product-feature-placeholder {
+    position: relative;
+    opacity: 1;
+    font-family: 'IBM Plex Serif', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--text-primary);
+    text-align: center;
+    margin: 0 0 1.5rem;
 }
 
 /* Layer 1 — grocer logos wallpaper, hidden until hover */
@@ -1549,6 +1488,5 @@ body.intro-active {
 }
 
 @media (max-width: 480px) {
-    .product-feature-logo { width: clamp(200px, 70%, 340px); }
     .product-feature-capabilities li { font-size: 0.9rem; }
 }

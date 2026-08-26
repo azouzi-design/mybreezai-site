@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design MD | Breez AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+
+  <link rel="stylesheet" href="/styles.css?v=11">
+  <link rel="stylesheet" href="/hamburgermenu.css">
+</head>
+
+<body>
+  <!-- Header Partial -->
+  <div id="header-placeholder" style="min-height: 80px;"></div>
+
+  <script>
+    fetch('/partials/header.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('header-placeholder').innerHTML = html;
+        initializeHeader();
+      });
+
+    function initializeHeader() {
+      var btn = document.getElementById('mobileMenuBtn');
+      var menu = document.getElementById('mobileMenu');
+      var dropdownTriggers = document.querySelectorAll('.mobile-menu-dropdown-trigger');
+      var menuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-menu-dropdown-items a, .mobile-menu-demo a');
+
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function () {
+        btn.classList.toggle('active');
+        menu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+
+      dropdownTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          trigger.parentElement.classList.toggle('open');
+        });
+      });
+
+      menuLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        });
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1000) {
+          btn.classList.remove('active');
+          menu.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+      });
+
+      // Mark the active nav link based on current URL
+      var path = window.location.pathname;
+      document.querySelectorAll('.nav-link, .mobile-menu-link').forEach(function (link) {
+        if (link.getAttribute('href') === path) {
+          link.classList.add('nav-link--active');
+        }
+      });
+    }
+  </script>
+
+  <main>
+    <pre style="font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; background: #ffffff; color: #1a1a1a; padding: 9rem 2rem 6rem; margin: 0 auto; max-width: 720px; text-align: left; white-space: pre-wrap; word-wrap: break-word; font-size: 0.95rem; line-height: 1.6; min-height: 60vh;"># Design MD
+
+Raw design reference. This file mirrors exactly what's shown on the /design-md page.
+
+## Example Section
+
+Placeholder — replace with real content.
+</pre>
+  </main>
+
+  <!-- Footer Partial -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch('/partials/footer.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
+
+  <script>
+    // Scroll handling for header
+    const header = document.getElementById('header');
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+
+</html>

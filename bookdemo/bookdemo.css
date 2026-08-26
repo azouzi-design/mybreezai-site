@@ -58,9 +58,9 @@
 }
 
 .demo-visual-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
     line-height: 1.2;
     margin-bottom: 1rem;
@@ -90,9 +90,9 @@
 }
 
 .demo-stat-number {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.75rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--orange-dark);
 }
 
@@ -138,9 +138,9 @@
 }
 
 .demo-form-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
 }
@@ -168,9 +168,9 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 1.5rem;
 }
@@ -229,7 +229,7 @@
 .form-group textarea {
     width: 100%;
     padding: 0.875rem 1rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     color: var(--text-primary);
     background: var(--cream);
@@ -241,7 +241,7 @@
 .form-group select {
     width: 100%;
     padding: 0.875rem 3rem 0.875rem 1rem;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     color: var(--text-primary);
     border: 2px solid transparent;
@@ -343,7 +343,7 @@
 }
 
 .flatpickr-calendar {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: var(--white);
   border: 1px solid rgba(17, 24, 39, 0.08);
   border-radius: 12px;
@@ -630,7 +630,7 @@
     color: var(--white);
     border: none;
     border-radius: 100px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
@@ -751,9 +751,9 @@
 }
 
 .form-success h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.75rem;
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 1rem;
 }

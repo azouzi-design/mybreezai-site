@@ -1,13 +1,26 @@
 <header class="header visible" id="header">
     <div class="header-inner">
         <a href="/home/" class="logo">
-            <img src="/content/BreezAI-NoTag.png" alt="Breez AI No Tag" class="logo-desktop">
-            <img src="/content/BreezAI-NoTag.png" alt="Breez AI No Tag" class="logo-tablet">
-            <img src="/content/BreezLogo.png" alt="Breez AI Emblem" class="logo-phone">
+            <img src="/content/BreezAI-Horizontal-Subtext.svg" alt="Breez AI">
         </a>
 
         <nav class="nav">
-            <a href="/groceryaisle/" class="nav-link">EveryAisle</a>
+            <div class="nav-dropdown">
+                <a class="nav-link nav-dropdown-trigger">
+                    Products
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-content">
+                        <a href="#">EVERY AISLE Meal Planner</a>
+                        <a href="#">EVERY AISLE Proactive Emails</a>
+                        <a href="#">EVERY AISLE Chat &amp; Click</a>
+                        <a href="#">EVERY AISLE Smart Store</a>
+                    </div>
+                </div>
+            </div>
             <a href="/whybreez/" class="nav-link">Why Breez</a>
             <div class="nav-dropdown">
                 <a class="nav-link nav-dropdown-trigger">
@@ -23,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <a href="/blog/" class="nav-link">News</a>
+            <a href="/blog/" class="nav-link">Insights</a>
             <a href="/contactus/" class="nav-link">Contact Us</a>
         </nav>
 
@@ -41,20 +54,34 @@
                     <span class="btn-demo-text">Schedule a demo</span>
                 </span>
             </a>
-        </div>
 
-        <button class="mobile-menu-btn" aria-label="Menu" id="mobileMenuBtn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+            <button class="mobile-menu-btn" aria-label="Menu" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </div>
 </header>
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-content">
-        <a href="/groceryaisle/" class="mobile-menu-link">EveryAisle</a>
+        <div class="mobile-menu-dropdown">
+            <div class="mobile-menu-dropdown-trigger">
+                Products
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+            <div class="mobile-menu-dropdown-items">
+                <a href="#">EVERY AISLE Meal Planner</a>
+                <a href="#">EVERY AISLE Proactive Emails</a>
+                <a href="#">EVERY AISLE Chat &amp; Click</a>
+                <a href="#">EVERY AISLE Smart Store</a>
+            </div>
+        </div>
+
         <a href="/whybreez/" class="mobile-menu-link">Why Breez</a>
 
         <div class="mobile-menu-dropdown">
@@ -70,7 +97,7 @@
             </div>
         </div>
 
-        <a href="/blog/" class="mobile-menu-link">News</a>
+        <a href="/blog/" class="mobile-menu-link">Insights</a>
         <a href="/contactus/" class="mobile-menu-link">Contact Us</a>
 
         <div class="mobile-menu-demo">

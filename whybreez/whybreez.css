@@ -20,9 +20,9 @@
 }
 
 .page-hero-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
     line-height: 1.15;
     max-width: 900px;
@@ -91,9 +91,9 @@
 }
 
 .value-prop-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
     line-height: 1.25;
     margin-bottom: 1.5rem;
@@ -240,9 +240,9 @@
 }
 
 .visual-card-back h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin: 0;
     line-height: 1.2;
@@ -297,9 +297,9 @@
 }
 
 .visual-card-front h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.05rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin: 0 0 0.3rem 0;
     line-height: 1.2;
@@ -360,9 +360,9 @@
 /* Card front text styles */
 .visual-card-front h3,
 .visual-card h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
@@ -406,9 +406,9 @@
 }
 
 .stat-number {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(3rem, 6vw, 4.5rem);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--white);
     line-height: 1;
     margin-bottom: 0.75rem;
@@ -462,9 +462,9 @@
 }
 
 .benefits-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 1rem;
 }
@@ -514,7 +514,7 @@
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 3rem;
     font-weight: 300;
     color: var(--peach);
@@ -540,9 +540,9 @@
 }
 
 .benefit-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.35rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
 }
@@ -614,9 +614,9 @@
 }
 
 .customer-benefit-header h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     flex: 1;
     min-width: 0;
@@ -710,9 +710,9 @@
 }
 
 .difference-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 1.25rem;
 }
@@ -805,9 +805,9 @@
 }
 
 .comparison-col-header h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.35rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.25rem;
 }
@@ -946,9 +946,9 @@
 }
 
 .partner-cta h2 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--white);
     margin-bottom: 1rem;
 }

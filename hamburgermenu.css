@@ -97,7 +97,7 @@
 }
 
 .mobile-menu-dropdown.open .mobile-menu-dropdown-items {
-    max-height: 200px;
+    max-height: 400px;
 }
 
 .mobile-menu-dropdown-items a {

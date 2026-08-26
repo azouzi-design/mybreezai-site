@@ -144,9 +144,9 @@
 
 .groceryaisle-hero-title-main {
     display: block;
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(3rem, 6vw, 5rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
     line-height: 1.1;
     letter-spacing: -0.02em;
@@ -160,18 +160,18 @@
 }
 
 .groceryaisle-hero-tagline {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(1.25rem, 2vw, 1.5rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--orange-dark);
     margin-bottom: 1rem;
     font-style: italic;
 }
 
 .groceryaisle-hero-mainheadline {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(1.75rem, 3vw, 2.6rem);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     line-height: 1.2;
     margin-bottom: 1.5rem;
@@ -259,9 +259,9 @@
 }
 
 .groceryaisle-hero-nav-number {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--warm-gray);
     min-width: 24px;
     transition: color 0.2s ease;
@@ -444,9 +444,9 @@
 }
 
 .groceryaisle-section-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 400;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -518,9 +518,9 @@
 }
 
 .groceryaisle-overview-headline {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(1.75rem, 3vw, 2.6rem);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     line-height: 1.2;
     margin: 0;
@@ -578,7 +578,7 @@
 }
 
 .groceryaisle-overview-metric-num {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 600;
     color: var(--orange);
@@ -646,9 +646,9 @@
 }
 
 .groceryaisle-feature-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 1rem;
 }
@@ -1006,9 +1006,9 @@
 }
 
 .groceryaisle-widget-benefit h4 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.15rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0;
     line-height: 1.2;
@@ -1174,9 +1174,9 @@
 }
 
 .groceryaisle-rmn-card h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
 }
@@ -1226,7 +1226,7 @@
 }
 
 .groceryaisle-stat-number {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 3rem;
     font-weight: 600;
     line-height: 1;
@@ -1289,7 +1289,7 @@
 }
 
 .groceryaisle-success-stat-number {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 3rem;
     font-weight: 600;
     line-height: 1;
@@ -1450,9 +1450,9 @@
 }
 
 .groceryaisle-timeline-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--white);
     margin-bottom: 0.5rem;
 }
@@ -1564,9 +1564,9 @@
 }
 
 .groceryaisle-roadmap-phase-header h3 {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--white);
     margin: 0;
 }
@@ -1797,7 +1797,7 @@
 }
 
 .groceryaisle-success-card-stat {
-    font-family: 'Fraunces', serif;
+    font-family: 'IBM Plex Serif', serif;
     font-size: 3rem;
     font-weight: 600;
     color: var(--orange);
@@ -2657,7 +2657,7 @@
     border: 1px solid rgba(61, 52, 40, 0.1);
     border-radius: 100px;
     box-shadow: 0 4px 20px rgba(61, 52, 40, 0.1), 0 1px 4px rgba(61, 52, 40, 0.06);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.82rem;
     font-weight: 600;
     letter-spacing: 0.04em;
