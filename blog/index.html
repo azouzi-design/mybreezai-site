@@ -20,7 +20,7 @@
 
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/hamburgermenu.css">
-  <link rel="stylesheet" href="blog.css?v=21">
+  <link rel="stylesheet" href="blog.css?v=25">
 
   <!-- HubSpot Tracking Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244231130.js"></script>
@@ -93,16 +93,6 @@
     </div>
   </section>
 
-  <!-- Category Filter -->
-  <section class="blog-filters">
-    <div class="blog-filters-inner">
-      <button class="filter-btn active" data-category="all">All Posts</button>
-      <button class="filter-btn" data-category="breez-news">Breez News</button>
-      <button class="filter-btn" data-category="breez-in-the-news">Breez in the News</button>
-      <button class="filter-btn" data-category="breez-insights">Breez Insights</button>
-    </div>
-  </section>
-
   <!-- Blog Posts Grid -->
   <section class="blog-posts-section">
     <div class="blog-posts-container">
@@ -142,18 +132,8 @@
         <p>We're working on great content. Check back soon!</p>
       </div>
 
-      <!-- Posts Grid (populated by JavaScript) -->
-      <div class="blog-grid" id="blogGrid"></div>
-
-      <!-- Load More Button -->
-      <div class="load-more-container" id="loadMoreContainer" style="display: none;">
-        <button class="load-more-btn" id="loadMoreBtn">
-          Load More Articles
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-      </div>
+      <!-- Category Sections (populated by JavaScript) -->
+      <div id="blogCategorySections"></div>
 
     </div>
   </section>
@@ -246,11 +226,10 @@
 
     const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSP089cptBQQqPgcBh3XxtpnHHTzn0J-oYIZWLal_3ZCkx6T23cdC94aLCc-kLMeNV3k4GgZ0yZBD5O/pub?gid=0&single=true&output=csv';
 
-    const POSTS_PER_PAGE = 9;
+    // Fixed display order for category sections.
+    const CATEGORY_ORDER = ['breez-news', 'breez-in-the-news', 'breez-insights'];
+
     let allPosts = [];
-    let filteredPosts = [];
-    let currentPage = 1;
-    let currentCategory = 'all';
 
     // Legacy category values from before the News/Insights split.
     // Anything in this map is auto-folded into the new structure so the page
@@ -439,7 +418,7 @@
     function getCategoryName(category) {
       const names = {
         'breez-news': 'Press Release',
-        'breez-in-the-news': 'Breez in the News',
+        'breez-in-the-news': 'Breez in the Press',
         'breez-insights': 'Breez Insights'
       };
       return names[category] || category;
@@ -499,60 +478,46 @@
       `;
     }
 
-    // Render posts
+    // Render posts grouped into a section per category
     function renderPosts() {
-      const grid = document.getElementById('blogGrid');
-      const loadMoreContainer = document.getElementById('loadMoreContainer');
+      const container = document.getElementById('blogCategorySections');
 
-      const startIndex = 0;
-      const endIndex = currentPage * POSTS_PER_PAGE;
-      const postsToShow = filteredPosts.slice(startIndex, endIndex);
-
-      if (postsToShow.length === 0) {
+      if (allPosts.length === 0) {
         document.getElementById('blogEmpty').style.display = 'flex';
-        grid.innerHTML = '';
-        loadMoreContainer.style.display = 'none';
+        container.innerHTML = '';
         return;
       }
 
       document.getElementById('blogEmpty').style.display = 'none';
 
-      // Find the featured post. If multiple posts are marked featured, take
-      // the most recent one (postsToShow is already sorted newest-first with
-      // a stable tiebreaker), and warn the user so they can fix the sheet.
-      const featuredPosts = postsToShow.filter(p => isTrue(p.featured));
-      const featuredPost = featuredPosts[0];
-      if (featuredPosts.length > 1) {
-        console.warn(
-          `[blog] ${featuredPosts.length} posts are marked featured=TRUE in the sheet. ` +
-          `Only the most recent one will be shown as featured. Set the others to FALSE.`,
-          featuredPosts.map(p => p.slug || p.title)
-        );
-      }
-      const regularPosts = postsToShow.filter(p => p !== featuredPost);
+      // allPosts is already sorted newest-first with a stable tiebreaker, so
+      // the first 3 posts are the most recent ones across every category.
+      const recentCardsHtml = allPosts.slice(0, 3).map(post => createPostCard(post)).join('');
 
-      let html = '';
+      let html = `
+        <section class="blog-category-section">
+          <h2 class="blog-category-title">Most Recent</h2>
+          <div class="blog-grid">${recentCardsHtml}</div>
+        </section>
+      `;
 
-      // Featured post first (if exists and on first page)
-      if (featuredPost && currentPage === 1 && currentCategory === 'all') {
-        html += createPostCard(featuredPost, true);
-      } else if (featuredPost) {
-        regularPosts.unshift(featuredPost);
-      }
+      CATEGORY_ORDER.forEach(category => {
+        const postsInCategory = allPosts.filter(post => post.category === category);
+        if (postsInCategory.length === 0) return;
 
-      // Regular posts
-      regularPosts.forEach(post => {
-        html += createPostCard(post);
+        const cardsHtml = postsInCategory
+          .map(post => createPostCard(post))
+          .join('');
+
+        html += `
+          <section class="blog-category-section">
+            <h2 class="blog-category-title">${getCategoryName(category)}</h2>
+            <div class="blog-grid">${cardsHtml}</div>
+          </section>
+        `;
       });
 
-      grid.innerHTML = html;
-
-      // Show/hide load more button
-      if (endIndex < filteredPosts.length) {
-        loadMoreContainer.style.display = 'flex';
-      } else {
-        loadMoreContainer.style.display = 'none';
-      }
+      container.innerHTML = html;
 
       // Animate cards
       setTimeout(() => {
@@ -564,32 +529,18 @@
       }, 100);
     }
 
-    // Filter posts by category
-    function filterPosts(category) {
-      currentCategory = category;
-      currentPage = 1;
-
-      if (category === 'all') {
-        filteredPosts = [...allPosts];
-      } else {
-        filteredPosts = allPosts.filter(post => post.category === category);
-      }
-
-      renderPosts();
-    }
-
     // Load blog posts from Google Sheets
     async function loadBlogPosts() {
       const loadingEl = document.getElementById('blogLoading');
       const errorEl = document.getElementById('blogError');
-      const gridEl = document.getElementById('blogGrid');
+      const containerEl = document.getElementById('blogCategorySections');
       const emptyEl = document.getElementById('blogEmpty');
 
       // Show loading
       loadingEl.style.display = 'flex';
       errorEl.style.display = 'none';
       emptyEl.style.display = 'none';
-      gridEl.innerHTML = '';
+      containerEl.innerHTML = '';
 
       // Check if URL is configured
       if (!GOOGLE_SHEET_CSV_URL || GOOGLE_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE') {
@@ -606,7 +557,6 @@
 
         const csv = await response.text();
         allPosts = parseCSV(csv);
-        filteredPosts = [...allPosts];
 
         loadingEl.style.display = 'none';
         renderPosts();
@@ -622,21 +572,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       // Load posts
       loadBlogPosts();
-
-      // Category filter buttons
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          filterPosts(btn.dataset.category);
-        });
-      });
-
-      // Load more button
-      document.getElementById('loadMoreBtn').addEventListener('click', () => {
-        currentPage++;
-        renderPosts();
-      });
 
       // Newsletter form submission with HubSpot API
       const newsletterForm = document.getElementById('newsletterForm');
