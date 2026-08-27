@@ -363,6 +363,7 @@
     font-family: 'IBM Plex Serif', serif;
     font-size: 1.5rem;
     font-weight: 600;
+    line-height: 1.35;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
@@ -465,6 +466,7 @@
     font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
+    line-height: 1.3;
     color: var(--text-primary);
     margin-bottom: 1rem;
 }
@@ -543,6 +545,7 @@
     font-family: 'IBM Plex Serif', serif;
     font-size: 1.35rem;
     font-weight: 600;
+    line-height: 1.35;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
 }
@@ -617,6 +620,7 @@
     font-family: 'IBM Plex Serif', serif;
     font-size: 1.25rem;
     font-weight: 600;
+    line-height: 1.35;
     color: var(--text-primary);
     flex: 1;
     min-width: 0;
@@ -713,6 +717,7 @@
     font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
+    line-height: 1.3;
     color: var(--text-primary);
     margin-bottom: 1.25rem;
 }
@@ -808,6 +813,7 @@
     font-family: 'IBM Plex Serif', serif;
     font-size: 1.35rem;
     font-weight: 600;
+    line-height: 1.35;
     color: var(--text-primary);
     margin-bottom: 0.25rem;
 }
@@ -949,6 +955,7 @@
     font-family: 'IBM Plex Serif', serif;
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 600;
+    line-height: 1.3;
     color: var(--white);
     margin-bottom: 1rem;
 }

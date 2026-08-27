@@ -137,6 +137,55 @@
       </div>
 
       <div class="devdocs-block">
+        <h2>Headings need an explicit line-height</h2>
+        <p><code>body</code> sets a global <code>line-height</code> (see "Body line-height tightened to 1.45"
+          below), tuned for paragraph text. Any selector that doesn't set its own <code>line-height</code>
+          inherits that value — fine for body copy, too loose for a large IBM Plex Serif heading, especially
+          once it wraps to two lines.</p>
+        <p>First caught on <code>.stats-header h2</code>, <code>.benefits-header h2</code>, and <code>.cta h2</code>:
+          they matched <code>.products-header h2</code> in family, size, and weight but never set their own
+          line-height, so they rendered visibly more spaced-out than the other section headings on the same
+          page. A full sweep of every selector setting <code>font-family: 'IBM Plex Serif', serif'</code> across
+          all 11 stylesheets turned up <b>57 more</b> with the same gap. All 60 now set an explicit
+          line-height: <code>1.3</code> for section-level headings (~1.75rem and up), <code>1.35</code> for
+          card-level h3/h4 (~1.1–1.75rem), and <code>1</code> for the handful that are single numerals or
+          initials centered in a fixed-size shape (<code>.step-number</code>, <code>.team-card-photo-placeholder</code>,
+          <code>.groceryaisle-hero-nav-number</code>).</p>
+        <pre>.cta h2 {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.3;   /* was missing — inherited body's line-height instead */
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}</pre>
+        <p>Rule of thumb for new headings: section-level h2 (~2–3rem) → <code>1.3</code>. Card-level h3/h4
+          (~1.1–1.75rem) → <code>1.2</code>–<code>1.4</code>, tighter as the size grows. Set it every time a
+          selector declares <code>font-family: 'IBM Plex Serif', serif'</code> — don't rely on the inherited
+          default.</p>
+      </div>
+
+      <div class="devdocs-block">
+        <h2>Body line-height tightened to 1.45</h2>
+        <p>Sitewide default in <code>styles.css</code> changed from <code>line-height: 1.6</code> to
+          <code>line-height: 1.45</code> — a deliberate design call for tighter paragraph leading, not a bug fix.</p>
+        <pre>body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-primary);
+  line-height: 1.45;   /* was 1.6 */
+  overflow-x: hidden;
+}</pre>
+        <p>Headings are unaffected — every IBM Plex Serif heading now sets its own line-height explicitly (see
+          above), so none of them were riding on the body default. This change only reaches selectors that still
+          inherit rather than declare their own line-height: mainly plain paragraph text and any component that
+          never overrode it. Most body-copy selectors across the site already set an explicit
+          <code>1.5</code>–<code>1.8</code> of their own, so this mainly affects untouched paragraphs and any
+          other text that was quietly riding the old 1.6 default — worth a visual pass across pages to confirm
+          nothing reads too tight.</p>
+      </div>
+
+      <div class="devdocs-block">
         <h2>Favicon files live in /favicon</h2>
         <p>All favicon assets (android-chrome-192x192.png, android-chrome-512x512.png, apple-touch-icon.png,
           favicon-16x16.png, favicon-32x32.png, favicon.ico, site.webmanifest) are grouped under the /favicon
