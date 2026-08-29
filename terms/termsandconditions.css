@@ -2,7 +2,7 @@
 .page-hero {
     padding: 10rem 2rem 4rem;
     text-align: center;
-    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+    background: var(--cream);
 }
 
 .page-hero-label {
@@ -21,10 +21,10 @@
 
 .page-hero-title {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: var(--h1-size);
     font-weight: 600;
     color: var(--text-primary);
-    line-height: 1.15;
+    line-height: var(--h1-line-height);
     max-width: 800px;
     margin: 0 auto 1.5rem;
     opacity: 0;
@@ -139,11 +139,11 @@
 
 .terms-heading {
     font-family: 'IBM Plex Serif', serif;
-    font-size: 1.5rem;
+    font-size: var(--h2-compact-size);
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 1rem;
-    line-height: 1.4;
+    line-height: var(--h2-compact-line-height);
 }
 
 .terms-section-block > p {
@@ -247,9 +247,9 @@
 
 .terms-footer-content h3 {
     font-family: 'IBM Plex Serif', serif;
-    font-size: 1.25rem;
+    font-size: var(--h3-size);
     font-weight: 600;
-    line-height: 1.35;
+    line-height: var(--h3-line-height);
     color: var(--text-primary);
     margin-bottom: 0.5rem;
 }

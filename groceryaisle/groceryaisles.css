@@ -145,10 +145,10 @@
 .groceryaisle-hero-title-main {
     display: block;
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: var(--h1-size);
     font-weight: 600;
     color: var(--text-primary);
-    line-height: 1.1;
+    line-height: var(--h1-line-height);
     letter-spacing: -0.02em;
 }
 
@@ -447,11 +447,11 @@
 
 .groceryaisle-section-title {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: var(--h2-size);
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 1rem;
-    line-height: 1.2;
+    line-height: var(--h2-line-height);
 }
 
 .groceryaisle-section-subtitle {
@@ -521,10 +521,10 @@
 
 .groceryaisle-overview-headline {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(1.75rem, 3vw, 2.6rem);
+    font-size: var(--h2-size);
     font-weight: 600;
     color: var(--text-primary);
-    line-height: 1.2;
+    line-height: var(--h2-line-height);
     margin: 0;
 }
 
@@ -1178,9 +1178,9 @@
 
 .groceryaisle-rmn-card h3 {
     font-family: 'IBM Plex Serif', serif;
-    font-size: 1.25rem;
+    font-size: var(--h3-size);
     font-weight: 600;
-    line-height: 1.35;
+    line-height: var(--h3-line-height);
     color: var(--text-primary);
     margin-bottom: 0.75rem;
 }
@@ -1455,9 +1455,9 @@
 
 .groceryaisle-timeline-title {
     font-family: 'IBM Plex Serif', serif;
-    font-size: 1.25rem;
+    font-size: var(--h3-size);
     font-weight: 600;
-    line-height: 1.35;
+    line-height: var(--h3-line-height);
     color: var(--white);
     margin-bottom: 0.5rem;
 }
@@ -1570,9 +1570,9 @@
 
 .groceryaisle-roadmap-phase-header h3 {
     font-family: 'IBM Plex Serif', serif;
-    font-size: 1.25rem;
+    font-size: var(--h3-size);
     font-weight: 600;
-    line-height: 1.35;
+    line-height: var(--h3-line-height);
     color: var(--white);
     margin: 0;
 }

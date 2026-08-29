@@ -186,6 +186,81 @@
       </div>
 
       <div class="devdocs-block">
+        <h2>H1/H2/H3 unified into shared type-scale tokens</h2>
+        <p>An audit of every heading on the site (11 stylesheets) found each page had independently invented its
+          own H1/H2/H3 sizes over time. H1 alone had 9 different scales across 10 templates. H2 was worse: at
+          least 6 different clamp ceilings and 3 different line-heights for what is visually the same
+          "section heading" role. H3 was mostly fine — it already clustered around two values — but had a
+          handful of drifted outliers. None of this was a deliberate design decision; it was accumulated drift
+          from each page being built independently against copy-pasted CSS.</p>
+        <p>Fixed by introducing shared tokens in <code>styles.css</code>'s <code>:root</code> (loaded on every
+          page) and pointing every heading selector at them instead of a hand-rolled value:</p>
+        <pre>:root {
+  --h1-size: clamp(2.25rem, 4vw, 3.5rem);
+  --h1-line-height: 1.15;
+
+  --h2-size: clamp(1.75rem, 3vw, 2.5rem);
+  --h2-line-height: 1.3;
+  --h2-compact-size: clamp(1.5rem, 3vw, 2rem);   /* card/list-level H2s */
+  --h2-compact-line-height: 1.3;
+
+  --h3-size: 1.25rem;       /* default H3 */
+  --h3-lg-size: 1.35rem;    /* more prominent H3 (team names, benefit titles) */
+  --h3-line-height: 1.35;
+}
+
+.page-hero-title,     /* Contact Us, Our Team, Privacy, Terms, Why Breez, Our Story */
+.hero-title,           /* Home */
+.groceryaisle-hero-title-main,
+.demo-visual-title,    /* Book Demo */
+.blog-hero h1,
+.article-title {
+  font-size: var(--h1-size);
+  line-height: var(--h1-line-height);
+}</pre>
+        <p><b>H1</b> dropped from the homepage's old 4.5rem/72px ceiling (the single biggest H1 on the site) to
+          one shared 3.5rem/56px ceiling used everywhere, including pages that previously had their own
+          one-off scale (Grocery Aisle, Book Demo, both blog templates). <b>H2</b> collapsed 6 drifted scales
+          into two: <code>--h2-size</code> for section/CTA headings, <code>--h2-compact-size</code> for
+          card- and list-level headings that are legitimately smaller by role (newsletter card, legal
+          <code>.terms-heading</code> repeated per-section, blog category headers) — not everything became one
+          number, because those really are a different visual tier. <b>H3</b> consolidated onto the two sizes
+          that already dominated (<code>1.25rem</code> default, <code>1.35rem</code> for more prominent titles).</p>
+        <p>Two of the old hardcoded-breakpoint-stacked-on-a-clamp bugs (see the "balanced text wrapping"-style
+          antipattern first caught on the homepage hero) turned up again during the sweep and were removed the
+          same way: Book Demo's <code>.demo-visual-title</code> (H1) and <code>.demo-form-title</code> (H2) each
+          had a redundant <code>font-size</code> override at <code>768px</code> stacked on top of their clamp —
+          deleted, since the clamp's floor already covers that width.</p>
+        <p><b>Deliberately left out of the token system</b> — these aren't drift, they're a genuinely different
+          role and forcing them onto the shared scale would be a regression, not a fix:</p>
+        <ul>
+          <li><code>.groceryaisle-feature-title</code> (H3) and <code>.groceryaisle-section-title</code>'s extra
+            breakpoint-narrowing rules — Grocery Aisle already has its own well-built, progressively-tightening
+            <code>clamp()</code> system tuned across 4 breakpoints; only its base (>1080px) declaration now
+            points at <code>--h2-size</code>, the narrowing rules underneath are untouched.</li>
+          <li><code>.blog-card-featured .blog-card-title</code> — the one prominent card in the blog grid is
+            supposed to read bigger than a normal post card.</li>
+          <li><code>.form-section-title</code> (Book Demo) and <code>.contact-method-content h3</code> — these
+            are small in-form/in-list field labels, not content headings a reader scans.</li>
+          <li><code>.terms-subheading</code> — legal-doc sub-label, weight 700 and no serif family, a
+            deliberately different treatment from a real H3.</li>
+          <li><code>.visual-card-front/back h3</code> (Why Breez) — decorative flip-card micro-titles.</li>
+        </ul>
+        <p><b>Also found, not fixed here</b> (flagging rather than silently changing scope): Grocery Aisle's
+          actual <code>&lt;h1&gt;</code> contains only the logo <code>&lt;img&gt;</code> — there's no visible H1
+          text on that page at all. The big visible headline ("Let's make shopping easy and inspiring") is a
+          <code>&lt;p class="groceryaisle-hero-mainheadline"&gt;</code>, not a heading. <code>.groceryaisle-hero-title-main/-accent</code>,
+          <code>.product-card-title</code>, <code>.coming-soon-title</code>, and <code>.groceryaisle-widget-title</code>
+          are all dead CSS — not referenced by any current markup — left tokenized in case they come back into use,
+          but worth a cleanup pass on their own.</p>
+        <p>Rule of thumb for new headings: use <code>var(--h1-size)</code> for a page hero, <code>var(--h2-size)</code>
+          for a real section/CTA heading, <code>var(--h2-compact-size)</code> only for a heading nested inside a
+          card/list/repeated-block, and <code>var(--h3-size)</code> / <code>var(--h3-lg-size)</code> for H3. Don't
+          invent a new clamp for a heading that's filling one of these roles — and never stack a hardcoded
+          pixel-breakpoint override on top of a clamp-based token.</p>
+      </div>
+
+      <div class="devdocs-block">
         <h2>Favicon files live in /favicon</h2>
         <p>All favicon assets (android-chrome-192x192.png, android-chrome-512x512.png, apple-touch-icon.png,
           favicon-16x16.png, favicon-32x32.png, favicon.ico, site.webmanifest) are grouped under the /favicon

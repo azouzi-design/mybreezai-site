@@ -2,7 +2,7 @@
 .page-hero {
     padding: 10rem 2rem 4rem;
     text-align: center;
-    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+    background: var(--cream);
 }
 
 .page-hero-label {
@@ -21,10 +21,10 @@
 
 .page-hero-title {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: var(--h1-size);
     font-weight: 600;
     color: var(--text-primary);
-    line-height: 1.15;
+    line-height: var(--h1-line-height);
     max-width: 900px;
     margin: 0 auto 1.5rem;
     opacity: 0;
@@ -92,10 +92,10 @@
 
 .value-prop-title {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-size: var(--h2-size);
     font-weight: 600;
     color: var(--text-primary);
-    line-height: 1.25;
+    line-height: var(--h2-line-height);
     margin-bottom: 1.5rem;
 }
 
@@ -464,9 +464,9 @@
 
 .benefits-title {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: var(--h2-size);
     font-weight: 600;
-    line-height: 1.3;
+    line-height: var(--h2-line-height);
     color: var(--text-primary);
     margin-bottom: 1rem;
 }
@@ -518,7 +518,7 @@
     right: 1.5rem;
     font-family: 'IBM Plex Serif', serif;
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 600;
     color: var(--peach);
     opacity: 0.4;
     line-height: 1;
@@ -543,9 +543,9 @@
 
 .benefit-title {
     font-family: 'IBM Plex Serif', serif;
-    font-size: 1.35rem;
+    font-size: var(--h3-lg-size);
     font-weight: 600;
-    line-height: 1.35;
+    line-height: var(--h3-line-height);
     color: var(--text-primary);
     margin-bottom: 0.75rem;
 }
@@ -618,9 +618,9 @@
 
 .customer-benefit-header h3 {
     font-family: 'IBM Plex Serif', serif;
-    font-size: 1.25rem;
+    font-size: var(--h3-size);
     font-weight: 600;
-    line-height: 1.35;
+    line-height: var(--h3-line-height);
     color: var(--text-primary);
     flex: 1;
     min-width: 0;
@@ -715,9 +715,9 @@
 
 .difference-title {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: var(--h2-size);
     font-weight: 600;
-    line-height: 1.3;
+    line-height: var(--h2-line-height);
     color: var(--text-primary);
     margin-bottom: 1.25rem;
 }
@@ -811,9 +811,9 @@
 
 .comparison-col-header h3 {
     font-family: 'IBM Plex Serif', serif;
-    font-size: 1.35rem;
+    font-size: var(--h3-lg-size);
     font-weight: 600;
-    line-height: 1.35;
+    line-height: var(--h3-line-height);
     color: var(--text-primary);
     margin-bottom: 0.25rem;
 }
@@ -953,9 +953,9 @@
 
 .partner-cta h2 {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-size: var(--h2-size);
     font-weight: 600;
-    line-height: 1.3;
+    line-height: var(--h2-line-height);
     color: var(--white);
     margin-bottom: 1rem;
 }

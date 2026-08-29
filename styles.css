@@ -15,6 +15,18 @@
     --text-secondary: #4E617E;
     --white: #FFFFFF;
     --ink: #0A1B34;
+
+    /* Typography scale — shared across every page so H1/H2/H3 stay consistent.
+       See /dev-docs for the audit that led to this. */
+    --h1-size: clamp(2.25rem, 4vw, 3.5rem);
+    --h1-line-height: 1.15;
+    --h2-size: clamp(1.75rem, 3vw, 2.5rem);
+    --h2-line-height: 1.3;
+    --h2-compact-size: clamp(1.5rem, 3vw, 2rem);
+    --h2-compact-line-height: 1.3;
+    --h3-size: 1.25rem;
+    --h3-lg-size: 1.35rem;
+    --h3-line-height: 1.35;
 }
 
 * {
@@ -34,6 +46,20 @@ body {
     color: var(--text-primary);
     line-height: 1.45;
     overflow-x: hidden;
+}
+
+/* Slight negative tracking on every heading for a tighter, more refined look.
+   em-based so it scales with each heading's own font-size instead of a fixed
+   px value — bigger headings get pulled in more, small ones barely move. */
+h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+}
+
+/* Exception: the only heading on the site set in the sans-serif body font
+   rather than the serif display face — tightening it isn't part of "make
+   the serif headings feel more designed" and can nick legibility at this size. */
+.contact-method-content h3 {
+    letter-spacing: normal;
 }
 
 /* ============ INTRO ANIMATION ============ */
@@ -377,9 +403,9 @@ body.intro-active {
 
 .hero-title {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2.5rem, 4vw, 4.5rem);
+    font-size: var(--h1-size);
     font-weight: 600;
-    line-height: 1.15;
+    line-height: var(--h1-line-height);
     margin-bottom: 1.5rem;
     color: var(--text-primary);
     overflow: visible;
@@ -412,24 +438,6 @@ body.intro-active {
     transition: none;
 }
 
-@media (max-width:600px) {
-    .hero-title {
-        font-size: 2.0rem;
-    }
-    .hero-subtitle {
-        font-size: 1.25rem;
-    }
-}
-
-@media (max-width:500px) {
-    .hero-title {
-        font-size: 1.5rem;
-    }
-    .hero-subtitle {
-        font-size: 0.75rem;
-    }
-}
-
 /* ============ PARTNERS SECTION ============ */
 .partners-section {
     background: var(--cream);
@@ -446,11 +454,10 @@ body.intro-active {
 .partners-heading {
     text-align: center;
     font-family: 'IBM Plex Serif', serif;
-    font-size: 1.5rem;
+    font-size: var(--h3-size);
     font-weight: 600;
-    line-height: 1.35;
+    line-height: var(--h3-line-height);
     color: var(--text-primary);
-    letter-spacing: -0.5px;
     padding-bottom: 2rem;
 }
 
@@ -569,10 +576,6 @@ body.intro-active {
     .partners-carousel-wrapper {
         padding-bottom: 4rem;
     }
-    .partners-heading {
-        font-size: 1.25rem;
-    }
-
     .partners-carousel {
         animation: scroll-partners 30s linear infinite;
     }
@@ -609,10 +612,10 @@ body.intro-active {
 
 .products-header h2 {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: var(--h2-size);
     font-weight: 600;
     color: var(--text-primary);
-    line-height: 1.3;
+    line-height: var(--h2-line-height);
 }
 
 .products-header h2 em {
@@ -779,9 +782,9 @@ body.intro-active {
 
 .stats-header h2 {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: var(--h2-size);
     font-weight: 600;
-    line-height: 1.3;
+    line-height: var(--h2-line-height);
     margin-bottom: 1rem;
 }
 
@@ -873,9 +876,9 @@ body.intro-active {
 
 .benefits-header h2 {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: var(--h2-size);
     font-weight: 600;
-    line-height: 1.3;
+    line-height: var(--h2-line-height);
     color: var(--text-primary);
 }
 
@@ -918,9 +921,9 @@ body.intro-active {
 
 .benefit-content h3 {
     font-family: 'IBM Plex Serif', serif;
-    font-size: 1.35rem;
+    font-size: var(--h3-lg-size);
     font-weight: 600;
-    line-height: 1.35;
+    line-height: var(--h3-line-height);
     color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
@@ -944,9 +947,9 @@ body.intro-active {
 
 .cta h2 {
     font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-size: var(--h2-size);
     font-weight: 600;
-    line-height: 1.3;
+    line-height: var(--h2-line-height);
     color: var(--white);
     margin-bottom: 1.5rem;
 }
@@ -1307,8 +1310,8 @@ body.intro-active {
     opacity: 1;
     font-family: 'IBM Plex Serif', serif;
     font-weight: 600;
-    line-height: 1.3;
-    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: var(--h2-line-height);
+    font-size: var(--h2-size);
     color: var(--text-primary);
     text-align: center;
     margin: 0 0 1.5rem;
