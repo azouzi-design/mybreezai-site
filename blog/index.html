@@ -20,7 +20,7 @@
 
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/hamburgermenu.css">
-  <link rel="stylesheet" href="blog.css?v=25">
+  <link rel="stylesheet" href="blog.css?v=27">
 
   <!-- HubSpot Tracking Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/244231130.js"></script>
@@ -490,16 +490,7 @@
 
       document.getElementById('blogEmpty').style.display = 'none';
 
-      // allPosts is already sorted newest-first with a stable tiebreaker, so
-      // the first 3 posts are the most recent ones across every category.
-      const recentCardsHtml = allPosts.slice(0, 3).map(post => createPostCard(post)).join('');
-
-      let html = `
-        <section class="blog-category-section">
-          <h2 class="blog-category-title">Most Recent</h2>
-          <div class="blog-grid">${recentCardsHtml}</div>
-        </section>
-      `;
+      let html = '';
 
       CATEGORY_ORDER.forEach(category => {
         const postsInCategory = allPosts.filter(post => post.category === category);

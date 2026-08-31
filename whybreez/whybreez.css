@@ -36,7 +36,7 @@
 .page-hero-subtitle {
     font-size: 1.15rem;
     color: var(--text-secondary);
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
     line-height: 1.7;
     opacity: 0;
@@ -424,7 +424,7 @@
 }
 
 .stat-label {
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.5;
 }
@@ -435,7 +435,7 @@
 }
 
 .benefits-grocers {
-    background: var(--cream);
+    background: var(--white);
 }
 
 .benefits-customers {
@@ -499,7 +499,7 @@
 }
 
 .benefit-card {
-    background: var(--white);
+    background: var(--cream);
     border-radius: 20px;
     padding: 2.5rem 2rem;
     position: relative;
@@ -763,7 +763,7 @@
 }
 
 .comparison-col-generic {
-    background: var(--cream);
+    background: var(--white);
     opacity: 0;
     transform: translateX(-80px);
 }

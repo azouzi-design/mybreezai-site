@@ -39,7 +39,7 @@
 .blog-hero p {
     font-size: 1.15rem;
     color: var(--text-secondary);
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     line-height: 1.7;
 }
@@ -601,7 +601,7 @@
 /* ============ NEWSLETTER SECTION ============ */
 .newsletter-section {
     padding: 0 2rem 4rem;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 

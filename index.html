@@ -35,7 +35,7 @@
   <link rel="icon" href="/favicon/favicon.ico">
   <link rel="manifest" href="/favicon/site.webmanifest">
 
-  <link rel="stylesheet" href="/styles.css?v=11">
+  <link rel="stylesheet" href="/styles.css?v=13">
   <link rel="stylesheet" href="/hamburgermenu.css">
 
   <script type="application/ld+json">
@@ -64,7 +64,7 @@
               transform: translateY(56px) scale(0.4);
               animation: swoosh-in 1.1s cubic-bezier(0.3, 1.3, 0.4, 1) forwards, float 5s ease-in-out infinite 1.6s;
             }
-      
+
             .wordmark path {
               fill: #0f2648;
               transform-box: fill-box;
@@ -550,44 +550,33 @@
 
   <script>
     (function () {
-      // Animation timing configuration (in milliseconds)
-      const ENTRANCE_DURATION = 1700; // Duration of one full swoosh + wordmark reveal
+      // The swoosh + wordmark reveal plays once (last wordmark letter's
+      // delay 0.93s + its 0.7s duration = 1.63s), then we hold on the
+      // finished logo for a 0.7s beat before revealing the site.
+      const PLAY_DURATION = 1630;
+      const POST_ANIMATION_PAUSE = 700;
+      const ENTRANCE_DURATION = PLAY_DURATION + POST_ANIMATION_PAUSE;
 
       const introOverlay = document.getElementById('introOverlay');
       const mainSiteWrapper = document.getElementById('mainSiteWrapper');
       const body = document.body;
-      const introSvg = introOverlay.querySelector('svg');
-      const animatedEls = introSvg.querySelectorAll('.swoosh, .wordmark path');
 
-      // Restart the entrance animation from scratch
-      function replayEntrance() {
-        animatedEls.forEach(el => { el.style.animation = 'none'; });
-        void introSvg.offsetWidth; // force reflow
-        animatedEls.forEach(el => { el.style.animation = ''; });
-      }
-
-      // Step 1: Replay the entrance animation once more after it first completes
-      setTimeout(replayEntrance, ENTRANCE_DURATION);
-
-      // Step 2: Fade out overlay and show main site after the second playthrough
+      // Fade out overlay and show main site after the animation plus pause
       setTimeout(() => {
         introOverlay.classList.add('hidden');
         mainSiteWrapper.classList.add('visible');
         body.classList.remove('intro-active');
-      }, ENTRANCE_DURATION * 2);
+      }, ENTRANCE_DURATION);
 
-      // Step 3: Remove intro overlay from DOM after transition completes
+      // Remove intro overlay from DOM after transition completes
       setTimeout(() => {
         introOverlay.remove();
-      }, ENTRANCE_DURATION * 2 + 500);
+      }, ENTRANCE_DURATION + 500);
     })();
 
     // Scroll handling
     const heroTitle = document.getElementById('heroTitle');
     const heroSubtitle = document.getElementById('heroSubtitle');
-
-    // Hero slide configuration - requires ~250px scroll for full slide off
-    const HERO_SLIDE_DISTANCE = 250;
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -602,13 +591,6 @@
         }
       }
 
-      // Gradual hero subtitle fade out based on scroll progress
-      const progress = Math.min(scrollY / HERO_SLIDE_DISTANCE, 1);
-      const opacity = 1 - progress;
-      const subtitleTranslate = -progress * 50;
-
-      heroSubtitle.style.transform = `translateY(${subtitleTranslate}px)`;
-      heroSubtitle.style.opacity = opacity;
     };
 
     window.addEventListener('scroll', handleScroll);
