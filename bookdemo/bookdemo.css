@@ -629,7 +629,7 @@
     align-items: center;
     justify-content: center;
     padding: 1rem 2.5rem;
-    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+    background: var(--gold-500);
     color: var(--white);
     border: none;
     border-radius: 100px;
@@ -645,13 +645,13 @@
 
 .btn-submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(16, 97, 118, 0.35);
+    box-shadow: 0 10px 30px rgba(236, 156, 19, 0.35);
 }
 
 .btn-submit-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 100%);
+    background: var(--gold-600);
     opacity: 0;
     transition: opacity 0.3s ease;
 }

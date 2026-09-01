@@ -1215,13 +1215,13 @@ body.intro-active {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gold-500);
+    color: var(--coral);
     transition: all 0.3s ease;
 }
 
 .footer-social a:hover {
-    background: var(--gold-500);
-    color: var(--gold-50);
+    background: var(--coral);
+    color: var(--white);
 }
 
 /* ============ SCROLL ANIMATIONS ============ */

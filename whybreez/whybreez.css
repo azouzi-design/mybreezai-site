@@ -470,6 +470,13 @@
     margin-bottom: 1rem;
 }
 
+.benefits-customers .benefits-label {
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    background: var(--gold-50);
+    color: var(--gold-500);
+}
+
 .benefits-title {
     font-family: 'IBM Plex Serif', serif;
     font-size: var(--h2-size);
@@ -606,7 +613,7 @@
 .customer-benefit-icon {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, var(--peach) 0%, var(--cream-dark) 100%);
+    background: var(--gold-50);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -621,7 +628,7 @@
 .customer-benefit-icon svg {
     width: 24px;
     height: 24px;
-    color: var(--orange-dark);
+    color: var(--gold-500);
 }
 
 .customer-benefit-header h3 {
@@ -692,7 +699,7 @@
 .customer-benefit-check svg {
     width: 16px;
     height: 16px;
-    color: var(--orange-dark);
+    color: var(--gold-500);
 }
 
 /* ============ HOW WE'RE DIFFERENT SECTION ============ */
