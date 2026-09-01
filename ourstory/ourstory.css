@@ -281,6 +281,10 @@
     font-weight: 600;
 }
 
+.vision-content .section-label {
+    color: var(--gold-500);
+}
+
 .vision-highlight {
     font-size: 1.15rem;
     color: var(--text-primary);
@@ -288,7 +292,7 @@
     padding: 1.5rem;
     background: var(--white);
     border-radius: 16px;
-    border-left: 4px solid var(--orange);
+    border-left: 4px solid var(--gold-500);
     margin-top: 2rem;
     box-shadow: 0 2px 16px rgba(16, 42, 80, 0.06);
 }
@@ -415,7 +419,7 @@
 /* Partnership Section */
 .partnership-section {
     padding: 6rem 2rem;
-    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+    background: var(--cream);
 }
 
 .partnership-container {
@@ -456,6 +460,10 @@
     box-shadow: 0 12px 40px rgba(16, 42, 80, 0.1);
 }
 
+.partnership-header .section-label {
+    color: var(--gold-500);
+}
+
 .partnership-card::before {
     content: '';
     position: absolute;
@@ -463,7 +471,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--orange) 0%, var(--coral) 100%);
+    background: var(--gold-500);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -477,7 +485,7 @@
     font-family: 'IBM Plex Serif', serif;
     font-size: 2.5rem;
     font-weight: 600;
-    color: var(--peach);
+    color: var(--gold-200);
     line-height: 1;
     margin-bottom: 1rem;
 }

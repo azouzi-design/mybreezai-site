@@ -51,16 +51,15 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
     margin-bottom: 2rem;
-    background: rgba(23, 143, 174, 0.12);
-    color: var(--orange-dark);
-    border: 1px solid rgba(23, 143, 174, 0.3);
+    background: var(--gold-50);
+    color: var(--gold-500);
 }
 
 .groceryaisle-hero-badge-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--orange);
+    background: var(--gold-500);
     flex-shrink: 0;
     animation: badge-pulse 2s ease-in-out infinite;
 }

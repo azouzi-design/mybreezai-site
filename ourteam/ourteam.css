@@ -92,6 +92,10 @@
     color: var(--text-primary);
 }
 
+.team-section-title--gold {
+    color: var(--gold-500);
+}
+
 /* Team Grid */
 .team-grid {
     display: grid;

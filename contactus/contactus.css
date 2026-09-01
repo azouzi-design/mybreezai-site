@@ -169,14 +169,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-primary);
+    color: var(--gold-500);
     box-shadow: 0 2px 12px rgba(16, 42, 80, 0.06);
     transition: all 0.3s ease;
 }
 
 .contact-social a:hover {
-    background: linear-gradient(135deg, var(--orange-light) 0%, var(--orange) 100%);
-    color: var(--white);
+    background: var(--gold-500);
+    color: var(--gold-50);
     transform: translateY(-3px);
 }
 
@@ -239,7 +239,7 @@
 }
 
 .form-group label .required {
-    color: var(--coral);
+    color: var(--gold-500);
 }
 
 .form-group input,
