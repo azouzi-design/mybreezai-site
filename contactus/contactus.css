@@ -169,13 +169,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--coral);
+    color: var(--orange);
     box-shadow: 0 2px 12px rgba(16, 42, 80, 0.06);
     transition: all 0.3s ease;
 }
 
 .contact-social a:hover {
-    background: var(--coral);
+    background: var(--orange);
     color: var(--white);
     transform: translateY(-3px);
 }

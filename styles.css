@@ -4,6 +4,7 @@
     --orange-light: #ABD4DC;
     --orange-dark: #106176;
     /* Secondary accent - Aqua */
+    --aqua-50: #EBF5F5;
     --coral: #61C5E5;
     --peach: #C4E7EF;
 
@@ -408,6 +409,37 @@ body.intro-active {
     align-items: center;
 }
 
+.home-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    background: var(--cream-dark);
+    color: var(--orange);
+    opacity: 0;
+    transform: translateY(-14px);
+    will-change: transform, opacity;
+}
+
+.home-hero-badge.visible {
+    animation: short-slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.home-hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+    animation: badge-pulse 2s ease-in-out infinite;
+}
+
 .hero-title {
     font-family: 'IBM Plex Serif', serif;
     font-size: var(--h1-size);
@@ -416,20 +448,45 @@ body.intro-active {
     margin-bottom: 1.5rem;
     color: var(--text-primary);
     overflow: visible;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
-    will-change: transform, opacity;
 }
 
 .hero-title-accent {
-    color: var(--gold-500);
+    color: var(--orange);
 }
 
-.hero-title.visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: none;
+.hero-line {
+    display: block;
+    opacity: 0;
+    transform: translateY(-14px);
+    will-change: transform, opacity;
+}
+
+.hero-title.visible .hero-line {
+    animation: short-slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-title.visible .hero-line:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.hero-title.visible .hero-line:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.hero-title.visible .hero-line:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes short-slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-subtitle {
@@ -516,7 +573,7 @@ body.intro-active {
 .partners-track {
     display: flex;
     align-items: center;
-    gap: clamp(40px, 6vw, 80px);
+    gap: 32px;
     padding: 0 clamp(20px, 3vw, 40px);
 }
 
@@ -1215,12 +1272,12 @@ body.intro-active {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--coral);
+    color: var(--orange);
     transition: all 0.3s ease;
 }
 
 .footer-social a:hover {
-    background: var(--coral);
+    background: var(--orange);
     color: var(--white);
 }
 

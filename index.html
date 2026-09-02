@@ -207,7 +207,11 @@
     </script>
 
     <section class="hero" id="hero">
-      <h1 class="hero-title" id="heroTitle">Your customers are already<br>using AI to shop for groceries.<br><span class="hero-title-accent">We make
+      <div class="home-hero-badge">
+        <span class="home-hero-badge-dot"></span>
+        <span>Live in 80+ Stores</span>
+      </div>
+      <h1 class="hero-title" id="heroTitle"><span class="hero-line">Your customers are already</span><span class="hero-line">using AI to shop for groceries.</span><span class="hero-line hero-title-accent">We make
         it work <b><i>for you.</i></b></span></h1>
       <p class="hero-subtitle" id="heroSubtitle">
         AI meal planning, intelligent shopping lists and digital couponing, personalized to each shopper's needs,
@@ -613,6 +617,7 @@
     // Scroll handling
     const heroTitle = document.getElementById('heroTitle');
     const heroSubtitle = document.getElementById('heroSubtitle');
+    const heroBadge = document.querySelector('.home-hero-badge');
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -679,6 +684,7 @@
       const header = document.getElementById('header');
       if (header) header.classList.add('visible');
       heroTitle.classList.add('visible');
+      if (heroBadge) setTimeout(() => heroBadge.classList.add('visible'), 900);
       setTimeout(() => heroSubtitle.classList.add('visible'), 200);
     }, TOTAL_INTRO_TIME);
 

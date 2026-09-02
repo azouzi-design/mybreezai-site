@@ -36,6 +36,36 @@
     line-height: var(--h1-line-height);
 }
 
+/* Neutralize the generic .reveal fade on the container itself — each
+   child (badge, h1, paragraph) reveals on its own, staggered below. */
+.blog-hero-inner.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+
+.blog-hero-inner .blog-label,
+.blog-hero-inner h1,
+.blog-hero-inner p {
+    opacity: 0;
+    transform: translateY(-14px);
+    will-change: transform, opacity;
+}
+
+.blog-hero-inner.visible .blog-label {
+    animation: short-slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.blog-hero-inner.visible h1 {
+    animation: short-slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.15s;
+}
+
+.blog-hero-inner.visible p {
+    animation: short-slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.3s;
+}
+
 .blog-hero p {
     font-size: 1.15rem;
     color: var(--text-secondary);
@@ -1148,7 +1178,7 @@
 }
 
 .article-cta {
-    background: linear-gradient(135deg, var(--peach) 0%, var(--cream-dark) 100%);
+    background: var(--gold-50);
     border-radius: 24px;
     padding: 2.5rem;
     text-align: center;
