@@ -417,7 +417,7 @@
     // Get category display name (used for the badge on cards)
     function getCategoryName(category) {
       const names = {
-        'breez-news': 'Press Release',
+        'breez-news': 'EVERYAISLE News',
         'breez-in-the-news': 'EVERYAISLE in the Press',
         'breez-insights': 'EVERYAISLE Insights'
       };
@@ -442,14 +442,14 @@
         ? `<a href="${post.externalProfile}" target="_blank" rel="noopener" class="author-name author-link" onclick="event.stopPropagation()">${post.author}</a>`
         : `<span class="author-name">${post.author}</span>`;
 
-      // Press releases get a "PR" avatar circle and "Press Release" label in
-      // place of the byline. Everything else renders the normal author block.
+      // Press releases get an "EN" avatar circle and "EVERYAISLE News" label
+      // in place of the byline. Everything else renders the normal author block.
       const authorBlockHtml = isPressRelease
         ? `
               <div class="blog-card-author">
-                <div class="author-avatar-placeholder author-avatar-placeholder--press-release">PR</div>
+                <div class="author-avatar-placeholder author-avatar-placeholder--press-release">EN</div>
                 <div class="author-info">
-                  <span class="author-name">Press Release</span>
+                  <span class="author-name">EVERYAISLE News</span>
                 </div>
               </div>`
         : `
