@@ -420,8 +420,8 @@ body.intro-active {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     margin-bottom: 1rem;
-    background: var(--cream-dark);
-    color: var(--orange);
+    background: var(--gold-50);
+    color: var(--gold-500);
     opacity: 0;
     transform: translateY(-14px);
     will-change: transform, opacity;
@@ -435,7 +435,7 @@ body.intro-active {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--orange);
+    background: var(--gold-500);
     flex-shrink: 0;
     animation: badge-pulse 2s ease-in-out infinite;
 }
@@ -989,18 +989,29 @@ body.intro-active {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 8px 24px rgba(16, 42, 80, 0.12);
 }
 
 .suite-card-image svg {
     width: 44px;
     height: 44px;
-    stroke: var(--orange-dark);
+    stroke: var(--white);
 }
 
-.suite-card-image--meal { background: linear-gradient(160deg, var(--aqua-50) 0%, var(--peach) 100%); }
-.suite-card-image--email { background: linear-gradient(160deg, var(--gold-50) 0%, var(--gold-200) 100%); }
-.suite-card-image--chat { background: linear-gradient(160deg, var(--cream-dark) 0%, var(--orange-light) 100%); }
-.suite-card-image--store { background: linear-gradient(160deg, var(--peach) 0%, var(--gold-200) 100%); }
+.suite-card-image--meal { background: linear-gradient(160deg, var(--orange) 0%, color-mix(in srgb, var(--orange) 70%, white) 100%); }
+.suite-card-image--email { background: linear-gradient(160deg, var(--coral) 0%, color-mix(in srgb, var(--coral) 70%, white) 100%); }
+.suite-card-image--chat { background: linear-gradient(160deg, var(--gold-500) 0%, color-mix(in srgb, var(--gold-500) 70%, white) 100%); }
+.suite-card-image--store { background: linear-gradient(160deg, var(--text-primary) 0%, color-mix(in srgb, var(--text-primary) 70%, white) 100%); }
+
+.suite-card-eyebrow {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 0.15rem;
+}
 
 .suite-card-title {
     font-family: 'IBM Plex Serif', serif;
@@ -1024,7 +1035,7 @@ body.intro-active {
     gap: 0.4rem;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--orange-dark);
+    color: var(--orange);
     margin-top: auto;
 }
 
