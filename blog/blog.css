@@ -624,8 +624,8 @@
 
 .newsletter-label {
     display: inline-block;
-    background: var(--peach);
-    color: var(--orange-dark);
+    background: var(--gold-50);
+    color: var(--gold-500);
     padding: 0.4rem 1rem;
     border-radius: 100px;
     font-size: 0.8rem;
@@ -682,7 +682,7 @@
 
 .newsletter-form .form-btn {
     padding: 0.9rem 1.5rem;
-    background: var(--text-primary);
+    background: var(--gold-500);
     color: var(--white);
     border: none;
     border-radius: 100px;
@@ -695,7 +695,7 @@
 }
 
 .newsletter-form .form-btn:hover {
-    background: var(--orange-dark);
+    background: var(--gold-600);
 }
 
 .form-note {
@@ -768,7 +768,7 @@
 .newsletter-decoration {
     width: 180px;
     height: 180px;
-    color: var(--orange);
+    color: var(--gold-500);
     flex-shrink: 0;
 }
 
