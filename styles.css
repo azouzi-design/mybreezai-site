@@ -917,6 +917,139 @@ body.intro-active {
     line-height: 1.5;
 }
 
+/* ============ SUITE SECTION ============ */
+.suite-section {
+    padding: clamp(4rem, 8vw, 6rem) 2rem;
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.suite-header {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+}
+
+.suite-label {
+    display: inline-block;
+    background: var(--peach);
+    color: var(--orange-dark);
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.suite-header h2 {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: var(--h2-size);
+    font-weight: 600;
+    line-height: var(--h2-line-height);
+    color: var(--text-primary);
+    margin-bottom: 0.85rem;
+}
+
+.suite-header p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.suite-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.suite-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid rgba(16, 42, 80, 0.08);
+    border-radius: 24px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.suite-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(16, 42, 80, 0.12);
+    border-color: rgba(23, 143, 174, 0.25);
+}
+
+.suite-card-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.suite-card-image svg {
+    width: 44px;
+    height: 44px;
+    stroke: var(--orange-dark);
+}
+
+.suite-card-image--meal { background: linear-gradient(160deg, var(--aqua-50) 0%, var(--peach) 100%); }
+.suite-card-image--email { background: linear-gradient(160deg, var(--gold-50) 0%, var(--gold-200) 100%); }
+.suite-card-image--chat { background: linear-gradient(160deg, var(--cream-dark) 0%, var(--orange-light) 100%); }
+.suite-card-image--store { background: linear-gradient(160deg, var(--peach) 0%, var(--gold-200) 100%); }
+
+.suite-card-title {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: var(--h3-lg-size);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.suite-card-desc {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+}
+
+.suite-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--orange-dark);
+    margin-top: auto;
+}
+
+.suite-card-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+}
+
+.suite-card:hover .suite-card-link svg {
+    transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+    .suite-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .suite-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ============ BENEFITS SECTION ============ */
 .benefits {
     padding: 8rem 2rem;
