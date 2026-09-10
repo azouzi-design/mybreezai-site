@@ -1,14 +1,16 @@
 {
   "redirects": [
-    { "source": "/groceryaisle", "destination": "/product", "permanent": true },
-    { "source": "/groceryaisle/", "destination": "/product/", "permanent": true },
+    { "source": "/groceryaisle", "destination": "/products", "permanent": true },
+    { "source": "/groceryaisle/", "destination": "/products/", "permanent": true },
+    { "source": "/product", "destination": "/products", "permanent": true },
+    { "source": "/product/", "destination": "/products/", "permanent": true },
     { "source": "/whybreez", "destination": "/whyeveryaisle", "permanent": true },
     { "source": "/whybreez/", "destination": "/whyeveryaisle/", "permanent": true },
     { "source": "/blog", "destination": "/insights", "permanent": true },
     { "source": "/blog/", "destination": "/insights/", "permanent": true },
     { "source": "/blog/post", "destination": "/insights/post", "permanent": true },
     { "source": "/blog/post/", "destination": "/insights/post/", "permanent": true },
-    { "source": "/smartmeals", "destination": "/product", "permanent": true },
-    { "source": "/smartmeals/", "destination": "/product/", "permanent": true }
+    { "source": "/smartmeals", "destination": "/products", "permanent": true },
+    { "source": "/smartmeals/", "destination": "/products/", "permanent": true }
   ]
 }
