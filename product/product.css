@@ -2544,6 +2544,7 @@
 }
 /* ─── Back-to-hero floating button ─────────────────────────────────────────── */
 .ga-back-to-hero {
+    display: none;
     position: fixed;
     bottom: 2rem;
     right: 2rem;
