@@ -116,6 +116,12 @@
     background: var(--cream-dark);
 }
 
+.mobile-menu-dropdown-items a.product-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
 /* Demo Button in Mobile Menu */
 .mobile-menu-demo {
     margin-top: 1rem;

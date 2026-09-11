@@ -24,8 +24,7 @@
     --white: #FFFFFF;
     --ink: #0A1B34;
 
-    /* Typography scale — shared across every page so H1/H2/H3 stay consistent.
-       See /dev-docs for the audit that led to this. */
+    /* Typography scale — shared across every page so H1/H2/H3 stay consistent. */
     --h1-size: clamp(2.25rem, 4vw, 3.5rem);
     --h1-line-height: 1.15;
     --h2-size: clamp(1.75rem, 3vw, 2.5rem);
@@ -252,6 +251,19 @@ body.intro-active {
 
 .nav-dropdown-content a:hover {
     background: var(--cream);
+}
+
+.nav-dropdown-content a.product-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.product-menu-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    border-radius: 8px;
 }
 
 .header-actions {
@@ -959,50 +971,121 @@ body.intro-active {
     line-height: 1.6;
 }
 
+/* Per-product accent color, shared by the puzzle graphic and the card icon/eyebrow below */
+.suite-accent--meal { --accent: var(--gold-500); }
+.suite-accent--email { --accent: var(--text-primary); }
+.suite-accent--chat { --accent: var(--coral); }
+.suite-accent--store { --accent: var(--orange); }
+
+.suite-visual {
+    position: relative;
+    width: 320px;
+    aspect-ratio: 4 / 3;
+    margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 16px;
+    overflow: clip;
+    transform: perspective(900px) rotateX(8deg) rotateY(-6deg) rotate(-10deg);
+    box-shadow:
+        inset 0 2px 4px rgba(255, 255, 255, 0.6),
+        inset 0 -3px 8px rgba(16, 42, 80, 0.1),
+        0 30px 60px rgba(16, 42, 80, 0.2);
+    transition: transform 0.25s ease-out, box-shadow 0.35s ease;
+    will-change: transform;
+}
+
+.suite-visual:hover {
+    box-shadow:
+        inset 0 2px 4px rgba(255, 255, 255, 0.7),
+        inset 0 -3px 8px rgba(16, 42, 80, 0.1),
+        0 40px 80px rgba(16, 42, 80, 0.28);
+}
+
+/* Entrance: flies in tilted and oversized in 3D, then springs into its resting tilt */
+.suite-visual.reveal {
+    opacity: 0;
+    transform: perspective(900px) rotateX(35deg) rotateY(28deg) rotate(-16deg) scale(0.7) translateY(50px);
+    transition: none;
+}
+
+.suite-visual.reveal.visible {
+    animation: suite-visual-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes suite-visual-in {
+    0% {
+        opacity: 0;
+        transform: perspective(900px) rotateX(35deg) rotateY(28deg) rotate(-16deg) scale(0.7) translateY(50px);
+    }
+    60% {
+        opacity: 1;
+        transform: perspective(900px) rotateX(2deg) rotateY(-10deg) rotate(-11deg) scale(1.04) translateY(-8px);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(900px) rotateX(8deg) rotateY(-6deg) rotate(-10deg) scale(1) translateY(0);
+    }
+}
+
+.suite-visual-piece {
+    position: relative;
+    width: 50%;
+    aspect-ratio: 4 / 3;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    box-shadow: 0 8px 24px rgba(16, 42, 80, 0.12);
+}
+
+.suite-visual-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.suite-visual-tab {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    overflow: visible;
+    z-index: 2;
+}
+
 .suite-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 0.75rem;
 }
 
 .suite-card {
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
     background: var(--white);
-    border: 1px solid rgba(16, 42, 80, 0.08);
     border-radius: 24px;
     padding: 1.5rem;
     text-decoration: none;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .suite-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 45px rgba(16, 42, 80, 0.12);
-    border-color: rgba(23, 143, 174, 0.25);
 }
 
-.suite-card-image {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    border-radius: 16px;
-    margin-bottom: 1.5rem;
+.suite-card-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.suite-card-content {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 24px rgba(16, 42, 80, 0.12);
+    flex-direction: column;
+    flex: 1;
 }
-
-.suite-card-image svg {
-    width: 44px;
-    height: 44px;
-    stroke: var(--white);
-}
-
-.suite-card-image--meal { background: linear-gradient(160deg, var(--orange) 0%, color-mix(in srgb, var(--orange) 70%, white) 100%); }
-.suite-card-image--email { background: linear-gradient(160deg, var(--coral) 0%, color-mix(in srgb, var(--coral) 70%, white) 100%); }
-.suite-card-image--chat { background: linear-gradient(160deg, var(--gold-500) 0%, color-mix(in srgb, var(--gold-500) 70%, white) 100%); }
-.suite-card-image--store { background: linear-gradient(160deg, var(--text-primary) 0%, color-mix(in srgb, var(--text-primary) 70%, white) 100%); }
 
 .suite-card-eyebrow {
     display: block;
@@ -1010,7 +1093,7 @@ body.intro-active {
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--coral);
+    color: var(--accent);
     margin-bottom: 0.15rem;
 }
 
@@ -1059,6 +1142,10 @@ body.intro-active {
 @media (max-width: 560px) {
     .suite-grid {
         grid-template-columns: 1fr;
+    }
+
+    .suite-visual {
+        width: 260px;
     }
 }
 
