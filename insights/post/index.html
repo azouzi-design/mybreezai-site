@@ -19,7 +19,7 @@
   <link rel="icon" href="/favicon/favicon.ico">
   <link rel="manifest" href="/favicon/site.webmanifest">
 
-  <link rel="stylesheet" href="/styles.css?v=54">
+  <link rel="stylesheet" href="/styles.css?v=70">
   <link rel="stylesheet" href="/hamburgermenu.css">
   <link rel="stylesheet" href="/insights/insights.css?v=9">
 
@@ -240,6 +240,32 @@
     }
 
     // Parse CSV to JSON (handles multi-line content in quoted fields)
+    // Legacy category values from before the News/Insights split.
+    // Anything in this map is auto-folded into the new structure so the page
+    // stays consistent with /insights.
+    const CATEGORY_ALIASES = {
+      'tips': 'breez-insights',
+      'product': 'breez-insights',
+      'insights': 'breez-insights'
+    };
+
+    const VALID_CATEGORIES = new Set([
+      'breez-news',
+      'breez-in-the-news',
+      'breez-insights'
+    ]);
+
+    function normalizeCategory(post) {
+      const original = post.category;
+      if (CATEGORY_ALIASES[original]) {
+        post.category = CATEGORY_ALIASES[original];
+      } else if (original === 'news') {
+        post.category = 'breez-in-the-news';
+      } else if (!VALID_CATEGORIES.has(original)) {
+        post.category = 'breez-insights';
+      }
+    }
+
     function parseCSV(csv) {
       const posts = [];
       let pos = 0;
@@ -331,6 +357,7 @@
 
         // Only include published posts
         if (post.published && post.published.toUpperCase() === 'TRUE') {
+          normalizeCategory(post);
           posts.push(post);
         }
       }
@@ -367,10 +394,9 @@
     // Get category display name
     function getCategoryName(category) {
       const names = {
-        'news': 'Company News',
-        'insights': 'Industry Insights',
-        'tips': 'Tips & Guides',
-        'product': 'Product Updates'
+        'breez-news': 'EVERYAISLE News',
+        'breez-in-the-news': 'EVERYAISLE in the Press',
+        'breez-insights': 'EVERYAISLE Insights'
       };
       return names[category] || category;
     }

@@ -933,7 +933,7 @@ body.intro-active {
 /* ============ SUITE SECTION ============ */
 .suite-section {
     padding: clamp(4rem, 8vw, 6rem) 2rem;
-    max-width: 1360px;
+    max-width: 1264px;
     margin: 0 auto;
 }
 
@@ -977,9 +977,19 @@ body.intro-active {
 .suite-accent--chat { --accent: var(--coral); }
 .suite-accent--store { --accent: var(--orange); }
 
+/* Gentle continuous float, independent of the tilt/hover transform on .suite-visual itself */
+.suite-visual-float {
+    animation: suite-visual-float 5s ease-in-out infinite;
+}
+
+@keyframes suite-visual-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
 .suite-visual {
     position: relative;
-    width: 320px;
+    width: 416px;
     aspect-ratio: 4 / 3;
     margin: 0 auto clamp(2.5rem, 5vw, 4rem);
     display: flex;
@@ -987,19 +997,9 @@ body.intro-active {
     border-radius: 16px;
     overflow: clip;
     transform: perspective(900px) rotateX(8deg) rotateY(-6deg) rotate(-10deg);
-    box-shadow:
-        inset 0 2px 4px rgba(255, 255, 255, 0.6),
-        inset 0 -3px 8px rgba(16, 42, 80, 0.1),
-        0 30px 60px rgba(16, 42, 80, 0.2);
-    transition: transform 0.25s ease-out, box-shadow 0.35s ease;
+    transition: transform 0.25s ease-out;
     will-change: transform;
-}
-
-.suite-visual:hover {
-    box-shadow:
-        inset 0 2px 4px rgba(255, 255, 255, 0.7),
-        inset 0 -3px 8px rgba(16, 42, 80, 0.1),
-        0 40px 80px rgba(16, 42, 80, 0.28);
+    cursor: pointer;
 }
 
 /* Entrance: flies in tilted and oversized in 3D, then springs into its resting tilt */
@@ -1033,11 +1033,24 @@ body.intro-active {
     width: 50%;
     aspect-ratio: 4 / 3;
     flex-shrink: 0;
+    transition: transform 0.35s ease;
+}
+
+/* The visible colored surface — separate from .suite-visual-piece so the mask
+   (which bounds rendering to its own box) never clips the overflowing tab. */
+.suite-visual-piece-body {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--accent);
-    box-shadow: 0 8px 24px rgba(16, 42, 80, 0.12);
+    background-color: var(--accent);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.05) 100%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 14px 28px rgba(16, 42, 80, 0.22);
+    border-radius: 16px;
+    transition: border-radius 0.35s ease, box-shadow 0.35s ease;
 }
 
 .suite-visual-icon {
@@ -1046,16 +1059,78 @@ body.intro-active {
 }
 
 .suite-visual-tab {
-    width: 44px;
-    height: 44px;
+    width: 57px;
+    height: 57px;
     position: absolute;
     overflow: visible;
     z-index: 2;
 }
 
+.suite-visual--row {
+    height: 156px;
+    aspect-ratio: unset;
+    flex-wrap: nowrap;
+    overflow: visible;
+    gap: 24px;
+    transition: gap 0.35s ease;
+}
+
+.suite-visual--row .suite-visual-piece {
+    width: 33.333%;
+    aspect-ratio: unset;
+    height: 100%;
+}
+
+.suite-visual--row .suite-visual-piece-body {
+    -webkit-mask-image: radial-gradient(circle 26px at 0% 50%, transparent 0px, transparent 26px, black 26.5px, black 100%);
+    mask-image: radial-gradient(circle 26px at 0% 50%, transparent 0px, transparent 26px, black 26.5px, black 100%);
+}
+
+/* Each piece sits at its own slight tilt at rest, as if floating independently */
+.suite-visual--row .suite-visual-piece:nth-child(1) {
+    transform: rotate(-5deg) skewY(-2deg);
+}
+
+.suite-visual--row .suite-visual-piece:nth-child(2) {
+    transform: rotate(3deg) skewY(1.5deg);
+}
+
+.suite-visual--row .suite-visual-piece:nth-child(3) {
+    transform: rotate(-3deg) skewY(-1.5deg);
+}
+
+/* At rest, the three pieces read as independent cards, notch and all; on hover
+   they close the gap and align flush into one interlocking shape. Once merged
+   (the .merged class, added on first hover via JS), they stay locked together
+   until the page reloads. */
+.suite-visual--row:hover,
+.suite-visual--row.merged {
+    gap: 0;
+}
+
+.suite-visual--row:hover .suite-visual-piece,
+.suite-visual--row.merged .suite-visual-piece {
+    transform: none;
+}
+
+.suite-visual--row:hover .suite-visual-piece:first-child .suite-visual-piece-body,
+.suite-visual--row.merged .suite-visual-piece:first-child .suite-visual-piece-body {
+    border-radius: 16px 0 0 16px;
+}
+
+.suite-visual--row:hover .suite-visual-piece:nth-child(2) .suite-visual-piece-body,
+.suite-visual--row.merged .suite-visual-piece:nth-child(2) .suite-visual-piece-body {
+    border-radius: 0;
+}
+
+.suite-visual--row:hover .suite-visual-piece:last-child .suite-visual-piece-body,
+.suite-visual--row.merged .suite-visual-piece:last-child .suite-visual-piece-body {
+    border-radius: 0 16px 16px 0;
+}
+
 .suite-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
 }
 
@@ -1145,13 +1220,13 @@ body.intro-active {
     }
 
     .suite-visual {
-        width: 260px;
+        width: 338px;
     }
 }
 
 /* ============ BENEFITS SECTION ============ */
 .benefits {
-    padding: 8rem 2rem;
+    padding: 6rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
     background: var(--white);
