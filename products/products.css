@@ -479,12 +479,12 @@
     width: 32px;
     height: 32px;
     min-width: 32px;
-    background: linear-gradient(135deg, rgba(23, 143, 174, 0.15) 0%, rgba(244, 182, 66, 0.1) 100%);
+    background: var(--cream);
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--orange);
+    color: var(--gold-500);
 }
 
 /* ── Metrics bar ── */
@@ -532,6 +532,10 @@
     background: var(--cream);
 }
 
+#shopping-list.groceryaisle-features {
+    background: var(--white);
+}
+
 .groceryaisle-feature-block {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -545,10 +549,6 @@
     margin-bottom: 0;
 }
 
-#recipes {
-    margin-bottom: 2rem;
-}
-
 .groceryaisle-feature-block--reverse {
     direction: rtl;
 }
@@ -557,8 +557,28 @@
     direction: ltr;
 }
 
+/* Stacked variant: full-width text content (with its own two-column "what it
+   does" / "why it matters" row), then the image/video below everything
+   instead of beside it. */
+.groceryaisle-feature-block--stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
 .groceryaisle-feature-content {
     max-width: 520px;
+}
+
+.groceryaisle-feature-block--stacked .groceryaisle-feature-content {
+    max-width: none;
+}
+
+.groceryaisle-feature-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2.5rem;
 }
 
 .groceryaisle-feature-tag {
@@ -570,6 +590,31 @@
     font-weight: 600;
     color: var(--orange-dark);
     margin-bottom: 1rem;
+}
+
+.groceryaisle-feature-product {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.groceryaisle-feature-product .suite-card-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.groceryaisle-feature-product-label {
+    color: var(--gold-500);
+    margin-bottom: 0;
+}
+
+#shopping-list .groceryaisle-feature-product-label {
+    color: var(--coral);
+}
+
+#recipes .groceryaisle-feature-product-label {
+    color: var(--orange);
 }
 
 .groceryaisle-feature-title {
@@ -1907,7 +1952,7 @@
     }
 
     .groceryaisle-feature-title {
-        font-size: clamp(1.25rem, 2.4vw, 1.85rem);
+        font-size: clamp(1.4rem, 2.4vw, 1.85rem);
     }
 
     .groceryaisle-feature-desc {
@@ -2035,8 +2080,13 @@
         gap: 1.75rem;
     }
 
+    .groceryaisle-feature-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
     .groceryaisle-feature-title {
-        font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+        font-size: clamp(1.4rem, 2.6vw, 1.5rem);
     }
 
     .groceryaisle-feature-desc {
