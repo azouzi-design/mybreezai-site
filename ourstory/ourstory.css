@@ -28,7 +28,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--orange);
+    color: var(--teal-500);
     margin-bottom: 1rem;
     opacity: 0;
     transform: translateY(20px);
@@ -79,7 +79,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--orange);
+    color: var(--teal-500);
     margin-bottom: 1rem;
 }
 
@@ -90,98 +90,6 @@
     color: var(--text-primary);
     line-height: var(--h2-line-height);
     margin-bottom: 1rem;
-}
-
-/* Opportunity Section */
-.opportunity-section {
-    padding: 5rem 2rem 6rem;
-    background: var(--cream-dark);
-}
-
-.opportunity-container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.opportunity-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 3.5rem;
-}
-
-.opportunity-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-}
-
-.opportunity-card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 2px 24px rgba(16, 42, 80, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-}
-
-.opportunity-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 32px rgba(16, 42, 80, 0.1);
-}
-
-.opportunity-card.featured {
-    background: linear-gradient(135deg, var(--orange) 0%, var(--coral) 100%);
-    color: var(--white);
-}
-
-.opportunity-card.featured h3,
-.opportunity-card.featured p {
-    color: var(--white);
-}
-
-.opportunity-card.featured .opportunity-icon {
-    background: rgba(255, 255, 255, 0.2);
-    color: var(--white);
-}
-
-.opportunity-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: var(--peach);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.25rem;
-    color: var(--orange);
-}
-
-.opportunity-icon svg {
-    width: 24px;
-    height: 24px;
-}
-
-.opportunity-card h3 {
-    font-family: 'IBM Plex Serif', serif;
-    font-size: var(--h3-size);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.75rem;
-    line-height: var(--h3-line-height);
-}
-
-.opportunity-card p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-}
-
-@media (max-width: 900px) {
-    .opportunity-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 0 auto;
-    }
 }
 
 /* Vision Section */
@@ -375,7 +283,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;
-    color: var(--orange);
+    color: var(--teal-500);
     box-shadow: 0 2px 12px rgba(16, 42, 80, 0.08);
 }
 
@@ -416,107 +324,10 @@
     }
 }
 
-/* Partnership Section */
-.partnership-section {
-    padding: 6rem 2rem;
-    background: var(--cream);
-}
-
-.partnership-container {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.partnership-header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 3.5rem;
-}
-
-.partnership-intro {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-}
-
-.partnership-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-}
-
-.partnership-card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 2.25rem 2rem;
-    box-shadow: 0 2px 24px rgba(16, 42, 80, 0.06);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.partnership-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(16, 42, 80, 0.1);
-}
-
-.partnership-header .section-label {
-    color: var(--gold-500);
-}
-
-.partnership-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gold-500);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.partnership-card:hover::before {
-    opacity: 1;
-}
-
-.partnership-number {
-    display: inline-block;
-    font-family: 'IBM Plex Serif', serif;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: var(--gold-200);
-    line-height: 1;
-    margin-bottom: 1rem;
-}
-
-.partnership-card h3 {
-    font-family: 'IBM Plex Serif', serif;
-    font-size: var(--h3-size);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.75rem;
-    line-height: var(--h3-line-height);
-}
-
-.partnership-card p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-}
-
-@media (max-width: 900px) {
-    .partnership-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-}
-
 /* CTA Section */
 .story-cta {
     padding: 5rem 2rem;
-    background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 100%);
+    background: linear-gradient(135deg, var(--teal-700) 0%, var(--teal-500) 100%);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -576,14 +387,6 @@
 }
 
 /* Stagger children animation delays */
-.opportunity-grid .opportunity-card:nth-child(1) { transition-delay: 0.1s; }
-.opportunity-grid .opportunity-card:nth-child(2) { transition-delay: 0.2s; }
-.opportunity-grid .opportunity-card:nth-child(3) { transition-delay: 0.3s; }
-
-.partnership-grid .partnership-card:nth-child(1) { transition-delay: 0.1s; }
-.partnership-grid .partnership-card:nth-child(2) { transition-delay: 0.2s; }
-.partnership-grid .partnership-card:nth-child(3) { transition-delay: 0.3s; }
-
 .mission-values .value-item:nth-child(1) { transition-delay: 0.1s; }
 .mission-values .value-item:nth-child(2) { transition-delay: 0.2s; }
 .mission-values .value-item:nth-child(3) { transition-delay: 0.3s; }
@@ -595,7 +398,7 @@
     align-items: center;
     padding: 0.875rem 1.25rem;
     background: var(--white);
-    color: var(--orange-dark);
+    color: var(--teal-700);
     text-decoration: none;
     border-radius: 100px;
     font-weight: 600;
@@ -673,7 +476,7 @@
 .btn-demo-cta-icon svg {
     width: 18px;
     height: 18px;
-    color: var(--orange-dark);
+    color: var(--teal-700);
     transition: color 0.3s ease;
 }
 
@@ -713,5 +516,5 @@
 }
 
 .btn-demo-cta:hover .btn-demo-cta-icon svg {
-    color: var(--orange);
+    color: var(--teal-500);
 }

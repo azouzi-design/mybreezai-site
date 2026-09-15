@@ -19,16 +19,19 @@
     <link rel="icon" href="/favicon/favicon.ico">
     <link rel="manifest" href="/favicon/site.webmanifest">
 
-    <link rel="stylesheet" href="/styles.css?v=70">
-    <link rel="stylesheet" href="/hamburgermenu.css">
+    <link rel="stylesheet" href="/styles.css?v=71">
+    <link rel="stylesheet" href="/hamburgermenu.css?v=2">
 
     <style>
+        /* Intentionally reuses styles.css's shared token names with different
+           (orange) values, so this page alone reskins shared components
+           without duplicating their CSS. Names won't match these colors. */
         :root {
-            --orange: #F5A623;
-            --orange-light: #F7B24A;
-            --orange-dark: #D98216;
-            --coral: #E87A3D;
-            --peach: #FFD9B3;
+            --teal-500: #F5A623;
+            --teal-300: #F7B24A;
+            --teal-700: #D98216;
+            --aqua-400: #E87A3D;
+            --aqua-200: #FFD9B3;
             --cream: #FFFBF7;
             --cream-dark: #FFF5EB;
             --warm-gray: #8A7968;
@@ -107,7 +110,7 @@
         .error-icon-circle {
             width: 120px;
             height: 120px;
-            background: linear-gradient(135deg, var(--peach) 0%, var(--cream-dark) 100%);
+            background: linear-gradient(135deg, var(--aqua-200) 0%, var(--cream-dark) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -118,7 +121,7 @@
         .error-icon-circle svg {
             width: 56px;
             height: 56px;
-            color: var(--orange);
+            color: var(--teal-500);
         }
 
         @keyframes gentle-pulse {
@@ -286,7 +289,7 @@
         }
 
         .btn-home:hover .btn-home-icon svg {
-            color: var(--orange-light);
+            color: var(--teal-300);
         }
 
         /* Footer */
@@ -329,7 +332,7 @@
         }
 
         .footer-social a:hover {
-            background: linear-gradient(135deg, var(--orange-light) 0%, var(--orange) 100%);
+            background: linear-gradient(135deg, var(--teal-300) 0%, var(--teal-500) 100%);
             color: var(--white);
         }
 

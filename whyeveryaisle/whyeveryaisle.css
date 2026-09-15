@@ -11,7 +11,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--orange);
+    color: var(--teal-500);
     margin-bottom: 1rem;
     opacity: 0;
     transform: translateY(20px);
@@ -86,7 +86,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--orange);
+    color: var(--teal-500);
     margin-bottom: 1.25rem;
 }
 
@@ -224,7 +224,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 0.4rem;
-    background: linear-gradient(135deg, var(--orange-light) 0%, var(--peach) 100%);
+    background: linear-gradient(135deg, var(--teal-300) 0%, var(--aqua-200) 100%);
     border-radius: 20px;
     overflow: hidden;
 }
@@ -258,7 +258,7 @@
 .explore-link {
     font-size: 0.78rem;
     font-weight: 600;
-    color: var(--orange-dark);
+    color: var(--teal-700);
     display: inline-flex;
     align-items: center;
     transition: transform 0.2s ease;
@@ -299,7 +299,7 @@
 .visual-card-icon svg {
     width: 18px;
     height: 18px;
-    stroke: var(--orange-dark);
+    stroke: var(--teal-700);
     display: block;
     flex-shrink: 0;
 }
@@ -382,61 +382,6 @@
     color: var(--text-secondary);
 }
 
-/* ============ STATS BANNER ============ */
-.stats-banner {
-    padding: 5rem 2rem;
-    background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 100%);
-}
-
-.stats-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-}
-
-@media (max-width: 900px) {
-    .stats-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2.5rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .stats-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(3rem, 6vw, 4.5rem);
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.stat-symbol {
-    font-size: 0.6em;
-    margin-left: 0.1em;
-}
-
-.stat-label {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.5;
-}
-
 /* ============ BENEFITS SECTION ============ */
 .benefits-section {
     padding: 6rem 2rem;
@@ -466,7 +411,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--orange);
+    color: var(--teal-500);
     margin-bottom: 1rem;
 }
 
@@ -534,7 +479,7 @@
     font-family: 'IBM Plex Serif', serif;
     font-size: 3rem;
     font-weight: 600;
-    color: var(--peach);
+    color: var(--aqua-200);
     opacity: 0.4;
     line-height: 1;
 }
@@ -542,7 +487,7 @@
 .benefit-icon {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, var(--peach) 0%, var(--cream-dark) 100%);
+    background: linear-gradient(135deg, var(--aqua-200) 0%, var(--cream-dark) 100%);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -553,7 +498,7 @@
 .benefit-icon svg {
     width: 24px;
     height: 24px;
-    color: var(--orange-dark);
+    color: var(--teal-700);
 }
 
 .benefit-title {
@@ -599,7 +544,7 @@
 }
 
 .customer-benefit-highlight {
-    background: linear-gradient(135deg, var(--orange-light) 0%, var(--peach) 100%);
+    background: linear-gradient(135deg, var(--teal-300) 0%, var(--aqua-200) 100%);
     position: relative;
 }
 
@@ -652,7 +597,7 @@
 .coming-soon-badge {
     display: inline-block;
     background: var(--white);
-    color: var(--orange-dark);
+    color: var(--teal-700);
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -702,262 +647,125 @@
     color: var(--gold-500);
 }
 
-/* ============ HOW WE'RE DIFFERENT SECTION ============ */
-.difference-section {
-    padding: 6rem 2rem;
-    background: var(--cream);
-}
-
-.difference-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.difference-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.difference-label {
+/* ============ PARTNERSHIP SECTION ============ */
+.section-label {
     display: inline-block;
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--orange);
+    letter-spacing: 0.12em;
+    color: var(--gold-500);
     margin-bottom: 1rem;
 }
 
-.difference-title {
+.section-title {
     font-family: 'IBM Plex Serif', serif;
     font-size: var(--h2-size);
     font-weight: 600;
-    line-height: var(--h2-line-height);
     color: var(--text-primary);
+    line-height: var(--h2-line-height);
     margin-bottom: 1rem;
 }
 
-.difference-subtitle {
+.partnership-section {
+    padding: 6rem 2rem;
+    background: var(--white);
+}
+
+.partnership-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.partnership-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3.5rem;
+}
+
+.partnership-intro {
     font-size: 1.1rem;
     color: var(--text-secondary);
-    max-width: 760px;
-    margin: 0 auto;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
-.difference-subtitle em {
-    font-style: italic;
-    color: var(--text-primary);
-    font-weight: 500;
-}
-
-/* Comparison Table */
-.comparison-table {
+.partnership-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    margin-bottom: 3rem;
-    /* No overflow:hidden — allows box-shadow and outline to render fully */
-    padding: 8px;
-    /* room for hover shadow + translateY */
-    margin-left: -8px;
-    margin-right: -8px;
 }
 
-.comparison-col {
+.partnership-card {
+    background: var(--cream);
     border-radius: 20px;
-    /* No overflow:hidden — was clipping box-shadow and border on hover */
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.3s ease,
-        opacity 0.6s ease;
+    padding: 2.25rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.comparison-table.slide-visible .comparison-col:hover {
+.partnership-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(16, 42, 80, 0.1);
 }
 
-.comparison-col-generic {
-    background: var(--white);
+.partnership-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold-500);
     opacity: 0;
-    transform: translateX(-80px);
+    transition: opacity 0.3s ease;
 }
 
-.comparison-col-thirdparty {
-    background: var(--cream);
-    opacity: 0;
-    transform: translateX(-80px);
-}
-
-.comparison-col-breez {
-    background: linear-gradient(165deg, var(--cream) 0%, var(--peach) 100%);
-    box-shadow: 0 4px 24px rgba(244, 182, 66, 0.12);
-    border: 2px solid var(--peach);
-    opacity: 0;
-    transform: translateX(80px);
-}
-
-/* Slide-in when visible */
-.comparison-table.slide-visible .comparison-col-generic,
-.comparison-table.slide-visible .comparison-col-thirdparty {
+.partnership-card:hover::before {
     opacity: 1;
-    transform: translateX(0);
 }
 
-.comparison-table.slide-visible .comparison-col-breez {
-    opacity: 1;
-    transform: translateX(0);
-    transition-delay: 0.15s;
-}
-
-.comparison-table.slide-visible .comparison-col-breez:hover {
-    box-shadow: 0 12px 40px rgba(23, 143, 174, 0.18);
-}
-
-/* Column Headers */
-.comparison-col-header {
-    padding: 1.75rem 1.75rem 1.25rem;
-    border-bottom: 1px solid rgba(16, 42, 80, 0.08);
-}
-
-.comparison-col-header-breez {
-    border-bottom-color: rgba(23, 143, 174, 0.2);
-}
-
-.comparison-col-header h3 {
+.partnership-number {
+    display: inline-block;
     font-family: 'IBM Plex Serif', serif;
-    font-size: var(--h3-lg-size);
+    font-size: 2.5rem;
     font-weight: 600;
+    color: var(--gold-200);
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.partnership-card h3 {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: var(--h3-size);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
     line-height: var(--h3-line-height);
-    color: var(--text-primary);
-    margin-bottom: 0.25rem;
 }
 
-.comparison-col-header-breez h3 {
-    color: var(--orange-dark);
-}
-
-.comparison-col-sub {
-    font-size: 0.8rem;
-    color: var(--warm-gray);
-    font-weight: 500;
-}
-
-/* Comparison Lists */
-.comparison-list {
-    list-style: none;
-    padding: 0.75rem 1.75rem 1.75rem;
-    margin: 0;
-}
-
-.comparison-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 0.85rem 0;
-    font-size: 0.92rem;
+.partnership-card p {
+    font-size: 0.95rem;
     color: var(--text-secondary);
-    line-height: 1.55;
-    border-bottom: 1px solid rgba(16, 42, 80, 0.05);
+    line-height: 1.7;
 }
 
-.comparison-list li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
+.partnership-grid .partnership-card:nth-child(1) { transition-delay: 0.1s; }
+.partnership-grid .partnership-card:nth-child(2) { transition-delay: 0.2s; }
+.partnership-grid .partnership-card:nth-child(3) { transition-delay: 0.3s; }
 
-.comparison-col-spotlight {
-    color: var(--orange-dark);
-}
-
-.comparison-col-breez .comparison-list li {
-    color: var(--text-primary);
-    font-weight: 450;
-    border-bottom-color: rgba(23, 143, 174, 0.1);
-}
-
-/* Icons */
-.comparison-icon {
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1px;
-}
-
-.comparison-icon svg {
-    width: 16px;
-    height: 16px;
-}
-
-.comparison-icon-good svg {
-    color: var(--orange-dark);
-}
-
-/* Closing */
-.difference-closing {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.difference-closing p {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-}
-
-/* Responsive */
 @media (max-width: 900px) {
-    .comparison-table {
+    .partnership-grid {
         grid-template-columns: 1fr;
-        gap: 1.25rem;
-    }
-
-    .comparison-col-breez {
-        order: -1;
-    }
-
-    /* On mobile, slide from top/bottom instead of left/right */
-    .comparison-col-generic,
-    .comparison-col-thirdparty {
-        transform: translateX(-60px);
-    }
-
-    .comparison-col-breez {
-        transform: translateX(60px);
-    }
-}
-
-@media (max-width: 768px) {
-    .difference-section {
-        padding: 4rem 1.5rem;
-    }
-
-    .difference-header {
-        margin-bottom: 2.5rem;
-    }
-
-    .comparison-col-header {
-        padding: 1.5rem 1.25rem 1rem;
-    }
-
-    .comparison-list {
-        padding: 0.5rem 1.25rem 1.25rem;
-    }
-
-    .comparison-list li {
-        font-size: 0.88rem;
+        max-width: 500px;
+        margin: 0 auto;
     }
 }
 
 /* ============ PARTNER CTA SECTION ============ */
 .partner-cta {
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 100%);
+    background: linear-gradient(135deg, var(--teal-700) 0%, var(--teal-500) 100%);
     text-align: center;
 }
 
@@ -996,7 +804,7 @@
     align-items: center;
     padding: 0.875rem 1.25rem;
     background: var(--white);
-    color: var(--orange-dark);
+    color: var(--teal-700);
     text-decoration: none;
     border-radius: 100px;
     font-weight: 600;
@@ -1071,7 +879,7 @@
 .btn-partner-icon svg {
     width: 18px;
     height: 18px;
-    color: var(--orange-dark);
+    color: var(--teal-700);
     transition: color 0.3s ease;
 }
 
@@ -1113,7 +921,7 @@
 }
 
 .btn-partner-primary:hover .btn-partner-icon svg {
-    color: var(--orange);
+    color: var(--teal-500);
 }
 
 /* Secondary CTA Button */
@@ -1134,7 +942,7 @@
 
 .btn-partner-secondary:hover {
     background: var(--white);
-    color: var(--orange-dark);
+    color: var(--teal-700);
     transform: translateY(-2px);
 }
 
@@ -1158,10 +966,6 @@
 
     .value-prop-section {
         padding: 4rem 1.5rem;
-    }
-
-    .stats-banner {
-        padding: 3rem 1.5rem;
     }
 
     .benefits-section {

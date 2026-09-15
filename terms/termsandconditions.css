@@ -11,7 +11,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--orange);
+    color: var(--teal-500);
     margin-bottom: 1rem;
     opacity: 0;
     transform: translateY(20px);
@@ -108,6 +108,17 @@
     color: var(--text-primary);
 }
 
+.terms-meta-value a {
+    color: var(--teal-700);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.terms-meta-value a:hover {
+    color: var(--teal-500);
+    text-decoration: underline;
+}
+
 /* ============ TERMS CONTENT ============ */
 .terms-intro {
     font-size: 1.05rem;
@@ -117,7 +128,7 @@
     padding: 2rem;
     background: var(--cream-dark);
     border-radius: 16px;
-    border-left: 4px solid var(--orange);
+    border-left: 4px solid var(--teal-500);
 }
 
 .terms-intro p {
@@ -184,7 +195,7 @@
     top: 0.7rem;
     width: 6px;
     height: 6px;
-    background: var(--orange);
+    background: var(--teal-500);
     border-radius: 50%;
 }
 
@@ -195,14 +206,14 @@
 
 /* Links in Terms */
 .terms-content a {
-    color: var(--orange-dark);
+    color: var(--teal-700);
     text-decoration: none;
     transition: color 0.2s ease;
     font-weight: 500;
 }
 
 .terms-content a:hover {
-    color: var(--orange);
+    color: var(--teal-500);
     text-decoration: underline;
 }
 
@@ -210,7 +221,7 @@
 .terms-footer {
     margin-top: 4rem;
     padding: 2.5rem;
-    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+    background: linear-gradient(135deg, var(--teal-500) 0%, var(--teal-700) 100%);
     border-radius: 20px;
 }
 
@@ -242,7 +253,7 @@
 .terms-footer-icon svg {
     width: 32px;
     height: 32px;
-    color: var(--orange);
+    color: var(--teal-500);
 }
 
 .terms-footer-content h3 {
@@ -250,26 +261,26 @@
     font-size: var(--h3-size);
     font-weight: 600;
     line-height: var(--h3-line-height);
-    color: var(--text-primary);
+    color: var(--white);
     margin-bottom: 0.5rem;
 }
 
 .terms-footer-content p {
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.6;
     margin: 0;
 }
 
 .terms-footer-content a {
-    color: var(--text-primary);
-    text-decoration: none;
+    color: var(--white);
+    text-decoration: underline;
     font-weight: 600;
     transition: color 0.2s ease;
 }
 
 .terms-footer-content a:hover {
-    color: var(--white);
+    color: var(--teal-300);
 }
 
 /* ============ RESPONSIVE ============ */

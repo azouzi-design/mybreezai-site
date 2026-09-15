@@ -11,7 +11,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--orange);
+    color: var(--teal-500);
     margin-bottom: 1rem;
     opacity: 0;
     transform: translateY(20px);
@@ -80,7 +80,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--orange);
+    color: var(--teal-500);
     margin-bottom: 0.75rem;
 }
 
@@ -128,7 +128,7 @@
     border-radius: 50%;
     margin: 0 auto 1.5rem;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--peach) 0%, var(--cream-dark) 100%);
+    background: linear-gradient(135deg, var(--aqua-200) 0%, var(--cream-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -146,7 +146,7 @@
     font-size: 2.5rem;
     font-weight: 600;
     line-height: 1;
-    color: var(--orange);
+    color: var(--teal-500);
 }
 
 .team-card-name {
@@ -161,7 +161,7 @@
 .team-card-role {
     font-size: 0.95rem;
     font-weight: 500;
-    color: var(--orange-dark);
+    color: var(--teal-700);
     margin-bottom: 1rem;
 }
 
@@ -202,7 +202,7 @@
 }
 
 .team-card-linkedin:hover {
-    background: linear-gradient(135deg, var(--orange-light) 0%, var(--orange) 100%);
+    background: linear-gradient(135deg, var(--teal-300) 0%, var(--teal-500) 100%);
     color: var(--white);
 }
 
@@ -211,129 +211,10 @@
     height: 16px;
 }
 
-/* ============ VALUES SECTION ============ */
-.values-section {
-    padding: 6rem 2rem;
-    background: var(--cream-dark);
-}
-
-.values-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.values-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.values-title {
-    font-family: 'IBM Plex Serif', serif;
-    font-size: var(--h2-size);
-    font-weight: 600;
-    line-height: var(--h2-line-height);
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-}
-
-.values-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.7;
-}
-
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem 2.5rem;
-}
-
-@media (max-width: 900px) {
-    .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .values-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-}
-
-.value-item {
-    text-align: center;
-}
-
-.value-icon {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-primary);
-}
-
-.value-icon svg {
-    width: 32px;
-    height: 32px;
-    stroke-width: 2.1;
-}
-
-.value-title {
-    font-family: 'IBM Plex Serif', serif;
-    font-size: var(--h3-lg-size);
-    font-weight: 600;
-    line-height: var(--h3-line-height);
-    color: var(--text-primary);
-    margin-bottom: 0.75rem;
-}
-
-.value-desc {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 320px;
-    margin: 0 auto;
-}
-
-/* ============ MISSION BANNER ============ */
-.mission-banner {
-    padding: 5rem 2rem;
-    background: var(--cream);
-}
-
-.mission-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.mission-label {
-    display: inline-block;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--orange);
-    margin-bottom: 1.25rem;
-}
-
-.mission-text {
-    font-family: 'IBM Plex Serif', serif;
-    font-size: clamp(1.25rem, 2.5vw, 1.65rem);
-    font-weight: 600;
-    color: var(--text-primary);
-    line-height: 1.7;
-}
-
 /* ============ CAREERS CTA ============ */
 .careers-cta {
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 100%);
+    background: linear-gradient(135deg, var(--teal-700) 0%, var(--teal-500) 100%);
     text-align: center;
 }
 
@@ -365,7 +246,7 @@
     align-items: center;
     padding: 0.875rem 1.25rem;
     background: var(--white);
-    color: var(--orange-dark);
+    color: var(--teal-700);
     text-decoration: none;
     border-radius: 100px;
     font-weight: 600;
@@ -443,7 +324,7 @@
 .btn-careers-icon svg {
     width: 18px;
     height: 18px;
-    color: var(--orange-dark);
+    color: var(--teal-700);
     transition: color 0.3s ease;
 }
 
@@ -483,7 +364,7 @@
 }
 
 .btn-careers:hover .btn-careers-icon svg {
-    color: var(--orange);
+    color: var(--teal-500);
 }
 
 @media (max-width: 768px) {
@@ -505,10 +386,6 @@
 
     .team-section {
         padding: 3rem 1.5rem;
-    }
-
-    .values-section {
-        padding: 4rem 1.5rem;
     }
 
     .careers-cta {

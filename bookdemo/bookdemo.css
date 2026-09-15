@@ -53,7 +53,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--orange);
+    color: var(--teal-500);
     margin-bottom: 1rem;
 }
 
@@ -94,7 +94,7 @@
     font-size: 1.75rem;
     font-weight: 600;
     line-height: 1.3;
-    color: var(--orange-dark);
+    color: var(--teal-700);
 }
 
 .demo-stat-label {
@@ -274,18 +274,18 @@
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--orange);
+    border-color: var(--teal-500);
     background-color: var(--white);
     box-shadow: 0 0 0 4px rgba(23, 143, 174, 0.1);
 }
 
 .form-group select:hover {
-    border-color: var(--orange);
+    border-color: var(--teal-500);
 }
 
 .form-group select:focus {
     outline: none;
-    border-color: var(--orange);
+    border-color: var(--teal-500);
     box-shadow: 0 0 0 4px rgba(23, 143, 174, 0.1);
     
     /* Keep background properties together */
@@ -485,8 +485,8 @@
 /* Selected day */
 .flatpickr-day.selected,
 .flatpickr-day.selected:hover {
-  background: var(--orange);
-  border-color: var(--orange);
+  background: var(--teal-500);
+  border-color: var(--teal-500);
   color: var(--white);
   font-weight: 600;
 }
@@ -502,7 +502,7 @@
 }
 
 .flatpickr-day.today.selected {
-  border-color: var(--orange);
+  border-color: var(--teal-500);
 }
 
 /* Disabled days */
@@ -605,8 +605,8 @@
 }
 
 .checkbox-label input:checked + .checkbox-custom {
-    background: var(--orange);
-    border-color: var(--orange);
+    background: var(--teal-500);
+    border-color: var(--teal-500);
 }
 
 .checkbox-label input:checked + .checkbox-custom::after {
@@ -614,7 +614,7 @@
 }
 
 .checkbox-label:hover .checkbox-custom {
-    border-color: var(--orange);
+    border-color: var(--teal-500);
 }
 
 /* ============ SUBMIT BUTTON ============ */
@@ -716,7 +716,7 @@
 }
 
 .form-disclaimer a {
-    color: var(--orange-dark);
+    color: var(--teal-700);
     text-decoration: none;
 }
 
@@ -739,7 +739,7 @@
 .success-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, var(--peach) 0%, var(--cream-dark) 100%);
+    background: linear-gradient(135deg, var(--aqua-200) 0%, var(--cream-dark) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -750,7 +750,7 @@
 .success-icon svg {
     width: 40px;
     height: 40px;
-    color: var(--orange-dark);
+    color: var(--teal-700);
 }
 
 .form-success h3 {

@@ -16,8 +16,8 @@
 
 .blog-label {
     display: inline-block;
-    background: var(--peach);
-    color: var(--orange-dark);
+    background: var(--aqua-200);
+    color: var(--teal-700);
     padding: 0.5rem 1.25rem;
     border-radius: 100px;
     font-size: 0.85rem;
@@ -118,8 +118,8 @@
 .loading-spinner {
     width: 48px;
     height: 48px;
-    border: 3px solid var(--peach);
-    border-top-color: var(--orange);
+    border: 3px solid var(--aqua-200);
+    border-top-color: var(--teal-500);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
@@ -177,7 +177,7 @@
 }
 
 .retry-btn:hover {
-    background: var(--orange-dark);
+    background: var(--teal-700);
 }
 
 /* ============ EMPTY STATE ============ */
@@ -280,7 +280,7 @@
     top: 1rem;
     left: 1rem;
     background: var(--white);
-    color: var(--orange-dark);
+    color: var(--teal-700);
     padding: 0.35rem 0.85rem;
     border-radius: 100px;
     font-size: 0.75rem;
@@ -311,7 +311,7 @@
 }
 
 .blog-card:hover .blog-card-title {
-    color: var(--orange-dark);
+    color: var(--teal-700);
 }
 
 .blog-card-excerpt {
@@ -345,8 +345,8 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: var(--peach);
-    color: var(--orange-dark);
+    background: var(--aqua-200);
+    color: var(--teal-700);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -357,7 +357,7 @@
 /* Press Release variant — inverted so the PR circle reads as the source
    of the post (Breez itself) rather than a personal byline. */
 .author-avatar-placeholder--press-release {
-    background: var(--orange-dark);
+    background: var(--teal-700);
     color: var(--white);
     font-size: 0.78rem;
     letter-spacing: 0.02em;
@@ -387,9 +387,9 @@
 }
 
 .author-link:hover {
-    color: var(--orange-dark);
+    color: var(--teal-700);
     text-decoration: underline;
-    text-decoration-color: var(--peach);
+    text-decoration-color: var(--aqua-200);
     text-underline-offset: 2px;
 }
 
@@ -497,7 +497,7 @@
     position: absolute;
     top: 1.25rem;
     left: 1.25rem;
-    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+    background: linear-gradient(135deg, var(--teal-500) 0%, var(--teal-700) 100%);
     color: var(--white);
     padding: 0.5rem 1rem;
     border-radius: 100px;
@@ -524,8 +524,8 @@
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: var(--orange-dark);
-    background: var(--peach);
+    color: var(--teal-700);
+    background: var(--aqua-200);
     padding: 0.4rem 0.85rem;
     border-radius: 100px;
     margin-bottom: 1.25rem;
@@ -546,7 +546,7 @@
 }
 
 .blog-card-featured:hover .blog-card-title {
-    color: var(--orange-dark);
+    color: var(--teal-700);
 }
 
 .blog-card-featured .blog-card-excerpt {
@@ -702,7 +702,7 @@
 
 .newsletter-form .form-input:focus {
     outline: none;
-    border-color: var(--orange);
+    border-color: var(--teal-500);
     box-shadow: 0 0 0 3px rgba(23, 143, 174, 0.15);
 }
 
@@ -744,7 +744,7 @@
 .newsletter-success-icon {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, var(--orange-light) 0%, var(--orange) 100%);
+    background: linear-gradient(135deg, var(--teal-300) 0%, var(--teal-500) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -895,7 +895,7 @@
 }
 
 .back-btn:hover {
-    background: var(--orange-dark);
+    background: var(--teal-700);
 }
 
 /* ============ ARTICLE CONTAINER ============ */
@@ -929,7 +929,7 @@
 }
 
 .article-breadcrumb a:hover {
-    color: var(--orange-dark);
+    color: var(--teal-700);
 }
 
 /* ============ ARTICLE HEADER ============ */
@@ -939,8 +939,8 @@
 
 .article-category {
     display: inline-block;
-    background: var(--peach);
-    color: var(--orange-dark);
+    background: var(--aqua-200);
+    color: var(--teal-700);
     padding: 0.4rem 1rem;
     border-radius: 100px;
     font-size: 0.8rem;
@@ -993,8 +993,8 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: var(--peach);
-    color: var(--orange-dark);
+    background: var(--aqua-200);
+    color: var(--teal-700);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1025,9 +1025,9 @@
 }
 
 .author-details .author-link:hover {
-    color: var(--orange-dark);
+    color: var(--teal-700);
     text-decoration: underline;
-    text-decoration-color: var(--peach);
+    text-decoration-color: var(--aqua-200);
     text-underline-offset: 2px;
 }
 
@@ -1062,9 +1062,9 @@
 }
 
 .share-btn:hover {
-    border-color: var(--orange);
-    color: var(--orange-dark);
-    background: var(--peach);
+    border-color: var(--teal-500);
+    color: var(--teal-700);
+    background: var(--aqua-200);
 }
 
 /* ============ FEATURED IMAGE ============ */
@@ -1112,15 +1112,15 @@
 }
 
 .article-body a {
-    color: var(--orange-dark);
+    color: var(--teal-700);
     text-decoration: underline;
-    text-decoration-color: var(--peach);
+    text-decoration-color: var(--aqua-200);
     text-underline-offset: 3px;
     transition: text-decoration-color 0.2s ease;
 }
 
 .article-body a:hover {
-    text-decoration-color: var(--orange-dark);
+    text-decoration-color: var(--teal-700);
 }
 
 .article-body strong {
@@ -1142,7 +1142,7 @@
     margin: 2rem 0;
     padding: 1.5rem 2rem;
     background: var(--cream-dark);
-    border-left: 4px solid var(--orange);
+    border-left: 4px solid var(--teal-500);
     border-radius: 0 12px 12px 0;
     font-style: italic;
     color: var(--text-secondary);
@@ -1178,7 +1178,7 @@
 }
 
 .article-cta {
-    background: var(--gold-50);
+    background: var(--teal-50);
     border-radius: 24px;
     padding: 2.5rem;
     text-align: center;
@@ -1282,7 +1282,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--orange-dark);
+    color: var(--teal-700);
     margin-bottom: 0.5rem;
 }
 
@@ -1297,7 +1297,7 @@
 }
 
 .related-card:hover h3 {
-    color: var(--orange-dark);
+    color: var(--teal-700);
 }
 
 .related-card time {
@@ -1384,7 +1384,7 @@
     width: 100px;
     height: 100px;
     margin: 0 auto 2rem;
-    background: var(--peach);
+    background: var(--aqua-200);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1395,7 +1395,7 @@
 .coming-soon-icon svg {
     width: 48px;
     height: 48px;
-    color: var(--orange-dark);
+    color: var(--teal-700);
 }
 
 @keyframes pulse-gentle {
@@ -1416,7 +1416,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 100%);
+    background: linear-gradient(135deg, var(--teal-700) 0%, var(--teal-500) 100%);
     color: var(--white);
     padding: 0.5rem 1.25rem;
     border-radius: 100px;
@@ -1488,5 +1488,5 @@
 .decoration svg {
     width: 100%;
     height: 100%;
-    color: var(--orange);
+    color: var(--teal-500);
 }

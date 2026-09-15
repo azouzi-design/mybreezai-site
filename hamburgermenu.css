@@ -55,7 +55,7 @@
 }
 
 .mobile-menu-link:hover {
-    color: var(--orange);
+    color: var(--teal-500);
     padding-left: 0.5rem;
 }
 
@@ -77,7 +77,7 @@
 }
 
 .mobile-menu-dropdown-trigger:hover {
-    color: var(--orange);
+    color: var(--teal-500);
 }
 
 .mobile-menu-dropdown-trigger svg {
@@ -112,7 +112,7 @@
 }
 
 .mobile-menu-dropdown-items a:hover {
-    color: var(--orange);
+    color: var(--teal-500);
     background: var(--cream-dark);
 }
 
