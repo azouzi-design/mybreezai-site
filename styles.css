@@ -1235,8 +1235,8 @@ body.intro-active {
         grid-template-columns: 1fr;
     }
 
-    .suite-visual {
-        width: 237px;
+    .suite-visual-float {
+        display: none;
     }
 }
 
