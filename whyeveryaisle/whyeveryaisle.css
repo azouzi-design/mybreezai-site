@@ -734,7 +734,7 @@
     font-weight: 600;
     line-height: var(--h2-line-height);
     color: var(--text-primary);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .difference-subtitle {

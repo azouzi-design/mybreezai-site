@@ -14,7 +14,8 @@ deployed to production. This file tracks only what's left.
   `linkedin.com/company/breez-ai`, `x.com/MyBreezAI`, `youtube.com/@mybreezai`.
   Needs the accounts themselves renamed first, or the links will 404.
 - **Domain** — still `mybreezai.com` everywhere (canonical URLs, OG/JSON-LD
-  image URLs, `Legal@mybreezai.com`). Needs a domain decision.
+  image URLs). Needs a domain decision. (`legal@` contact address is now
+  `legal@everyaisle.com`.)
 
 ## Cosmetic / internal-only, no visible or functional impact
 
